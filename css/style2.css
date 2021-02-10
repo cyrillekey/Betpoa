@@ -1,0 +1,334 @@
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700);
+/* Set standard breakpoints */
+/* Breakpoint Mixin */
+
+
+
+
+/**----------------------------
+	Bettingbody styling
+-----------------------------*/
+.bettingbody{
+	margin: 0;
+	background-color:#222;
+}
+.teams-info-vert {
+	font-size: 12px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-moz-box-orient: horizontal;
+	-moz-box-direction: normal;
+	flex-direction: row;
+	padding: 5px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.odds__display{
+	float: left;
+	padding-left:30px;
+	padding-right: 8px;
+}
+.teams-info-meta {
+	font-size: 10px;
+	font-weight: 400;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	align-items: center;
+	color: #757575;
+	padding: 5px 5px 0;
+}
+.odds__container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+	text-align: left;
+	height: 33px;
+}
+.odds__container .match-odd {
+	padding:4px 6px;
+	background-color: #f2f2f2;
+	height: 18px;
+	border: 1px solid #e0e0e0;
+	-webkit-box-flex: 2;
+	-webkit-flex: 2;
+	-moz-box-flex: 2;
+    flex: 2;
+    height: 33px;
+}
+.teams-info-vert-right .more-markets {
+	font-size: 11px;
+	text-decoration: none;
+	color: black;
+	margin-top: 0px;
+	padding: 0px 3px;
+	background-color: #f2f2f2;
+	border: 1px solid #e0e0e0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	justify-content: center;
+	font-weight: 900;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-right: 0 !important;
+	margin-left: 1px !important;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-moz-box-flex: 1;
+	flex: 1;
+}
+.odds__container .match-odd.odd1 {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-right: 1px !important;
+}
+.teams-info-vert-top {
+    padding: 3px 2px;
+}
+.teams-info-right a, .teams-info-vert-left a {
+    color: #000;
+}
+.teams-info-vert-left {
+    font-weight: 700;
+	text-align: left;
+	overflow:auto;
+}
+.teams-info-vert {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+	border-top:solid black 1px ;
+	
+
+}
+.teams-info-vert a{
+    text-decoration: none;
+	color:black;
+	
+}@media (hover: hover) and (pointer: fine) {
+	a:hover { color: white; }
+  }
+.filter {
+	background-color: #f7f8fa;
+	color: #3d5975;
+	border-radius: 3px;
+	border: 0;
+	font-weight: 400;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-moz-box-flex: 1;
+	flex: 1;
+	word-break: break-word;
+	height: 30px;
+	padding-left: 5px;
+	padding-right: 20px;
+	font-size: 12px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.filter, .selected-filters {
+	text-align: center;
+	width: 100%;
+}
+#float{
+	position: fixed;
+	height: 60px;
+	width: 60px;
+	bottom: 20px;
+	right: 8px;
+	background-color: #0c9;
+	color: #fff;
+	border-radius: 50px;
+	text-align: center;
+	text-decoration: none;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	box-shadow: 2px 2px 3px #999;
+}
+.my-float{
+	margin-top: 22px;
+}
+#float p{
+	text-decoration: none;
+	padding-top: 0px;
+	font-size: 24px;
+}
+/*formatting betslip*/
+.betslip-container{
+	padding-top: 10px;
+	border-top:4px solid #ffe71f;
+	width: 100%;
+	height: 100%;
+	background-color: #222;
+	color: white;
+	position: fixed;
+	display:block; 
+	z-index: 1;
+	left: 0;
+	top:0;
+	overflow: auto;
+
+}
+.betslip-header-container{
+	font-size: 20px;
+	background-color: #333;
+	color: #999;
+	padding-right: 16px;
+	padding-left: 16px;
+}
+.betslip-type-container{
+	padding: 10px;
+	
+}
+.betslip-type{
+	font-weight: bold;
+	font-family: sans-serif;
+}
+.betslip-clear {
+	margin-top: 10px;
+	text-align: right;
+	color: rgb(153, 153, 153);
+	font-size: 14px;
+	padding: 10px;
+	text-decoration: underline;
+
+
+}
+.betslip-pick{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	width: 100%;
+}
+.betslip-pick div{
+	display: inline-block;
+	border: 1px solid grey;
+	padding: 10px;
+
+}/*
+.betslip-pick .pick-details{
+	width: 60%;
+	border: red solid;
+
+}*/
+.betslip-pick .pick-odds{
+	flex: 1;
+	float: right;
+}
+.pick-dismiss{
+	font-size:2em;
+	
+}
+.pick-details{
+	font-size: 12px;
+	width: 280px;
+}
+.betslip-accumulator{
+	display: flex;
+}
+.accumuator-name{
+	display: inline-block;
+	padding: 10px;
+	font-weight: bold;
+}
+.accumulator-amount{
+	display: inline-block;
+	float:right;
+	padding: 10px;
+}
+.accumulator-amount input{
+	width: 60px;
+	border-radius:5px;
+}
+.betslip-cashout{
+	background-color: green;
+	border: none;
+	margin: 10px;
+	color: white;
+}
+.betslip-details{
+	padding: 10px;
+	font-size: 12px;
+	color: rgb(153, 153, 153);
+	border: 1px solid #333;
+}
+.betslip-total-stake-value,.betslip-total-odds-value,.betslip-potential-payout-value{
+	float: right;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+
+}
+.betslip-submit{
+
+	width: 100%;
+	display:flex;
+	justify-content: center;
+}
+.betslip-submit-button{
+	background-color: #ffe71f;
+	margin: 10px;
+	height: 30px;
+	border-radius: 5px;
+	width: 90%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	padding-top: 6px;
+	font-weight: bold
+}
+.match-odd:hover{
+	color:red;
+}
+#placebet{
+	color: black;
+	text-align: center;
+}
+/*--------------------------------------------------------
+ 
+		LOGIN AND SIGNUP FORM
+
+*----------------------------------------------------------*/
+
+.align a:focus,.align a:hover{
+	text-decoration: underline;
+}
+form .error{
+	color: red;
+}
+.match-odd.clicked{
+	background-color: yellow;
+}
