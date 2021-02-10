@@ -216,7 +216,7 @@ if(isset($_SESSION['usernumber'])){
       <td data-label="Bet id"><a href="betresult.php?bet='.$row->bet_id.'">'.$row->bet_id.'</a></td>
       <td data-label="Status">'.$row->bet_status.'</td>
       <td data-label="Possible Win">ksh'.$row->possiblewin.'</td>
-      <td data-label="Date Placed">'.gmdate('D, d M Y G:h:i',$row->time_placed).'</td>
+      <td data-label="Date Placed">'.$row->time_placed.'</td>
       
       </tr>
       
