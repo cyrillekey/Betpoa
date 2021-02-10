@@ -146,7 +146,7 @@ if(isset($_SESSION['usernumber'])){
             </div>
             <div class="flex-1 flex items-center justify-center sm:items-strech sm:justify-start">
                 <a href="../index.php"><div class="flex-shrink-0 flex ">
-                    <p class="block lg:hidden h-8 w-auto text-3xl font-sans font-bold md:text-1xl mr-20"
+                    <p class="block lg:hidden h-8 w-auto text-3xl font-sans font-bold md:text-1xl "
                         src="freeLogo.jpeg">Betpoa<p>
                     <p class="hidden lg:block h-8 w-auto text-3xl font-sans font-bold"
                     >Betpoa</p>
