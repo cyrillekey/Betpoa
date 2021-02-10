@@ -110,7 +110,7 @@ jQuery(function($) {
                         window.location.replace("../index.php");
                     } else if (result == 'regis') {
                         alert("number registered try a different number");
-                    } else if (result = "stop") {
+                    } else if (result == "stop") {
                         alert("STOP!!!!!!");
                     } else {
                         alert('ana error occured.Please try again');
