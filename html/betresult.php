@@ -30,7 +30,7 @@
     <div class="betslip-container" id="modal">
         <div class="betslip-header-container">
             <div class="betslip-type-container"><span class="betslip-type">MultiBet</span> <span class="betslip-bet-count">(
-                    <? echo count(array_filter($games_list));?>)
+                    )
                 </span> <span class="betslip-odds">@
                     <?$_SESSION['total']?>
                 </span> </div>
