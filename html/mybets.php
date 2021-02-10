@@ -205,7 +205,7 @@ if(isset($_SESSION['usernumber'])){
   </thead>
   <tbody>
   ';
-  $sql="SELECT * from bets_table where user__id=? order by time_placed desc";
+  $sql="SELECT * from bets_table where user__id=?";
   $stmt=$conn->prepare($sql);
   $stmt->execute([$_SESSION['usernumber']]);
   while($row=$stmt->fetch()){
