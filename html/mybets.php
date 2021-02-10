@@ -150,7 +150,8 @@ if(isset($_SESSION['usernumber'])){
                         src="freeLogo.jpeg">Betpoa<p>
                     <p class="hidden lg:block h-8 w-auto text-3xl font-sans font-bold"
                     >Betpoa</p>
-                </div></a>';'
+                </div></a>';
+                echo'
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         
@@ -164,6 +165,7 @@ if(isset($_SESSION['usernumber'])){
                 <a class="gg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <span class="sr-only">View notifications</span>
                     
+
                     </a>
                 <div class="ml-3 relative">
                     <div>
