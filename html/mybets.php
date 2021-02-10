@@ -164,14 +164,6 @@ if(isset($_SESSION['usernumber'])){
                 <a class="gg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <span class="sr-only">View notifications</span>
                     
-                    ';
-                    $sql="SELECT account_balance from users_table where user__id= ? ";
-                    $stmt=$conn->prepare($sql);
-                    $stmt->execute([$_SESSION['usernumber']]);
-                    $row=$stmt->fetch();
-                    echo("KSH ".$row->account_balance);
-                    
-                    echo'
                     </a>
                 <div class="ml-3 relative">
                     <div>
