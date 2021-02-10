@@ -33,7 +33,7 @@
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <label for="email-address" class="sr-only">Phone Number</label>
-                        <input maxlength="10" type="text" name="email" id="email-address" autocomplete="OFF" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                        <input maxlength="10" type="text" name="email" id="email-address" autocomplete="OFF" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:z-10 sm:text-sm" placeholder="Phone Number">
                     </div>
                     <div class=" py-1">
                         <label for="password" class="sr-only">password</label>
