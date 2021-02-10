@@ -112,7 +112,7 @@ jQuery(function($) {
                         alert("number registered try a different number");
                     } else if (result == "stop") {
                         alert("STOP!!!!!!");
-                    } else {
+                    } else if (result == "work") {
                         alert('ana error occured.Please try again');
                     }
                 }

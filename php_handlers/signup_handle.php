@@ -2,7 +2,7 @@
 include('../conn/conn.php');
 $password=$_POST['password'];
 $usernumber=$_POST['usernumber'];
-if(isset($password) && isset($usernumber) && strlen($password)>5 && strlen($number)>9){
+if(isset($password)){
 $new_password=password_hash($password,PASSWORD_DEFAULT);
 $sql="SELECT * FROM users_table where user__id=?";
 $stmt=$conn->prepare($sql);
@@ -24,4 +24,6 @@ else{
     session_start();
     $_SESSION['usernumber']=$usernumber;
     echo"success";
-}}
+}}else{
+    echo"work";
+}
