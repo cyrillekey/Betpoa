@@ -19,7 +19,7 @@ if($number>0){
             if($rem=='true'){
                 $selector=base64_encode(random_bytes(9));
                 $authenticator=random_bytes(3);
-                setcookie('remember',$selector.':'.base64_encode($authenticator),time()+864000,'/','',true,true);
+                setcookie('remember',$selector.':'.base64_encode($authenticator),time()+864000,'/','betp.herokuapp.com',true,true);
                 $_COOKIE['remember']=$selector;
                 $sql="INSERT INTO auth_tokes(selector,token,userid,expires) values(:selector,:token,:userid,:expires)";
                 
