@@ -11,6 +11,8 @@ function generateRandomString($length = 10) {
 }
 
 require('../conn/conn.php');
+require('../vendor/autoload.php');
+use Twilio\Rest\Client;
 session_start();
 if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
     list($selector,$authenticator)=explode(":",$_COOKIE['remember']);
@@ -107,6 +109,23 @@ if(isset($_SESSION['usernumber'])){
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array(($accountb+$word),"admin12345"));
                     unset($_SESSION['betslip']);
+                    
+
+                    
+                    $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
+                    $auth_token = '92534b0dee56ab055582a5c2cb87b569';
+                   
+                    $twilio_number = "+12092706361";
+                    $sendnumbet='+254'.substr($_SESSION['usernumber'],1);
+                    echo$sendnumbet;
+                    $client = new Client($account_sid, $auth_token);
+                    $client->messages->create(
+                        $sendnumbet,
+                        array(
+                            'from' => $twilio_number,
+                            'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
+                        )
+                    );     
             header('location:../html/success.php?message=success');
         }
     }
