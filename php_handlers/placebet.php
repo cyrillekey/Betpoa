@@ -133,7 +133,7 @@ if(isset($_SESSION['usernumber'])){
                             'from' => $twilio_number,
                             'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
                         )
-                    );    
+                    );   
             header('location:../html/success.php?message=success');
         }
     }

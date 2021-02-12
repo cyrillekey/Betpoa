@@ -1,6 +1,6 @@
 <?php
-include('../conn/conn.php');
-require('../vendor/autoload.php');
+require('conn/conn.php');
+require('vendor/autoload.php');
 use Twilio\Rest\Client;
 $sql = "SELECT bet_id FROM bets_table where bet_status= ?";
 $stmt = $conn->prepare($sql);
@@ -34,12 +34,24 @@ while ($row = $stmt->fetch()) {
         $stmt3 = $conn->prepare($sql3);
         $stmt3->execute(array("Won", $id));
         $sql4="SELECT account_balance,ammount_paid_out,bets_won from admintable";
-        $stmt4=$conn->prepare($sql);
+        $stmt4=$conn->prepare($sql4);
         $stmt4->execute();
-        $row3=$stmt->fetch();
-        $sql5="UPDATE admintable set account_balace=?,ammount_paid_out=?,bets_lost=? where admin_id= ?";
+        $row3=$stmt4->fetch();
+        echo"got here";
+        $sql7="SELECT * FROM bets_table where bet_id= ?";
+        $stmt7=$conn->prepare($sql7);
+        $stmt7->execute([$id]);
+        $row4=$stmt7->fetch();
+        
+        echo"got here too";
+        $balance=(($row3->account_balance)-($row4->possiblewin));
+        $out=(($row3->ammount_paid_out)+($row4->possiblewin));
+        $won=(($row3->bets_won)+1);
+        echo($balance."+".$out.",".$won);
+        $sql5="UPDATE admintable set account_balance=?,ammount_paid_out=?,bets_won=? where admin_id= ?";
         $stmt5=$conn->prepare($sql5);
-        $stmt5->execute(array(($row3->account_balace)-$row2->possiblewin,$row3->ammount_paid_out+$row2->possiblewin,$row3->bets_won+1));
+        $stmt5->execute(array($balance,$out,$won,"0708073370"));
+        echo"not here";
         $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
                     $auth_token = '92534b0dee56ab055582a5c2cb87b569';
                    
@@ -50,7 +62,7 @@ while ($row = $stmt->fetch()) {
                         $sendnumbet,
                         array(
                             'from' => $twilio_number,
-                            'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
+                            'body' => 'Congratulations! bet  '.$bet_id.' has won KES  '.$_SESSION['total']*$word
                         )
                     ); 
     }elseif($status2==2){
