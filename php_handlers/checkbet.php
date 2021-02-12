@@ -1,5 +1,7 @@
 <?php
 include('../conn/conn.php');
+require('../vendor/autoload.php');
+use Twilio\Rest\Client;
 $sql = "SELECT bet_id FROM bets_table where bet_status= ?";
 $stmt = $conn->prepare($sql);
 $stmt->execute(["pending"]);
@@ -31,6 +33,26 @@ while ($row = $stmt->fetch()) {
         $sql3 = "UPDATE bets_table set bet_status=? where bet_id=?";
         $stmt3 = $conn->prepare($sql3);
         $stmt3->execute(array("Won", $id));
+        $sql4="SELECT account_balance,ammount_paid_out,bets_won from admintable";
+        $stmt4=$conn->prepare($sql);
+        $stmt4->execute();
+        $row3=$stmt->fetch();
+        $sql5="UPDATE admintable set account_balace=?,ammount_paid_out=?,bets_lost=? where admin_id= ?";
+        $stmt5=$conn->prepare($sql5);
+        $stmt5->execute(array(($row3->account_balace)-$row2->possiblewin,$row3->ammount_paid_out+$row2->possiblewin,$row3->bets_won+1));
+        $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
+                    $auth_token = '92534b0dee56ab055582a5c2cb87b569';
+                   
+                    $twilio_number = "+12092706361";
+                    $sendnumbet='+254'.substr($_SESSION['usernumber'],1);
+                    $client = new Client($account_sid, $auth_token);
+                    $client->messages->create(
+                        $sendnumbet,
+                        array(
+                            'from' => $twilio_number,
+                            'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
+                        )
+                    ); 
     }elseif($status2==2){
         echo("this bet has lost".$id."</br>");
         $sql3 = "UPDATE bets_table set bet_status=? where bet_id=?";

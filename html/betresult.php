@@ -16,6 +16,11 @@
     $betid = $_GET['bet'];
     include('../conn/conn.php');
     $total = 1;
+    if(!isset($_SESSION['usernumber'])){
+        header('location:../index.php');
+        exit();
+        
+    }
     ?>
     <script>
         $(document).ready(function() {
