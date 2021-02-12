@@ -1,5 +1,5 @@
 <?php
-include('../conn/conn.php');
+require('conn/conn.php');
 $leagues=["2790","2794","2796","2803","2833","2857","2664","2755","2771","2777"];
 $curl = curl_init();
 foreach ($leagues as $key => $league) {
