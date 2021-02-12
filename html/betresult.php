@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="../css/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../js/jquery-3.5.1.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4M2S2XBJ16');
+</script>
 </head>
 
 <body>

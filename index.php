@@ -28,6 +28,14 @@ if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
     <title>Betpoa</title>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/addtobet.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4M2S2XBJ16');
+</script>
     <script>
     function hideandshow(){
     var avatar=document.getElementById('avatar');

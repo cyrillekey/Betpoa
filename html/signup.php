@@ -10,6 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/signup.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4M2S2XBJ16');
+</script>
     <title>Signup</title>
 </head>
 
