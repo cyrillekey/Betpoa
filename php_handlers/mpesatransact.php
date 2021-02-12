@@ -41,7 +41,7 @@
 
   # callback url
   //$CallBackURL = //'http://kidonda.us/projects/MPESA_API/callback_url.php'; 
-  $CallBackURL='http://www.betpoa.xyz/callback/mpesacal.php'; 
+  $CallBackURL='http://www.betpoa.xyz/callbacks/mpesacal.php'; 
 
   $curl = curl_init($access_token_url);
   curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
