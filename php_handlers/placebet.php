@@ -94,7 +94,10 @@ if(isset($_SESSION['usernumber'])){
                     $row=$stmt->fetch();
                     $accountb=$row->account_balance;
 
-                    
+                    $sql="UPDATE admintable set account_balance=? admin_id=?";
+                    $stmt=$conn->prepare($sql);
+                    $stmt->execute(array(($accountb+$word),"0708073370"));
+                    unset($_SESSION['betslip']);
                     $conn->commit();    
                 }
                 
@@ -105,10 +108,7 @@ if(isset($_SESSION['usernumber'])){
                     exit();                }
 
             }}
-            $sql="UPDATE admintable set account_balance=? admin_id=?";
-                    $stmt=$conn->prepare($sql);
-                    $stmt->execute(array(($accountb+$word),"0708073370"));
-                    unset($_SESSION['betslip']);
+            
                     
 
                     
