@@ -22,4 +22,13 @@ $stmt->execute([
     "transaction_time"=>time(),
     "transaction_amount"=>(int)$amount
 ]);
-$stmt->debugDumpParams();
+if($status=="0"){
+    $sql="SELECT account_balance from users_table where user__id=?";
+    $stmt=$conn->prepare($sql);
+    $stmt->execute([$number]);
+    $row=$stmt->fetch();
+    $balance=$row->account_balance;
+    $sql="UPDATE users_table set account_balance=? where user__id= ?";
+    $stmt=$conn->prepare($sql);
+    $stmt->execute(array($balance+$amount,$number));
+}
