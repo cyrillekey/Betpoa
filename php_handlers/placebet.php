@@ -9,7 +9,7 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
-
+$accountb=0;
 require('../conn/conn.php');
 require('../vendor/autoload.php');
 use Twilio\Rest\Client;
@@ -67,6 +67,7 @@ if(isset($_SESSION['usernumber'])){
                 ]);
                 $row=$stmt->fetch();
                 if($row->commence_time>time()){
+                    echo"got here";
                 try{
                     
                     $conn->beginTransaction();
@@ -84,31 +85,35 @@ if(isset($_SESSION['usernumber'])){
                     $sql="UPDATE users_table set account_balance = ? where user__id=?";
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array(($account-$word),$username));
+
                     $sql="UPDATE bets_table set bet_status=? where bet_id=?";
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array("pending",$bet_id));
                     
-                    $sql="SELECT account_balance FROM admintable where admin_id=?";
-                    $stmt=$conn->prepare($sql);
-                    $stmt->execute(["0708073370"]);
-                    $row=$stmt->fetch();
-                    $accountb=$row->account_balance;
+                    
 
-                    $sql="UPDATE admintable set account_balance=? admin_id=?";
-                    $stmt=$conn->prepare($sql);
-                    $stmt->execute(array(($accountb+$word),"0708073370"));
-                    unset($_SESSION['betslip']);
+                    
                     $conn->commit();    
                 }
                 
                 
                 catch(Exception $e){
                     $conn->rollBack();
+                    echo($e->getMessage());
                     echo($stmt->debugDumpParams());
                     exit();                }
 
             }}
-            
+            $sql="SELECT account_balance FROM admintable where admin_id=?";
+                    $stmt=$conn->prepare($sql);
+                    $stmt->execute(["0708073370"]);
+                    $row=$stmt->fetch();
+                    $accountb=$row->account_balance;
+            $sql="UPDATE admintable set account_balance=? where admin_id=?";
+                    $stmt=$conn->prepare($sql);
+                    $stmt->execute(array(($accountb+$word),"0708073370"));
+                    $stmt->debugDumpParams();
+                    unset($_SESSION['betslip']);
                     
 
                     
@@ -125,7 +130,7 @@ if(isset($_SESSION['usernumber'])){
                             'from' => $twilio_number,
                             'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
                         )
-                    );     
+                    );    
             header('location:../html/success.php?message=success');
         }
     }
