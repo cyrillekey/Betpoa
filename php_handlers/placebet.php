@@ -88,7 +88,7 @@ if(isset($_SESSION['usernumber'])){
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array("pending",$bet_id));
                     
-                    $sql="SELECT account_balance FROM admin_table where admin__id=?";
+                    $sql="SELECT account_balance FROM admintable where admin__id=?";
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(["0708073370"]);
                     $row=$stmt->fetch();
