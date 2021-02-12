@@ -88,9 +88,9 @@ if(isset($_SESSION['usernumber'])){
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array("pending",$bet_id));
                     
-                    $sql="SELECT account_balance FROM users_table where user__id=?";
+                    $sql="SELECT account_balance FROM admin_table where admin__id=?";
                     $stmt=$conn->prepare($sql);
-                    $stmt->execute(["admin12345"]);
+                    $stmt->execute(["0708073370"]);
                     $row=$stmt->fetch();
                     $accountb=$row->account_balance;
 
@@ -105,9 +105,9 @@ if(isset($_SESSION['usernumber'])){
                     exit();                }
 
             }}
-            $sql="UPDATE users_table set account_balance=? where user__id=?";
+            $sql="UPDATE admintable set account_balance=? admin_id=?";
                     $stmt=$conn->prepare($sql);
-                    $stmt->execute(array(($accountb+$word),"admin12345"));
+                    $stmt->execute(array(($accountb+$word),"0708073370"));
                     unset($_SESSION['betslip']);
                     
 
@@ -117,7 +117,7 @@ if(isset($_SESSION['usernumber'])){
                    
                     $twilio_number = "+12092706361";
                     $sendnumbet='+254'.substr($_SESSION['usernumber'],1);
-                    echo$sendnumbet;
+
                     $client = new Client($account_sid, $auth_token);
                     $client->messages->create(
                         $sendnumbet,
