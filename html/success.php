@@ -461,11 +461,11 @@ if($error=="success"){
         <p>Oops! Low account balance,
           <br> you should try again.</p>
         <a href="../index.php#bettingbody"><button type="button" class="redo btn">Try again</button></a>
-        <span class="change">-- Click to see opposite state --</span>
+        <span class="change">-- Click to advance to home. --</span>
       </div>
     </div>';
     }
-    else{
+    else if($error="err"){
         echo'
     <div class="row">
       <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
@@ -476,7 +476,7 @@ if($error=="success"){
         <p>Oops!Something went wrong,
           <br> you should try again.</p>
         <a href="../index.php"><button type="button" class="redo btn">Try again</button></a>
-        <span class="change">-- Click to see opposite state --</span>
+        <span class="change">-- Click to advance to home. --</span>
       </div>
     </div>';
     }

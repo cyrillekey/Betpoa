@@ -99,9 +99,12 @@ if(isset($_SESSION['usernumber'])){
                 
                 catch(Exception $e){
                     $conn->rollBack();
-                    echo($e->getMessage());
-                    echo($stmt->debugDumpParams());
-                    exit();                }
+                    $sql="DELETE from bets_table where bet_id=?";
+                    $stmt=$conn->prepare($sql);
+                    $stmt->execute([$bet_id]);
+                    header('location:../html/success.php?message=err');
+                    exit();
+                }
 
             }}
             $sql="SELECT account_balance FROM admintable where admin_id=?";
