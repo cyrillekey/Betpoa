@@ -1,8 +1,8 @@
 <?php
-require('../conn/conn.php');/*
+require('../conn/conn.php');
 require('vendor/autoload.php');
 
-use Twilio\Rest\Client;*/
+use Twilio\Rest\Client;
 
 $sql = "SELECT bet_id FROM bets_table where bet_status= ?";
 $stmt = $conn->prepare($sql);
@@ -37,12 +37,8 @@ while ($row = $stmt->fetch()) {
         echo ("this bet has won" . $id . "</br>");
         $sql3 = "UPDATE bets_table set bet_status=? where bet_id=?";
         $stmt3 = $conn->prepare($sql3);
-        $stmt3->execute(array("Won", $id));/*
-        $sql4 = "SELECT account_balance,ammount_paid_out,bets_won from admintable";
-        $stmt4 = $conn->prepare($sql4);
-        $stmt4->execute();
-        $row3 = $stmt4->fetch();
-        echo "got here";*/
+        $stmt3->execute(array("Won", $id));
+        
         $sql7 = "SELECT * FROM bets_table where bet_id= ?";
         $stmt7 = $conn->prepare($sql7);
         $stmt7->execute([$id]);
@@ -56,7 +52,7 @@ while ($row = $stmt->fetch()) {
         $stmt->execute(array($row4->possiblewin, "0708073370"));
         $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
         $auth_token = '92534b0dee56ab055582a5c2cb87b569';
-/*
+
         $twilio_number = "+12092706361";
         $sendnumbet = '+254' . substr($row4->user__id, 1);
         $client = new Client($account_sid, $auth_token);
@@ -66,7 +62,7 @@ while ($row = $stmt->fetch()) {
                 'from' => $twilio_number,
                 'body' => 'Congratulations! bet  ' . $id . ' has won KES  ' . $row4->possiblewin
             )
-        );*/
+        );
     }
     if ($status2 == 2) {
         echo ("this bet has lost" . $id . "</br>");

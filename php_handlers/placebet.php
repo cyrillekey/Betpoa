@@ -11,8 +11,8 @@ function generateRandomString($length = 10) {
 }
 $accountb=0;
 require('../conn/conn.php');
-/*require('../vendor/autoload.php');
-use Twilio\Rest\Client;*/
+require('../vendor/autoload.php');
+use Twilio\Rest\Client;
 session_start();
 if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
     list($selector,$authenticator)=explode(":",$_COOKIE['remember']);
@@ -105,19 +105,14 @@ if(isset($_SESSION['usernumber'])){
                     exit();
                 }
 
-            }}/*
-            $sql="SELECT account_balance,betsplaces,amount_paid_in FROM admintable where admin_id=?";
-                    $stmt=$conn->prepare($sql);
-                    $stmt->execute(["0708073370"]);
-                    $row=$stmt->fetch();
-                    $accountb=$row->account_balance;*/
-                    echo"stoped at here";
+            }}
+                    
             $sql="UPDATE admintable set account_balance=account_balance+?,betsplaces=betsplaces+?,amount_paid_in=amount_paid_in+? where admin_id=?";
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array($word,1,$word,"0708073370"));
                     $stmt->debugDumpParams();
                     unset($_SESSION['betslip']);
-                    /*
+                    
 
                     
                     $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
@@ -133,7 +128,7 @@ if(isset($_SESSION['usernumber'])){
                             'from' => $twilio_number,
                             'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
                         )
-                    );  */ 
+                    ); 
             header('location:../html/success.php?message=success');
         }
     }
