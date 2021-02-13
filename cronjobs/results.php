@@ -6,7 +6,7 @@ foreach ($leagues as $key => $league) {
 
 
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/".$league."?timezone=Europe%2FLondon",
+	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/".$league."?timezone=Africa%2FNairobi",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
