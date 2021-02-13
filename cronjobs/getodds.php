@@ -3,7 +3,7 @@ require('conn/conn.php');
 $leagues=["2790","2794","2796","2803","2833","2857","2664","2755","2771","2777"];
 $curl = curl_init();
 foreach ($leagues as $key => $league) {
-    $p=2;
+    $p=3;
 while($p<6){
 curl_setopt_array($curl, [
 	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/league/".$league."?page=".$p."",
