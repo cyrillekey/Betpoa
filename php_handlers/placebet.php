@@ -105,15 +105,16 @@ if(isset($_SESSION['usernumber'])){
                     exit();
                 }
 
-            }}
+            }}/*
             $sql="SELECT account_balance,betsplaces,amount_paid_in FROM admintable where admin_id=?";
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(["0708073370"]);
                     $row=$stmt->fetch();
-                    $accountb=$row->account_balance;
-            $sql="UPDATE admintable set account_balance=? ,betsplaces=?,amount_paid_in=? where admin_id=?";
+                    $accountb=$row->account_balance;*/
+                    echo"stoped at here";
+            $sql="UPDATE admintable set account_balance=account_balance+?,betsplaces=betsplaces+?,amount_paid_in=amount_paid_in+? where admin_id=?";
                     $stmt=$conn->prepare($sql);
-                    $stmt->execute(array(($accountb+$word),($row->betsplaces)+1,($row->amount_paid_in)+$word,"0708073370"));
+                    $stmt->execute(array($word,1,$word,"0708073370"));
                     $stmt->debugDumpParams();
                     unset($_SESSION['betslip']);
                     /*
