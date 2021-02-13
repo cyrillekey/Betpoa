@@ -118,7 +118,7 @@ $error=$_GET['message'];
 
     .modalbox.success .icon span,
     .modalbox.error .icon span {
-      position: absolute;
+      postion: absolute;
       font-size: 4em;
       color: #fff;
       text-align: center;
@@ -155,7 +155,7 @@ $error=$_GET['message'];
     }
 
     .center .change {
-      clear: both;
+      clearn: both;
       display: block;
       font-size: 10px;
       color: #ccc;

@@ -47,13 +47,12 @@ if(isset($_SESSION['usernumber'])){
 
         }else{
             $bet_id=generateRandomString(8);
-            $sql="INSERT INTO bets_table(bet_id,user__id,bet_status,time_placed,bet_amount,possiblewin,total_odds) VALUES (:bet_id,:user__id,:bet_status,:time_placed,:bet_amount,:possiblewin,:total_odds)";
+            $sql="INSERT INTO bets_table(bet_id,user__id,bet_status,bet_amount,possiblewin,total_odds) VALUES (:bet_id,:user__id,:bet_status,:bet_amount,:possiblewin,:total_odds)";
             $stmt=$conn->prepare($sql);
             $stmt->execute([
                 'bet_id'=>$bet_id,
                 'user__id'=>$username,
                 'bet_status'=>"not placed",
-                'time_placed'=>time(),
                 'bet_amount'=>$word,
                 'possiblewin'=>$_SESSION['total']*$word,
                 'total_odds'=>$_SESSION['total']
