@@ -31,7 +31,7 @@ while ($row = $stmt->fetch()) {
         }
     }
     echo (" one bet done</br>");
-    if ($status3 == 2 || $status==0) {
+    if ($status3 == 2 && $status==0) {
         echo ("this bet is still pending" . $id . "</br>");
     }
     else if ($status == 1) {
