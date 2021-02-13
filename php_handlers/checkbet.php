@@ -20,7 +20,6 @@ while ($row = $stmt->fetch()) {
          else if($row2->result==NULL){
            echo("this is null</br>");
            $status=0;
-           break;
        }else{
            echo("this is lost</br>");
            $status2=2;
