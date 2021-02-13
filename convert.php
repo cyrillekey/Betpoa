@@ -1,13 +1,12 @@
 <?php
 require('conn/conn.php');
-$curl = curl_init();
-
-
-$curl = curl_init();
 $leagues=["2790","2794","2796","2803","2833","2857","2664","2755","2771","2777"];
-foreach ($leagues as $key => $league) {
+$curl = curl_init();
+
+    $p=1;
+while($p<6){
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/".$league."?timezone=Africa%2FNairobi",
+	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/league/2790?page=".$p,
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
@@ -23,53 +22,33 @@ curl_setopt_array($curl, [
 
 $response = curl_exec($curl);
 $err = curl_error($curl);
-
 curl_close($curl);
-$resarr=json_decode($response);
+$result=json_decode($response);
+$x=0;
+while($x<10){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
+    try{
     
-    $x=100;
-    while($x<551){
-        try{
-    $fixture_id=($resarr->api->fixtures[$x]->fixture_id);
-    $timestamp=($resarr->api->fixtures[$x]->event_timestamp);
-    $status=($resarr->api->fixtures[$x]->statusShort);
-    $hometeam=($resarr->api->fixtures[$x]->homeTeam->team_name);
-    $awayteam=($resarr->api->fixtures[$x]->awayTeam->team_name);
-    $result=($resarr->api->fixtures[$x]->score->fulltime);
-   $sql="INSERT into markets_table VALUES(:fix,:home,:away,:comm,:satus,:res)";
-   $stmt=$conn->prepare($sql);
-   $stmt->execute([
-       "fix"=>$fixture_id,
-       "home"=>$hometeam,
-       "away"=>$awayteam,
-       "comm"=>$timestamp,
-       "satus"=>$status,
-       "res"=>$results
-   ]);
-/*
-    if($status=="FT"){
-    if($hometeam>$awayteam){
-        $result="home";
-    }elseif($awayteam>$hometeam){
-        $result="away";
-    }elseif($hometeam==$awayteam){
-        $result="draw";
-    }
-    $sql="UPDATE markets_table set result= ?,gamestatus=? where fixture_id=? ";
-    $stmt=$conn->prepare($sql);
-    $stmt->execute(array($result,$status,$fixture_id));*/
-echo"Updated one";}
-catch(Exception $e){
-    echo($e->getMessage());
-    echo("one failed");
+    $league=($result->api->odds[$x]->fixture->fixture_id);
+    $home=($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd);
+    $draw=($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd);
+    $away=($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd);
+    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw)VALUES(:fixture_id,:home_win,:away_win,:draw)";
+    $stmt2=$conn->prepare($sql);
+    $stmt2->execute([
+        "fixture_id"=>$league,
+        "home_win"=>$home,
+        "away_win"=>$away,
+        "draw"=>$draw
+    ]);
+echo" one worked";
 }
-    
-    //$stmt->debugDumpParams();
+    catch(Exception $e){
+        echo "one failed ";
+    }
     $x++;
-    
-    }
-}
+}}
+$p++;
 }
