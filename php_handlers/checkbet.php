@@ -21,6 +21,7 @@ while ($row = $stmt->fetch()) {
          else if($row2->result==NULL){
            echo("this is null</br>");
            $status3=2;
+           break;
 
        }else{
            echo("this is lost</br>");
@@ -57,7 +58,7 @@ while ($row = $stmt->fetch()) {
                     $auth_token = '92534b0dee56ab055582a5c2cb87b569';
                    
                     $twilio_number = "+12092706361";
-                    $sendnumbet='+254'.substr($_SESSION['usernumber'],1);
+                    $sendnumbet='+254'.substr($row4->user__id,1);
                     $client = new Client($account_sid, $auth_token);
                     $client->messages->create(
                         $sendnumbet,
