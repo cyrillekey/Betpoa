@@ -8,6 +8,7 @@ $stmt->execute(["pending"]);
 while ($row = $stmt->fetch()) {
     $status=0;
     $status2=0;
+    $status3=0;
     $id = $row->bet_id;
     $sql2 = "SELECT * FROM betsplaced where bet_id= ?" ;
     $stmt2 = $conn->prepare($sql2);
@@ -19,7 +20,8 @@ while ($row = $stmt->fetch()) {
             $status=1;        }
          else if($row2->result==NULL){
            echo("this is null</br>");
-           $status=0;
+           $status3=2;
+
        }else{
            echo("this is lost</br>");
            $status2=2;
@@ -53,7 +55,7 @@ while ($row = $stmt->fetch()) {
         echo"not here";
         $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
                     $auth_token = '92534b0dee56ab055582a5c2cb87b569';
-                   /*
+                   
                     $twilio_number = "+12092706361";
                     $sendnumbet='+254'.substr($_SESSION['usernumber'],1);
                     $client = new Client($account_sid, $auth_token);
@@ -63,13 +65,13 @@ while ($row = $stmt->fetch()) {
                             'from' => $twilio_number,
                             'body' => 'Congratulations! bet  '.$bet_id.' has won KES  '.$_SESSION['total']*$word
                         )
-                    ); */
+                    ); 
     }elseif($status2==2){
         echo("this bet has lost".$id."</br>");
         $sql3 = "UPDATE bets_table set bet_status=? where bet_id=?";
         $stmt3 = $conn->prepare($sql3);
         $stmt3->execute(array("Lost", $id));
-    }elseif($status==0){
+    }elseif($status3==2){
         echo("this bet is still pending".$id."</br>");
     }
 
