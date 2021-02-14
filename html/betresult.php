@@ -144,10 +144,7 @@
                                 <div class="accumulator-name">Multibet</div>
                                 <div class="accumulator-amount"></div>
                             </div>
-                            <div>
-                                <button class="betslip-cashout">CASH OUT</button>
-                                <div class="accumulator-amount">KSH ' . ($row->possiblewin) * 0.05 . '</div>
-                            </div>
+                            
                             <div class="betslip-details">
                                 <div class="betslip-total-stake"><span>Total Stake</span>
                                 <span class="betslip-total-stake-value">KSH ' . $row->bet_amount . '</span>
