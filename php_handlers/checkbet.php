@@ -1,5 +1,5 @@
 <?php
-require('../conn/conn.php');
+require('/conn/conn.php');
 require('vendor/autoload.php');
 
 use Twilio\Rest\Client;
