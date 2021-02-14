@@ -6,7 +6,7 @@ $curl = curl_init();
     $p=1;
 while($p<6){
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/league/2803?page=".$p,
+	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/league/2857?page=".$p,
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
