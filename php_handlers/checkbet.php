@@ -51,7 +51,7 @@ while ($row = $stmt->fetch()) {
         $stmt = $conn->prepare($sql1);
         $stmt->execute(array($row4->possiblewin, "0708073370"));
         $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
-        $auth_token = '92534b0dee56ab055582a5c2cb87b569';
+        $auth_token = '92534b0dee56ab055582a5c2cb87b569';/*
         try{
         $twilio_number = "+12092706361";
         $sendnumbet = '+254' . substr($row4->user__id, 1);
@@ -66,7 +66,7 @@ while ($row = $stmt->fetch()) {
         catch(Exception $e){
             echo $e->getMessage();
             continue;
-        }
+        }*/
     }
     if ($status2 == 2) {
         echo ("this bet has lost" . $id . "</br>");
