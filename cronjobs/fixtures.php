@@ -35,7 +35,7 @@ if ($err) {
         $status=($resarr->api->fixtures[$x]->statusShort);
         $hometeam=($resarr->api->fixtures[$x]->homeTeam->team_name);
         $awayteam=($resarr->api->fixtures[$x]->awayTeam->team_name);
-        $result=($resarr->api->fixtures[$x]->score->fulltime);
+        $results=($resarr->api->fixtures[$x]->score->fulltime);
        $sql="INSERT into markets_table VALUES(:fix,:home,:away,:comm,:satus,:res)";
        $stmt=$conn->prepare($sql);
        $stmt->execute([
@@ -44,7 +44,7 @@ if ($err) {
            "away"=>$awayteam,
            "comm"=>$timestamp,
            "satus"=>$status,
-           "res"=>$result
+           "res"=>$results
        ]);
 echo" one worked";
 }
