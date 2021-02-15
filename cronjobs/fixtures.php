@@ -20,11 +20,11 @@ curl_setopt_array($curl, [
 
 $response = curl_exec($curl);
 $err = curl_error($curl);
-
-curl_close($curl);
 $result=json_decode($response);
+curl_close($curl);
+
 $x=0;
-while($x<10){
+while($x<150){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
@@ -44,7 +44,7 @@ if ($err) {
            "away"=>$awayteam,
            "comm"=>$timestamp,
            "satus"=>$status,
-           "res"=>$results
+           "res"=>$result
        ]);
 echo" one worked";
 }
