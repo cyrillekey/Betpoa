@@ -20,7 +20,7 @@ curl_setopt_array($curl, [
 
 $response = curl_exec($curl);
 $err = curl_error($curl);
-$result=json_decode($response);
+$resarr=json_decode($response);
 curl_close($curl);
 
 $x=0;
