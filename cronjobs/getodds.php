@@ -4,7 +4,7 @@ $date=time();
 $newdate=gmdate("Y-m-d");
 $curl = curl_init();
     $p=1;
-while($p<10){
+while($p<8){
     curl_setopt_array($curl, [
         CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/2020-02-16?timezone=Africa%2FNairobi&page=".$p,
         CURLOPT_RETURNTRANSFER => true,
@@ -22,9 +22,9 @@ while($p<10){
     
     $response = curl_exec($curl);
     $err = curl_error($curl);
-    
+    $result=json_decode($response);   
     curl_close($curl);
-$result=json_decode($response);
+
 $x=0;
 while($x<10){
 if ($err) {
