@@ -113,7 +113,7 @@ if(isset($_SESSION['usernumber'])){
                     $stmt->debugDumpParams();
                     unset($_SESSION['betslip']);
                     
-
+/*
                     
                     $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
                     $auth_token = '92534b0dee56ab055582a5c2cb87b569';
@@ -128,7 +128,7 @@ if(isset($_SESSION['usernumber'])){
                             'from' => $twilio_number,
                             'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
                         )
-                    ); 
+                    ); */
             header('location:../html/success.php?message=success');
         }
     }
