@@ -1,28 +1,29 @@
 <?php
 require('conn/conn.php');
-$leagues=["2790","2794","2796","2803","2833","2857","2664","2755","2771","2777"];
+$date=time();
+$newdate=gmdate("Y-m-d");
 $curl = curl_init();
-foreach ($leagues as $key => $league) {
     $p=1;
-while($p<6){
-curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/league/".$league."?page=".$p,
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 30,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
-		"x-rapidapi-host: api-football-v1.p.rapidapi.com",
-		"x-rapidapi-key: e56261b2e2msha48fb697c1e185dp18d4ffjsn3656a9b1fd85"
-	],
-]);
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-curl_close($curl);
+while($p<10){
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/".$newdate."?timezone=Africa%2FNairobi&page=".$p,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "x-rapidapi-host: api-football-v1.p.rapidapi.com",
+            "x-rapidapi-key: e56261b2e2msha48fb697c1e185dp18d4ffjsn3656a9b1fd85"
+        ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
 $result=json_decode($response);
 $x=0;
 while($x<10){
@@ -51,5 +52,4 @@ echo" one worked";
     $x++;
 }}
 $p++;
-}
 }
