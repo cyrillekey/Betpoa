@@ -4,9 +4,9 @@ $date=time();
 $newdate=gmdate("Y-m-d");
 $curl = curl_init();
     $p=1;
-//while($p<8){
+while($p<8){
     curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/2021-02-16?timezone=Africa%2FNairobi&page=1",
+        CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/".$newdate."?timezone=Africa%2FNairobi&page=".$p,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_ENCODING => "",
@@ -51,5 +51,5 @@ echo" one worked";
     }
     $x++;
 }}
-//$p++;
-//}
+$p++;
+}
