@@ -1,5 +1,5 @@
 <?php
-require('../conn/conn.php');
+require('/conn/conn.php');
 session_start();
 echo("hello world");
 $json = file_get_contents('php://input');
