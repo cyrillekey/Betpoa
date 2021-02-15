@@ -4,7 +4,7 @@ $date=time();
 $newdate=gmdate("Y-m-d");
 $yest=gmdate('Y-m-d',strtotime(-1));
 $dates=[$newdate,$yest];
-foreach ($$dates as $key => $value) {
+foreach ($dates as $key => $value) {
     # code...
 
 $curl = curl_init();
