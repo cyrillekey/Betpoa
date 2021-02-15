@@ -65,6 +65,7 @@ while ($row = $stmt->fetch()) {
         );}
         catch(Exception $e){
             echo $e->getMessage();
+            continue;
         }
     }
     if ($status2 == 2) {
