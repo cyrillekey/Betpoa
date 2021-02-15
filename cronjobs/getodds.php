@@ -6,7 +6,7 @@ $curl = curl_init();
     $p=1;
 while($p<10){
     curl_setopt_array($curl, [
-        CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/".$newdate."?timezone=Africa%2FNairobi&page=".$p,
+        CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/2020-02-16?timezone=Africa%2FNairobi&page=".$p,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_ENCODING => "",
