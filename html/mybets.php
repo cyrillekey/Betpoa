@@ -164,7 +164,7 @@ if(isset($_SESSION['usernumber'])){
                     <div class="flex space-x-4">
                         
                         <a href="../index.php" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Deposit</a>
+                        <a href="deposit.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Deposit</a>
                         
                     </div>
                 </div>
@@ -185,7 +185,7 @@ if(isset($_SESSION['usernumber'])){
                 
                     <div class=" hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black rinng-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" id="avatar" >
                 <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">My profile</a>
-                <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Deposit</a>
+                <a href="deposit.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Deposit</a>
                 <a href="../php_handlers/logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Logout</a>
                 </div>
             </div>
@@ -196,7 +196,7 @@ if(isset($_SESSION['usernumber'])){
 <div id="mobile" class="hidden sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="../index.php" class="bg-gray text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Deposit</div>
+        <a href="deposit.html"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Deposit</div></a>
         
     </div>
 </div>
