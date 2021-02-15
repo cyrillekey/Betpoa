@@ -49,7 +49,7 @@ while ($row = $stmt->fetch()) {
         $stmt5->execute(array($row4->possiblewin,$row4->possiblewin, 1, "0708073370"));
         $sql1 = "UPDATE users_table set account_balance=account_balance+? where user__id=?";
         $stmt5 = $conn->prepare($sql1);
-        $stmt5->execute(array($row4->possiblewin, "0708073370"));
+        $stmt5->execute(array($row4->possiblewin, $row4->user__id));
         $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
         $auth_token = '92534b0dee56ab055582a5c2cb87b569';/*
         try{
