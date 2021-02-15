@@ -19,6 +19,7 @@ if (!isset($_SESSION['usernumber'])) {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            overflow: scroll;
         }
 
         .hide {
@@ -88,6 +89,7 @@ if (!isset($_SESSION['usernumber'])) {
             text-transform: uppercase;
             font-weight: 300;
             margin-top: auto;
+            margin-bottom: 60px;
         }
 
         .add-new-card {
