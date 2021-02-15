@@ -92,6 +92,7 @@ jQuery(function($) {
     });
     $('#submit').click(function(e) {
         e.preventDefault();
+        $(this).text('Signing up');
         if (all_pass) {
 
             var number = $('#email-address').val();
@@ -110,10 +111,12 @@ jQuery(function($) {
                         window.location.replace("../index.php");
                     } else if (result == 'regis') {
                         alert("number registered try a different number");
+                        $("submit").text('Sign up');
                     } else if (result == "stop") {
                         alert("STOP!!!!!!");
                     } else if (result == "work") {
                         alert('ana error occured.Please try again');
+                        $("#submit").text('Sign up');
                     }
                 }
             });

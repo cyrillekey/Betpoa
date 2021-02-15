@@ -23,6 +23,7 @@ jQuery(function($) {
     });
     $("#submit").click(function(e) {
         e.preventDefault();
+        $(this).text('Loging in');
         if (allpass == true) {
             $.ajax({
                 type: "POST",
@@ -38,12 +39,16 @@ jQuery(function($) {
                     if (drad == 'login') {
                         window.location.replace("../index.php");
                     } else if (drad == 'nouser') {
+                        $("#submit").text('Sign in');
                         alert('no user');
                     } else if (drad == "pwd") {
+                        $("#submit").text('Sign in');
                         alert("wrong password");
                     } else if (drad == "on") {
+                        $("#submit").text('Sign in');
                         alert("wheeeep")
                     } else if (drad == "off") {
+                        $("#submit").text('Sign in');
                         alert("whoope")
                     } else {
                         alert(drad)

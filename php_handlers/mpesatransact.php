@@ -1,7 +1,9 @@
 <?php
 
   date_default_timezone_set('Africa/Nairobi');
-
+  $number=$_POST['number'];
+  $amount=$_POST['amount'];
+  if(isset($number) && isset($amount)){
   # access token
   $consumerKey = 'LfamnxGlxsM7l2QlNt5tbH8O9kqm6UnL'; //Fill with your app Consumer Key
   $consumerSecret = 'pufm6hsG4cXL73rn'; // Fill with your app Secret
@@ -21,10 +23,10 @@
     for developer/test accounts, this money will be reversed automatically by midnight.
   */
   
-  $PartyA = '254708073370'; // This is your phone number, 
-  $AccountReference = '254708073370';
-  $TransactionDesc = 'helloworld';
-  $Amount = '1';
+  $PartyA = $number; // This is your phone number, 
+  $AccountReference = 'Betpoa';
+  $TransactionDesc = 'Betpoa Deposit';
+  $Amount = $amount;
  
   # Get the timestamp, format YYYYmmddhms -> 20181004151020
   $Timestamp = date('YmdHis');    
@@ -82,11 +84,12 @@
   curl_setopt($curl, CURLOPT_POST, true);
   curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
   $curl_response = curl_exec($curl);
-  print_r($curl_response);
-  echo $curl_response;
-  //header('location:https://betpoa.herokuapp.com/callback/mpesacal.php');
+
+  $res=json_decode($curl_response);
+  echo($res->ResponseCode);
   
-?>
+  
+  }
 
   
   ?>
