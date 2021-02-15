@@ -42,7 +42,7 @@
   $initiate_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
   # callback url
-  //$CallBackURL = //'http://kidonda.us/projects/MPESA_API/callback_url.php'; 
+  //$CallBackURL = 'https://98e71d9b7bce.ngrok.io/betpoa%202.0/callbacks/mpesacal.php'; 
   $CallBackURL='http://www.betpoa.xyz/callbacks/mpesacal.php'; 
 
   $curl = curl_init($access_token_url);
