@@ -27,7 +27,11 @@ if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
 }
 if(isset($_SESSION['usernumber'])){
     $games_list=explode(',',$_SESSION['betslip']);
-    $word=$_POST['placebet'];
+    if(isset($_POST['placebet'])){
+    $word=$_POST['placebet'];}
+    else{
+        $word=NULL;
+    }
     if(!empty($word)){
         $username=$_SESSION['usernumber'];
         $sql="SELECT account_balance FROM users_table where user__id=?";
@@ -46,7 +50,7 @@ if(isset($_SESSION['usernumber'])){
             header('location:../html/success.php?message=balance');
 
         }
-        elseif($word<1){
+        elseif(!isset($word)){
             $sql="DELETE from bets_table where bet_id=?";
             $stmt=$conn->prepare($sql);
             $stmt->execute([$bet_id]);
