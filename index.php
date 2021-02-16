@@ -13,7 +13,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
         $_SESSION['usernumber'] = $row->userid;
     }
 }
-date_default_timezone_set('Africa/Nairobi');
+//date_default_timezone_set('Africa/Nairobi');
 ?>
 <!DOCTYPE html>
 <html lang="en">
