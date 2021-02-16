@@ -450,7 +450,7 @@ if($error=="success"){
         <span class="change">-- Click to advance to home --</span>
       </div>
 
-    </div>';}elseif($error='balance'){
+    </div>';}else if($error=='balance'){
       echo'
     <div class="row">
       <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
@@ -465,7 +465,7 @@ if($error=="success"){
       </div>
     </div>';
     }
-    else if($error="err"){
+    else if($error=="err"){
       echo'
       <div class="row">
         <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
@@ -479,7 +479,7 @@ if($error=="success"){
           <span class="change">-- Click to advance to home. --</span>
         </div>
       </div>';
-    }elseif($error=="zero"){
+    }else if($error=="zero"){
       echo'
       <div class="row">
         <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">

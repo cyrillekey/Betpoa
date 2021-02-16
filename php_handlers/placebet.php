@@ -29,10 +29,9 @@ if(isset($_SESSION['usernumber'])){
     $games_list=explode(',',$_SESSION['betslip']);
     if(isset($_POST['placebet'])){
     $word=$_POST['placebet'];
-    echo($word);
 }
     else{
-        echo"well i assigned correctly";
+       
         $word=NULL;
     }
     $bet_id=generateRandomString(8);
