@@ -32,6 +32,7 @@ if(isset($_SESSION['usernumber'])){
     else{
         $word=NULL;
     }
+    $bet_id=generateRandomString(8);
     if(!empty($word)){
         $username=$_SESSION['usernumber'];
         $sql="SELECT account_balance FROM users_table where user__id=?";
@@ -43,7 +44,7 @@ if(isset($_SESSION['usernumber'])){
         
         
 
-        if( empty($word) ){
+        if(empty($word)){
             $sql="DELETE from bets_table where bet_id=?";
             $stmt=$conn->prepare($sql);
             $stmt->execute([$bet_id]);
@@ -58,7 +59,7 @@ if(isset($_SESSION['usernumber'])){
                 $stmt->execute([$bet_id]);
                 header('location:../html/success.php?message=balance');
             }else{
-            $bet_id=generateRandomString(8);
+            
             $sql="INSERT INTO bets_table(bet_id,user__id,bet_status,bet_amount,possiblewin,total_odds) VALUES (:bet_id,:user__id,:bet_status,:bet_amount,:possiblewin,:total_odds)";
             $stmt=$conn->prepare($sql);
             $stmt->execute([
