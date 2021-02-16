@@ -1,8 +1,8 @@
 <?php
 require 'conn/conn.php';
-$date=time();
+
 $newdate=gmdate("Y-m-d");
-$yest=gmdate('Y-m-d',strtotime(-1));
+$yest=gmdate('Y-m-d',strtotime(+1));
 $dates=[$newdate,$yest];
 foreach ($dates as $key => $value) {
     # code...
@@ -33,7 +33,7 @@ if ($err) {
 } else {
     
     $x=0;
-    while($x<200){
+    while($x<300){
         try{
     $fixture_id=($resarr->api->fixtures[$x]->fixture_id);
     $timestamp=($resarr->api->fixtures[$x]->event_timestamp);

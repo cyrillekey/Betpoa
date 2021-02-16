@@ -1,10 +1,12 @@
 <?php
 require('conn/conn.php');
-$date=time();
 $newdate=gmdate("Y-m-d");
+$yest=gmdate('Y-m-d',strtotime(-1));
+$dates=[$newdate,$yest,gmdate('Y-m-d',strtotime(+1))];
+foreach ($dates as $key => $value) {
 $curl = curl_init();
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/fixtures/date/".$newdate."?timezone=Africa%2FNairobi",
+	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/fixtures/date/".$value."?timezone=Africa%2FNairobi",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
@@ -24,7 +26,7 @@ $resarr=json_decode($response);
 curl_close($curl);
 
 $x=0;
-while($x<150){
+while($x<300){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
@@ -54,3 +56,4 @@ echo" one worked";
     $x++;
 }}
 
+}

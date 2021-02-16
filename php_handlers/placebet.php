@@ -10,9 +10,9 @@ function generateRandomString($length = 10) {
     return $randomString;
 }
 $accountb=0;
-require('../conn/conn.php');
+require('../conn/conn.php');/*
 require('../vendor/autoload.php');
-use Twilio\Rest\Client;
+use Twilio\Rest\Client;*/
 session_start();
 if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
     list($selector,$authenticator)=explode(":",$_COOKIE['remember']);
