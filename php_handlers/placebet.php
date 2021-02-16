@@ -36,7 +36,7 @@ if(isset($_SESSION['usernumber'])){
         $word=NULL;
     }
     $bet_id=generateRandomString(8);
-    if(!empty($word)){
+    if(!empty($word) && $word!=0 ){
         $username=$_SESSION['usernumber'];
         $sql="SELECT account_balance FROM users_table where user__id=?";
         $stmt=$conn->prepare($sql);
@@ -44,19 +44,6 @@ if(isset($_SESSION['usernumber'])){
         $row=$stmt->fetch();
         $account=$row->account_balance;
         
-        
-        
-
-        if($word=="0" || $word==0){
-            echo"the problem lies here";
-            $sql="DELETE from bets_table where bet_id=?";
-            $stmt=$conn->prepare($sql);
-            $stmt->execute([$bet_id]);
-            header('location:../html/success.php?message=zero');
-
-        }
-        
-        else{
             if( $account<$word){
                 $sql="DELETE from bets_table where bet_id=?";
                 $stmt=$conn->prepare($sql);
@@ -147,7 +134,13 @@ if(isset($_SESSION['usernumber'])){
                         )
                     ); */
             header('location:../html/success.php?message=success');
-        }}
+        }
+    }else{
+        echo"the problem lies here";
+            $sql="DELETE from bets_table where bet_id=?";
+            $stmt=$conn->prepare($sql);
+            $stmt->execute([$bet_id]);
+            header('location:../html/success.php?message=zero');
     }
 }else{
     header("location:../html/login.php");
