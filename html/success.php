@@ -466,19 +466,33 @@ if($error=="success"){
     </div>';
     }
     else if($error="err"){
-        echo'
-    <div class="row">
-      <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
-        <div class="icon">
-          <span class="glyphicon glyphicon-thumbs-down"></span>
+      echo'
+      <div class="row">
+        <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
+          <div class="icon">
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+          </div>
+          <h1>Oh no!</h1>
+          <p>Oops!Something went wrong,
+            <br> you should try again.</p>
+          <a href="../index.php"><button type="button" class="redo btn">Try again</button></a>
+          <span class="change">-- Click to advance to home. --</span>
         </div>
-        <h1>Oh no!</h1>
-        <p>Oops!Something went wrong,
-          <br> you should try again.</p>
-        <a href="../index.php"><button type="button" class="redo btn">Try again</button></a>
-        <span class="change">-- Click to advance to home. --</span>
-      </div>
-    </div>';
+      </div>';
+    }elseif($error=="zero"){
+      echo'
+      <div class="row">
+        <div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate">
+          <div class="icon">
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+          </div>
+          <h1>Oh no!</h1>
+          <p>Sorry!You can\'t bet with less than KES 1:00,
+            <br> you should deposit and try again.</p>
+          <a href="../index.php"><button type="button" class="redo btn">Try again</button></a>
+          <span class="change">-- Click to advance to home. --</span>
+        </div>
+      </div>';
     }
         ?>
   </div>
