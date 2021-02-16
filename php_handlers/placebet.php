@@ -46,7 +46,7 @@ if(isset($_SESSION['usernumber'])){
             header('location:../html/success.php?message=balance');
 
         }
-        elseif($word<=0){
+        elseif($word<1){
             $sql="DELETE from bets_table where bet_id=?";
             $stmt=$conn->prepare($sql);
             $stmt->execute([$bet_id]);
