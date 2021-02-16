@@ -19,7 +19,7 @@ else{
         "user__id"=>$usernumber,
         "user_number"=>$usernumber,
         "user_password"=>$new_password,
-        "account_balance"=>"1000.00"
+        "account_balance"=>"50.00"
     ]);
     session_start();
     $_SESSION['usernumber']=$usernumber;
