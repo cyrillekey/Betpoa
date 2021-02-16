@@ -35,7 +35,7 @@ if(isset($_SESSION['usernumber'])){
         $word=NULL;
     }
     $bet_id=generateRandomString(8);
-    if(!empty($word) && $word!=0 ){
+    if(!empty($word) && $word!=0 && is_int((int)$word)){
         $username=$_SESSION['usernumber'];
         $sql="SELECT account_balance FROM users_table where user__id=?";
         $stmt=$conn->prepare($sql);
