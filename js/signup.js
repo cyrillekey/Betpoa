@@ -114,6 +114,7 @@ jQuery(function($) {
                         $("submit").text('Sign up');
                     } else if (result == "stop") {
                         alert("STOP!!!!!!");
+                        $("#submit").text('Sign up');
                     } else if (result == "work") {
                         alert('ana error occured.Please try again');
                         $("#submit").text('Sign up');
@@ -131,77 +132,3 @@ function allFilled($fields) {
         }).length == 0
     );
 }
-/*
-$(document).ready(function() {
-    $('#submit').click(function(e) {
-        e.preventDefault();
-        var number = $('#email-address').val();
-        var pass = $('#password').val();
-        var pass2 = $('#password1').val();
-        $.ajax({
-            url: "../php_handlers/signup_handle.php",
-            type: "POST",
-            data: {
-                password: pass2,
-                usernumber: number
-            },
-            success: function(data) {
-                var result = $.trim(data);
-                alert(result);
-            }
-        });
-    })
-});
-/*
-/*var number1 = document.getElementById("email-address");
-number1= number1.value;
-number = number1.substr(1, 10);
-var access_key = "6df3b661f357fc77767c6b77120aa3c9";
-var phone_number = "+254" + number;
-var password = document.getElementById("password");
-if (password.value.length < 6) {
-  //password.classList.remove("border")
-  pass1 = false;
-} else {
-  pass1 = true;
-}
-var password1 = document.getElementById("password1");
-if (password1.value.length < 6) {
-  pass2 = false;
-} else {
-  pass2 = true;
-}
-
-if ((pass1 == true) &$ (pass2 == true)) {
-    alert("hello world");
-$.ajax({
-    url: "http://apilayer.net/api/validate?access_key=" +
-        access_key +
-        "&number=" +
-        phone_number,
-    dataType: "jsonp",
-    success: function(json) {
-        numberpass = json.valid;
-        if (json.valid == "false") {
-            number1.classList.replace("border-gray-300", "border-red-600");
-        } else {}
-    },
-});
-/*
-if (pass1 == pass2) {
-    $.ajax({
-        url: "../php_handlers/signup_handle.php",
-        type: "POST",
-        data: {
-            password: pass1,
-            usernumber: number1
-        },
-        success: function(data) {
-            var result = $.trim(data);
-            alert(result);
-        }
-    });
-}
-
-
-}*/

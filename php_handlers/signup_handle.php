@@ -23,6 +23,10 @@ else{
     ]);
     session_start();
     $_SESSION['usernumber']=$usernumber;
+    
+    $sql="UPDATE admintable set users_regis=users_regis+1 where admin_id=?";
+    $stmt=$conn->prepare($sql);
+    $stmt->execute(["0708073370"]);
     echo"success";
 }}else{
     echo"work";
