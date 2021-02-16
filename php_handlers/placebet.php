@@ -28,8 +28,11 @@ if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
 if(isset($_SESSION['usernumber'])){
     $games_list=explode(',',$_SESSION['betslip']);
     if(isset($_POST['placebet'])){
-    $word=$_POST['placebet'];}
+    $word=$_POST['placebet'];
+    echo($word);
+}
     else{
+        echo"well i assigned correctly";
         $word=NULL;
     }
     $bet_id=generateRandomString(8);
@@ -45,6 +48,7 @@ if(isset($_SESSION['usernumber'])){
         
 
         if(empty($word)){
+            echo"the problem lies here";
             $sql="DELETE from bets_table where bet_id=?";
             $stmt=$conn->prepare($sql);
             $stmt->execute([$bet_id]);
