@@ -47,7 +47,7 @@ if(isset($_SESSION['usernumber'])){
         
         
 
-        if(empty($word)){
+        if($word=="0"){
             echo"the problem lies here";
             $sql="DELETE from bets_table where bet_id=?";
             $stmt=$conn->prepare($sql);
