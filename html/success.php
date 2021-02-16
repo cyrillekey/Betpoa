@@ -487,7 +487,7 @@ if($error=="success"){
             <span class="glyphicon glyphicon-thumbs-down"></span>
           </div>
           <h1>Oh no!</h1>
-          <p>Sorry!You can\'t bet with less than KES 1:00,
+          <p>Sorry ! You can\'t bet with less than KES 1:00,
             <br> you should deposit and try again.</p>
           <a href="../index.php"><button type="button" class="redo btn">Try again</button></a>
           <span class="change">-- Click to advance to home. --</span>
