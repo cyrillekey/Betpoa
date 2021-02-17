@@ -197,7 +197,7 @@ if (!isset($_SESSION['usernumber'])) {
             <label>
 
                 <span>Amount</span>
-                <input id="amount" type="text" placeholder="20.00" required="">
+                <input id="amount" type="text" placeholder="20.00" required="" autocomplete="OFF">
             </label>
             <section class="provider-section card " id="mpesa">
                 <label>
