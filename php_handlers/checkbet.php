@@ -33,7 +33,7 @@ while ($row = $stmt->fetch()) {
     echo (" one bet done</br>");
     if ($status3 == 2 || $status == 0) {
         echo ("this bet is still pending" . $id . "</br>");
-    } else if ($status == 1) {
+    } else if ($status == 1 && $status2!=2) {
         echo ("this bet has won" . $id . "</br>");
         $sql3 = "UPDATE bets_table set bet_status=? where bet_id=?";
         $stmt3 = $conn->prepare($sql3);
