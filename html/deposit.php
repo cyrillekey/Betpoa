@@ -19,7 +19,6 @@ if (!isset($_SESSION['usernumber'])) {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            overflow: scroll;
         }
 
         .hide {
@@ -37,6 +36,7 @@ if (!isset($_SESSION['usernumber'])) {
             background: rgba(0, 0, 0, 0.5);
             height: 100vh;
             width: 100vw;
+            overflow: scroll;
         }
 
         deposit-modal {
