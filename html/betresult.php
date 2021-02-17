@@ -51,9 +51,9 @@
         <div class="betslip-clear" id="close"><span><a href="mybets.php">Close betslip</a></span></div>
         <div class="betslip-pick-container">
             <?php
-            $sql = "SELECT * FROM betsplaced WHERE user__id=? and bet_id=?";
+            $sql = "SELECT * FROM betsplaced WHERE /*user__id=? and */bet_id=?";
             $stmt = $conn->prepare($sql);
-            $stmt->execute(array($_SESSION['usernumber'], $betid));
+            $stmt->execute(array(/*$_SESSION['usernumber'], */$betid));
 
             while ($row = $stmt->fetch()) {
                 $value = $row->bet_value;
