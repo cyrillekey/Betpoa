@@ -184,9 +184,9 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     // and in line with other parts of your application
 
     $current_time = time();
-    $sql = "SELECT * from game_odds where commence_time > ? ORDER BY commence_time ASC";
+    $sql = "SELECT * from game_odds where commence_time > ? and gamestatus=? ORDER BY commence_time ASC";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$current_time]);
+    $stmt->execute([$current_time,"NS"]);
     while ($row = $stmt->fetch()) {
     $date = gmdate("d D, F,Y,g:i a", $row->commence_time);
         echo '
