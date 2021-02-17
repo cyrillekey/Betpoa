@@ -188,7 +188,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     $stmt = $conn->prepare($sql);
     $stmt->execute([$current_time,"NS"]);
     while ($row = $stmt->fetch()) {
-        $dateold=strtotime("+120 minutes",$row->commence_time);
+        $dateold=strtotime("+180 minutes",$row->commence_time);
 
     $date = gmdate("d D, F,Y,g:i a", $dateold);
         echo '
