@@ -5,6 +5,8 @@ $games_list=explode(",",$games);
 include('../conn/conn.php');
 $total=1;
 ?>
+   <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/addtobet.js"></script>
 <script>
         $(document).ready(function(){
             $('.remove').click(function(e){
