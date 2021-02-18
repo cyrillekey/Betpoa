@@ -31,7 +31,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     <title>Betpoa</title>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/addtobet.js"></script>
-    <script src="js/search.js"></script>
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -294,7 +294,7 @@ form.example::after {
 
 </div>
 
-
+<script src="js/search.js"></script>
 </body>
 
 </html>
