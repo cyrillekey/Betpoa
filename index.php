@@ -67,7 +67,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
 form.example input[type=text] {
   padding: 10px;
   font-size: 12px;
- 
+  border: 1px solid grey;
   float: left;
   width: 80%;
   background: #222;
