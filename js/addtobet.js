@@ -34,7 +34,7 @@ $(window).on('load', function() {
 });
 
 function myname() {
-    modal.style.display = "none";
+    $('#modal').css("display", "none")
 }
 $(document).ready(function() {
     $("#float").click(function() {
