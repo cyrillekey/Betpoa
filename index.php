@@ -21,13 +21,17 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <!--<link rel="stylesheet" href="https://rsms.me/inter/inter.css">-->
     <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Betpoa</title>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/addtobet.js"></script>
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -50,6 +54,50 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
             mobile.classList.toggle('hidden')
         }
     </script>
+<style>
+* {
+  box-sizing: border-box;
+}
+.searchre{
+    display: none;
+    background-color: #222;
+    height: 100vh;
+}
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #222;
+  color: white;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 12px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
 </head>
 <nav class="bg-gray-800">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -155,7 +203,14 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     }  ?>
 
 </nav>
+<form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." id="search" name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<div class="searchre">
+</div>
 <div class="bettingbody">
+
     <div id="bettingbody"></div>
 
     <div>
@@ -184,7 +239,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     // and in line with other parts of your application
 
     $current_time = time();
-    $sql = "SELECT * from game_odds where commence_time > ? and gamestatus=? ORDER BY commence_time ASC";
+    $sql = "SELECT * from game_odds where commence_time > ?ORDER BY commence_time ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$current_time,"NS"]);
     while ($row = $stmt->fetch()) {
@@ -238,6 +293,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     </Button>
 
 </div>
+<script src="js/search.js"></script>
 
 </body>
 
