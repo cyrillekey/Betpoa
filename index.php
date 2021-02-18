@@ -204,7 +204,7 @@ form.example::after {
 
 </nav>
 <form class="example" action="action_page.php">
-  <input type="text" placeholder="Search.." id="search" name="search">
+  <input type="text" placeholder="Search.." id="search" name="search" autocomplete="OFF">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <div class="searchre">
