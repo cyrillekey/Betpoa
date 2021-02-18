@@ -115,7 +115,7 @@ if(isset($_SESSION['usernumber'])){
                     $stmt->execute(array($word,1,$word,"0708073370"));
                     $stmt->debugDumpParams();
                     unset($_SESSION['betslip']);
-                    $message='Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.';
+                    $message='Betpoa Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.';
                     $url = 'https://mysms.celcomafrica.com/api/services/sendsms/';
               $curl = curl_init();
               curl_setopt($curl, CURLOPT_URL, $url);
