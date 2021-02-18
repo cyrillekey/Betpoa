@@ -13,9 +13,9 @@ $(document).ready(function() {
                     name: search
                 },
                 success: function(response) {
-                    //$('.bettingbody').css("display", "none");
+                    $('.bettingbody').css("display", "none");
                     $('.searchre').css("display", "block");
-                    $('.bettingbody').html(response);
+                    $('.searchre').html(response);
 
                 }
             });
