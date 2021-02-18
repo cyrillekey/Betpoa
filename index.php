@@ -30,7 +30,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Betpoa</title>
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/addtobet.js"></script>
+ 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>
     <script>
@@ -295,6 +295,7 @@ form.example::after {
 </div>
 
 <script src="js/search.js"></script>
+<script src="js/addtobet.js"></script>
 </body>
 
 </html>
