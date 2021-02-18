@@ -115,23 +115,31 @@ if(isset($_SESSION['usernumber'])){
                     $stmt->execute(array($word,1,$word,"0708073370"));
                     $stmt->debugDumpParams();
                     unset($_SESSION['betslip']);
-                    
-/*
-                    
-                    $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
-                    $auth_token = '92534b0dee56ab055582a5c2cb87b569';
-                   
-                    $twilio_number = "+12092706361";
-                    $sendnumbet='+254'.substr($_SESSION['usernumber'],1);
-
-                    $client = new Client($account_sid, $auth_token);
-                    $client->messages->create(
-                        $sendnumbet,
-                        array(
-                            'from' => $twilio_number,
-                            'body' => 'Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.'
-                        )
-                    ); */
+                    $message='Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.';
+                    $url = 'https://mysms.celcomafrica.com/api/services/sendsms/';
+              $curl = curl_init();
+              curl_setopt($curl, CURLOPT_URL, $url);
+              curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json')); //setting custom header
+            
+            
+              $curl_post_data = array(
+                      //Fill in the request parameters with valid values
+                     'partnerID' => '2693',
+                     'apikey' => '73b76cf9f410d485c26db42f2d45400b',
+                     'mobile' => $username,
+                     'message' => $message,
+                     'shortcode' => 'CELCOM_SMS',
+                     'pass_type' => 'plain', //bm5 {base64 encode} or plain
+              );
+            
+              $data_string = json_encode($curl_post_data);
+            
+              curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+              curl_setopt($curl, CURLOPT_POST, true);
+              curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+            
+              $curl_response = curl_exec($curl);                   
+                
             header('location:../html/success.php?message=success');
         }
     }else{

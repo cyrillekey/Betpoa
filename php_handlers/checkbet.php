@@ -50,23 +50,32 @@ while ($row = $stmt->fetch()) {
         $sql1 = "UPDATE users_table set account_balance=account_balance+? where user__id=?";
         $stmt5 = $conn->prepare($sql1);
         $stmt5->execute(array($row4->possiblewin, $row4->user__id));
-        $account_sid = 'ACf5c6efd53f4d56bf6e66f7c95d266332';
-        $auth_token = '92534b0dee56ab055582a5c2cb87b569';/*
-        try{
-        $twilio_number = "+12092706361";
-        $sendnumbet = '+254' . substr($row4->user__id, 1);
-        $client = new Client($account_sid, $auth_token);
-        $client->messages->create(
-            $sendnumbet,
-            array(
-                'from' => $twilio_number,
-                'body' => 'Congratulations! bet  ' . $id . ' has won KES  ' . $row4->possiblewin
-            )
-        );}
-        catch(Exception $e){
-            echo $e->getMessage();
-            continue;
-        }*/
+        /* send message on bet won */
+        $message="Betpoa bet id".$id." has won kes ".$row4->possiblewin;
+        $url = 'https://mysms.celcomafrica.com/api/services/sendsms/';
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json')); //setting custom header
+
+
+  $curl_post_data = array(
+          //Fill in the request parameters with valid values
+         'partnerID' => '2693',
+         'apikey' => '73b76cf9f410d485c26db42f2d45400b',
+         'mobile' => $row4->user__id,
+         'message' => $message,
+         'shortcode' => 'CELCOM_SMS',
+         'pass_type' => 'plain', //bm5 {base64 encode} or plain
+  );
+
+  $data_string = json_encode($curl_post_data);
+
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($curl, CURLOPT_POST, true);
+  curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+  $curl_response = curl_exec($curl);
+        
     }
     if ($status2 == 2) {
         echo ("this bet has lost" . $id . "</br>");
