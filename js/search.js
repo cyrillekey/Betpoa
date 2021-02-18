@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("#search").on("keyup", function() {
         var search = $(this).val()
         var that = this;
-        if (search.length > 0) {
+        if (search.length > 2) {
             if (searchresult != null) searchresult.abort();
             $.ajax({
                 type: "POST",
