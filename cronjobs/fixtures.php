@@ -26,7 +26,7 @@ $resarr=json_decode($response);
 curl_close($curl);
 
 $x=0;
-while($x<380){
+while($x<580){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {

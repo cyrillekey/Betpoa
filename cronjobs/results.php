@@ -33,7 +33,7 @@ if ($err) {
 } else {
     
     $x=0;
-    while($x<380){
+    while($x<580){
         try{
     $fixture_id=($resarr->api->fixtures[$x]->fixture_id);
     $timestamp=($resarr->api->fixtures[$x]->event_timestamp);
