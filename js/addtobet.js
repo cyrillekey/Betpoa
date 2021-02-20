@@ -3,10 +3,23 @@ $(document).ready(function() {
         e.preventDefault();
         var commarket = $(this).attr("id");
         if ($(this).hasClass("clicked")) {
+            var ids = JSON.parse(sessionStorage.getItem("names"))
+
+            const index = ids.indexOf(commarket)
+            if (index > -1) {
+                ids.splice(index, 1);
+            }
+            sessionStorage.setItem("names", JSON.stringify(ids))
             $(this).removeClass("clicked");
         } else {
             $(this).addClass("clicked");
-            localStorage.lang = this.getAttribute('lang');
+            if (sessionStorage.getItem("names") === null) {
+                var ids = []
+            } else {
+                var ids = JSON.parse(sessionStorage.getItem("names"))
+            }
+            ids.push(commarket);
+            sessionStorage.setItem("names", JSON.stringify(ids))
 
 
         }
@@ -20,6 +33,14 @@ $(document).ready(function() {
             success: function(data) {
                 var result = $.trim(data);
                 if (result == "already") {
+                    var ids = JSON.parse(sessionStorage.getItem("names"))
+
+                    const index = ids.indexOf(commarket)
+                    if (index > -1) {
+                        ids.splice(index, 1);
+                    }
+                    sessionStorage.setItem("names", JSON.stringify(ids))
+                    $(this).removeClass("clicked");
                     $("#" + commarket).removeClass("clicked");
                 } else {
                     $("#float").html(result);
@@ -28,15 +49,20 @@ $(document).ready(function() {
         });
     });
 });
-$(window).on('load', function() {
-    var lang = localStorage.lang || "EN";
-    $('a[lang="' + lang + '"]').addClass("clicked");
-});
+
 
 function myname() {
     $('#modal').css("display", "none")
+    location.reload();
 }
+
 $(document).ready(function() {
+    if (sessionStorage.getItem("names") != null) {
+        var stored = JSON.parse(sessionStorage.getItem("names"))
+        for (i = 0; i < stored.length; i++) {
+            $('#' + stored[i]).addClass('clicked');
+        }
+    }
     $("#float").click(function() {
         $("#bettingbody").load("html/betslip.php");
     });

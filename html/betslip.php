@@ -12,8 +12,19 @@ $total=1;
     var commarket=$(this).attr('id');
     $.get('../index.php').then(function (html){
         $("#"+commarket).removeClass('clicked');
-        console.log("hello world");
-        $('../index.php').reload();
+        if (sessionStorage.getItem("names") === null) {
+                var ids = []
+            } else {
+                var ids = JSON.parse(sessionStorage.getItem("names"))
+            }
+            const index=ids.indexOf(commarket)
+            if(index>-1){
+                ids.splice(index,1);
+            }
+            sessionStorage.setItem("names", JSON.stringify(ids))
+            //location.href="../index.php";
+            //location.reload();
+            
     })
     
     $.ajax({

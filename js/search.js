@@ -25,6 +25,9 @@ $(document).ready(function() {
         } else {
             $('.searchre').css("display", "none");
             $('.bettingbody').css("display", "block");
+            if (search.length == 0) {
+                location.reload();
+            }
         }
     });
 });

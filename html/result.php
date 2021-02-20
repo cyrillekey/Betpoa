@@ -3,7 +3,7 @@ require ('../conn/conn.php');
 $game=$_POST['name'];
 // use your default timezone to work correctly with unix timestamps
 // and in line with other parts of your application
-echo('<script src="js/addtobet.js"></script>');
+//echo('<script src="js/addtobet.js"></script>');
 $current_time = time();
 $sql = "SELECT * from game_odds where (home_team like ? or away_team like ? )and commence_time > ? ORDER BY commence_time ASC ";
 $stmt = $conn->prepare($sql);
@@ -54,4 +54,5 @@ $date = gmdate("d D, F,Y,g:i a", $dateold);
                     ';
 
 }
+echo('<script src="js/addtobet.js"></script>');
 ?>
