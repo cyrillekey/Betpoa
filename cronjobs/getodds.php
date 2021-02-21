@@ -7,7 +7,7 @@ foreach ($dates as $key => $value) {
 
 $curl = curl_init();
     $p=1;
-while($p<30){
+while($p<40){
     curl_setopt_array($curl, [
         CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/".$value."?timezone=Africa%2FNairobi&page=".$p,
         CURLOPT_RETURNTRANSFER => true,
