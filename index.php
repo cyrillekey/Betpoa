@@ -55,6 +55,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
             mobile.classList.toggle('hidden')
         }
     </script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -204,7 +205,7 @@ form.example::after {
     }  ?>
 
 </nav>
-<form class="example" action="action_page.php">
+<form class="example">
   <input type="text" placeholder="Search.." id="search" name="search" autocomplete="OFF">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
