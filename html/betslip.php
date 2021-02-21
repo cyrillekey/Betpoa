@@ -11,7 +11,7 @@ $total=1;
     e.preventDefault();
     var commarket=$(this).attr('id');
     $.get('../index.php').then(function (html){
-        $("#"+commarket).removeClass('clicked');
+        
         if (sessionStorage.getItem("names") === null) {
                 var ids = []
             } else {
@@ -24,7 +24,7 @@ $total=1;
             sessionStorage.setItem("names", JSON.stringify(ids))
             //location.href="../index.php";
             //location.reload();
-            
+            $("#"+commarket).removeClass('clicked');
     })
     
     $.ajax({
@@ -33,6 +33,7 @@ $total=1;
         data:{
             remove:commarket
         },success:function(data){
+            console.log(data);
             $("#bettingbody").load('html/betslip.php');
             $("#float").html(data);
         }

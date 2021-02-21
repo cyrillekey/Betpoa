@@ -22,21 +22,11 @@ if (isset($_SESSION['betslip']) & !empty($_SESSION['betslip']) & isset($_SESSION
             echo count(array_filter(explode(",", $_SESSION['betslip'])));
         
     } else {
-        if (in_array($marketspec, $games_array2)) {/*
-            $delitem = array_search($marketid, $games_array);
-            $delitem2 = array_search($marketspec, $games_array2);
-            unset($games_array[$delitem]);
-            unset($games_array2[$delitem2]);
-            $itemids = implode(",", $games_array);
-            $itemids2 = implode(",", $games_array2);
-            $_SESSION['betslip'] = $itemids;
-            $_SESSION['betslip_games'] = $itemids2;
-            //we have removed game from id now add new
-            $games .= "," . $marketid;
-            $_SESSION['betslip'] = $games;*/
+        if (in_array($marketspec, $games_array2)) {
+         // print_r($games_array2);
             echo"already";
             //echo count(array_filter(explode(",", $_SESSION['betslip'])));
-        } else {
+        }  else{
             $games .= "," . $marketid;
             $games2 .= "," . $marketspec;
             $_SESSION['betslip'] = $games;
