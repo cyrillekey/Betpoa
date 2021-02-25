@@ -14,7 +14,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
         $_SESSION['usernumber'] = $row->userid;
     }
 }
-//date_default_timezone_set('Africa/Nairobi');
+date_default_timezone_set('Africa/Nairobi');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -241,9 +241,9 @@ form.example::after {
     // and in line with other parts of your application
 
     $current_time = time();
-    $sql = "SELECT * from game_odds where commence_time > ? and gamestatus=? ORDER BY commence_time ASC";
+    $sql = "SELECT * from game_odds where commence_time > ? and gamestatus= ?  ORDER BY commence_time ASC";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$current_time,"NS"]);
+    $stmt->execute([time(),"NS"]);
     echo"it does not reac here";
     while ($row = $stmt->fetch()) {
         $dateold=strtotime("+180 minutes",$row->commence_time);
