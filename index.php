@@ -248,6 +248,7 @@ form.example::after {
         $dateold=strtotime("+180 minutes",$row->commence_time);
 
     $date = gmdate("d D, F,Y,g:i a", $dateold);
+    echo"hello";
         echo '
         <div class="betmarket">
             <div class="teams-info-meta big-screen">
