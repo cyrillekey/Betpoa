@@ -241,7 +241,7 @@ form.example::after {
     // and in line with other parts of your application
 
     $current_time = time();
-    $sql = "SELECT * from game_odds where commence_time > ? and gamestatus= ?  ORDER BY commence_time ASC";
+    $sql = "SELECT * from game_odds where commence_time > ? and gamestatus= ? ORDER BY commence_time ASC";
     $stmt = $conn->prepare($sql);
     $stmt->execute([time(),"NS"]);
     echo"it does not reac here";
