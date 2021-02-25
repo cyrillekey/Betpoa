@@ -242,8 +242,10 @@ form.example::after {
 
     $current_time = time();
     $sql = "SELECT * from game_odds where commence_time > ? and gamestatus= ? ORDER BY commence_time ASC";
+    echo"here";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$current_time,"NS"]);
+    echo "also here";
     while ($row = $stmt->fetch()) {
         $dateold=strtotime("+180 minutes",$row->commence_time);
 
