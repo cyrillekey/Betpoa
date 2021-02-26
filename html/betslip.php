@@ -60,7 +60,7 @@ $(document).ready(function(){
                     <?php
                     if(count(array_filter($games_list))){
                     foreach($games_list as $key=>$marketid){
-                    $sql="SELECT * FROM game_odds where fixture_id =?";
+                    $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` = `odds_table`.`fixture_id`)) where markets_table.fixture_id = ?";
                     $markenewtid=substr($marketid,0,-1);
                     $value=substr($marketid,-1);
                     $stmt=$conn->prepare($sql);
