@@ -12,7 +12,12 @@ while ($row = $stmt->fetch()) {
     $status2 = 0;
     $status3 = 0;
     $id = $row->bet_id;
-    $sql2 = "SELECT * FROM betsplaced where bet_id= ?";
+    //$sql2 = "SELECT * FROM betsplaced where bet_id= ?";
+    $sql2="SELECT `bets_table`.`bet_id` AS `bet_id`, `bets_table`.`user__id` AS `user__id`, `bets_table`.`bet_status` AS `bet_status`, `bets_table`.`bet_amount` 
+    AS `bet_amount`, `bets_table`.`possiblewin` AS `possiblewin`, `bets_table`.`total_odds` AS `total_odds`, `betslip_table`.`bet_value` 
+    AS `bet_value`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`gamestatus` 
+    AS `gamestatus`, `markets_table`.`result` AS `result` FROM ((`bets_table` join `betslip_table` on(`bets_table`.`bet_id` = `betslip_table`.`bet_id`)) 
+    join `markets_table` on(`markets_table`.`fixture_id` = `betslip_table`.`fixture_id`)) WHERE bets_table.bet_id= ?";
     $stmt2 = $conn->prepare($sql2);
     $stmt2->execute([$id]);
 
