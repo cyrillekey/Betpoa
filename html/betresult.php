@@ -51,9 +51,10 @@
         <div class="betslip-clear" id="close"><span><a href="mybets.php">Close betslip</a></span></div>
         <div class="betslip-pick-container">
             <?php
-            $sql = "SELECT * FROM betsplaced WHERE user__id=? and bet_id=?";
+            //$sql = "SELECT * FROM betsplaced WHERE user__id=? and bet_id=?";
+            $sql="SELECT `bets_table`.`bet_id` AS `bet_id`, `bets_table`.`user__id` AS `user__id`, `bets_table`.`bet_status` AS `bet_status`, `bets_table`.`bet_amount` AS `bet_amount`, `bets_table`.`possiblewin` AS `possiblewin`, `bets_table`.`total_odds` AS `total_odds`, `betslip_table`.`bet_value` AS `bet_value`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`gamestatus` AS `gamestatus`, `markets_table`.`result` AS `result` FROM ((`bets_table` join `betslip_table` on(`bets_table`.`bet_id` = `betslip_table`.`bet_id`)) join `markets_table` on(`markets_table`.`fixture_id` = `betslip_table`.`fixture_id`)) WHERE bets_table.bet_id= ? AND bets_table.user__id= ?";
             $stmt = $conn->prepare($sql);
-            $stmt->execute(array($_SESSION['usernumber'], $betid));
+            $stmt->execute(array($betid,$_SESSION['usernumber']));
 
             while ($row = $stmt->fetch()) {
                 $value = $row->bet_value;
