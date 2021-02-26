@@ -242,23 +242,14 @@ form.example::after {
 
     $current_time = time();
     //$sql = "SELECT * from game_odds /* where commence_time > ? and gamestatus= ? ORDER BY commence_time ASC*/";
-    $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` = `odds_table`.`fixture_id`)) where markets_table.commence_time>? and markets_table.gamestatus=?";
+    $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` = `odds_table`.`fixture_id`)) where markets_table.commence_time>? and markets_table.gamestatus=? order by markets_table.commence_time asc";
     $stmt = $conn->prepare($sql);
-    if($stmt){
-        echo"it prepared";
-    }
+
 $stmt->execute([$current_time,"NS"]);
-    /*if($Mango){
-        echo"it executed";
-    }else{
-        $stmt->debugDumpParams();
-    }
-    */
     while ($row = $stmt->fetch()) {
         $dateold=strtotime("+180 minutes",$row->commence_time);
 
     $date = gmdate("d D, F,Y,g:i a", $dateold);
-    echo"hello";
         echo '
         <div class="betmarket">
             <div class="teams-info-meta big-screen">
