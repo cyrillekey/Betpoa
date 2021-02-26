@@ -5,7 +5,8 @@ $game=$_POST['name'];
 // and in line with other parts of your application
 //echo('<script src="js/addtobet.js"></script>');
 $current_time = time();
-$sql = "SELECT * from game_odds where (home_team like ? or away_team like ? )and commence_time > ? ORDER BY commence_time ASC ";
+$sql = "SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` = `odds_table`.`fixture_id`)) WHERE (`markets_table`.`home_team` like  ?  or markets_table.away_team like ? ) and commence_time > ?";
+
 $stmt = $conn->prepare($sql);
 $stmt->execute([$game.'%',$game.'%',time()]);
 while ($row = $stmt->fetch()) {

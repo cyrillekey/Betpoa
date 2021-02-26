@@ -135,6 +135,8 @@
                 }
             }
             $sql = "SELECT * FROM bets_table WHERE user__id=? and bet_id=?";
+
+            
             $stmt = $conn->prepare($sql);
             $stmt->execute(array($_SESSION['usernumber'], $betid));
             $row = $stmt->fetch();
