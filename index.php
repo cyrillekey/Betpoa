@@ -246,7 +246,13 @@ form.example::after {
     if($stmt){
         echo"it prepared";
     }
-    $stmt->execute([$current_time,"NS"]);
+    $Mango=$stmt->execute([$current_time,"NS"]);
+    if($Mango){
+        echo"it executed";
+    }else{
+        $stmt->debugDumpParams();
+    }
+    
     while ($row = $stmt->fetch()) {
         $dateold=strtotime("+180 minutes",$row->commence_time);
 
