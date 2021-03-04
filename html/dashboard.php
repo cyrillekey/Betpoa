@@ -1,6 +1,21 @@
+<?php
+  session_start();
+  require('../conn/conn.php');
+  if($_SESSION['usernumber']!="0708073370"){
+    header('location:../index.php');
+  }
+  $sql="SELECT * FROM admintable";
+  $stmt=$conn->prepare($sql);
+  $stmt->execute();
+  $row=$stmt->fetch();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+  .row{
+    background-color: #1b2431;
+  }
+</style>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,7 +124,7 @@
               <div class="card blue">
                 <div class="title">Bets Placed</div>
                 <i class="zmdi zmdi-upload"></i>
-                <div class="value">89</div>
+                <div class="value"><?php echo $row->betsplaces ?></div>
                 <div class="stat"><b>13</b>% increase</div>
               </div>
             </div>
@@ -117,7 +132,7 @@
               <div class="card green">
                 <div class="title">Bets Won</div>
                 <i class="zmdi zmdi-upload"></i>
-                <div class="value">5,990</div>
+                <div class="value"><?php echo $row->bets_won ?></div>
                 <div class="stat"><b>4</b>% increase</div>
               </div>
             </div>
@@ -125,15 +140,31 @@
               <div class="card orange">
                 <div class="title">Amount Paid out</div>
                 <i class="zmdi zmdi-download"></i>
-                <div class="value">$80,990</div>
+                <div class="value">KES <?php echo $row->ammount_paid_out?></div>
                 <div class="stat"><b>13</b>% decrease</div>
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
               <div class="card red">
-                <div class="title">Amount paid in</div>
+                <div class="title">Users</div>
                 <i class="zmdi zmdi-download"></i>
-                <div class="value">3</div>
+                <div class="value">KES <?php echo $row->amount_paid_in?></div>
+                <div class="stat"><b>13</b>% decrease</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+              <div class="card green">
+                <div class="title">Account balance</div>
+                <i class="zmdi zmdi-download"></i>
+                <div class="value">KES <?php echo $row->account_balance?></div>
+                <div class="stat"><b>13</b>% decrease</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+              <div class="card blue">
+                <div class="title">Users</div>
+                <i class="zmdi zmdi-download"></i>
+                <div class="value"><?php echo $row->users_regis?> Users</div>
                 <div class="stat"><b>13</b>% decrease</div>
               </div>
             </div>
