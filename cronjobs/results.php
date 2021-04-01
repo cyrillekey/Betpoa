@@ -59,7 +59,7 @@ if ($err) {
     $asnw=$hometeam+$awayteam;
     $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=? where fixture_id=? ";
     $stmt=$conn->prepare($sql);
-   $stmt->execute(array($result,$status,$fixture_id,$asnw,$gg));
+   $stmt->execute(array($result,$status,$asnw,$gg,$fixture_id));
 echo"Updated one";}}
 catch(Exception $e){
     echo("one failed");
