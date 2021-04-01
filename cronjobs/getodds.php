@@ -1,5 +1,5 @@
 <?php
-require('/conn/conn.php');
+require('conn/conn.php');
 $newdate=gmdate("Y-m-d",time());
 $yest=gmdate('Y-m-d',strtotime('+1 day',time()));
 $dates=[$newdate,$yest];

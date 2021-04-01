@@ -42,7 +42,7 @@ if ($err) {
     $awayteam=($resarr->api->fixtures[$x]->goalsAwayTeam);
     $result;
     $gg;
-    $asnw=0;
+    $asnw;
     if($status=="FT"){
     if($hometeam>$awayteam){
         $result="home";
@@ -56,10 +56,10 @@ if ($err) {
     }else{
         $gg=2;
     }
-    $asnw=(int)$hometeam+(int)$awayteam;
-    $sql="UPDATE markets_table set result= ?,gamestatus=?,total_goals=?,gg= ? where fixture_id=? ";
+    $asnw=$hometeam+$awayteam;
+    $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=? where fixture_id=? ";
     $stmt=$conn->prepare($sql);
-    $stmt->execute(array($result,$status,$fixture_id,$asnw,$gg));
+   $stmt->execute(array($result,$status,$fixture_id,$asnw,$gg));
 echo"Updated one";}}
 catch(Exception $e){
     echo("one failed");
