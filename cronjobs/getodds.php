@@ -1,5 +1,5 @@
 <?php
-require('conn/conn.php');
+require('/conn/conn.php');
 $newdate=gmdate("Y-m-d",time());
 $yest=gmdate('Y-m-d',strtotime('+1 day',time()));
 $dates=[$newdate,$yest];
@@ -7,7 +7,7 @@ foreach ($dates as $key => $value) {
 
 $curl = curl_init();
     $p=1;
-while($p<30){
+while($p<25){
     curl_setopt_array($curl, [
         CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/odds/date/".$value."?timezone=Africa%2FNairobi&page=".$p,
         CURLOPT_RETURNTRANSFER => true,
@@ -39,13 +39,46 @@ if ($err) {
     $home=($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd);
     $draw=($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd);
     $away=($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd);
-    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw)VALUES(:fixture_id,:home_win,:away_win,:draw)";
+    $gg=($result->api->odds[$x]->bookmakers[0]->bets[7]->values[0]->odd);
+    $ngg=($result->api->odds[$x]->bookmakers[0]->bets[7]->values[1]->odd);
+    $onex=($result->api->odds[$x]->bookmakers[0]->bets[13]->values[0]->odd);
+    $twox=($result->api->odds[$x]->bookmakers[0]->bets[13]->values[1]->odd);
+    $X2=($result->api->odds[$x]->bookmakers[0]->bets[13]->values[2]->odd);
+    $dnb1=($result->api->odds[$x]->bookmakers[0]->bets[1]->values[0]->odd);
+    $dnb2=($result->api->odds[$x]->bookmakers[0]->bets[1]->values[1]->odd);
+    #all over sections
+    $ov05=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[8]->odd);
+    $ov15=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[2]->odd);
+    $ov25=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[6]->odd);
+    $ov35=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[0]->odd);
+    $un05=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[9]->odd);
+    $un15=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[3]->odd);
+    $un25=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[7]->odd);
+    $un35=($result->api->odds[$x]->bookmakers[0]->bets[3]->values[1]->odd);
+
+    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw,onex,one2,X2,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35)VALUES(:fixture_id,:home_win,:away_win,:draw,:onex,:one2,:X2,:gg,:ngg,:dnb1,:dnb2,:ov25,:ov35,:ov15,:ov05,:un05,:un15,:un25,:un35)";
     $stmt2=$conn->prepare($sql);
     $stmt2->execute([
         "fixture_id"=>$league,
         "home_win"=>$home,
         "away_win"=>$away,
-        "draw"=>$draw
+        "draw"=>$draw,
+        "onex"=>$onex,
+        "one2"=>$twox,
+        "X2"=>$X2,
+        "gg"=>$gg,
+        "ngg"=>$ngg,
+        "dnb1"=>$dnb1,
+        "dnb2"=>$dnb2,
+        "ov25"=>$ov25,
+        "ov35"=>$ov35,
+        "ov15"=>$ov15,
+        "ov05"=>$ov05,
+        "un05"=>$un05,
+        "un15"=>$un15,
+        "un25"=>$un25,
+        "un35"=>$un35
+
     ]);
 echo" one worked";
 }
