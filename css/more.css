@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.teams-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    background-color: #222;
+    color: #fff;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    padding: 7px;
+}
+
+.teams-info-left {
+    font-weight: 700;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    text-align: left;
+    padding-top: 10px;
+    font-size: 1.3em;
+}
+
+.teams-info-title-vs {
+    font-size: 16px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    text-align: center;
+}
+
+.teams-info-right {
+    margin-bottom: 3px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    text-align: right;
+    font-weight: 700;
+    padding-top: 10px;
+    font-size: 1.3em;
+}
+
+.teams-info-title {
+    font-size: 1.3em;
+    font-weight: 400;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    align-items: flex-start;
+}
+
+.sidebet-header {
+    clear: both;
+    display: block;
+    font-size: 12px;
+    padding: 7px;
+    text-align: left;
+    text-decoration: none;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    background-color: #222;
+    color: white;
+    letter-spacing: .3px;
+    font-weight: 600;
+}
+
+.btn-bettingmatch {
+    background-color: white;
+    color: #000;
+    border: none;
+    font-family: 'Arial Regular', Arial;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    width: 30%;
+    height: 40px;
+    -ms-flex-pack: center;
+    -ms-flex-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+
+.btn-bettingmatch:hover {
+    background-color: rebeccapurple;
+}
+
+.btn-bettingmatch .outcome-title span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.outcome-pricedecimal {
+    padding-right: 8%;
+}
+
+.betdet {
+    background-color: #222;
+}
+
+.clicked {
+    background-color: yellow;
+}
