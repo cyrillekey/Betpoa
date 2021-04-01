@@ -42,7 +42,7 @@ if ($err) {
     $awayteam=($resarr->api->fixtures[$x]->goalsAwayTeam);
     $result;
     $gg;
-
+    $asnw=0;
     if($status=="FT"){
     if($hometeam>$awayteam){
         $result="home";
