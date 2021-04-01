@@ -1,9 +1,10 @@
 <?php
 require('../conn/conn.php');
 $_fixture=$_GET['game'];
-//$sql="SELECT * FROM game_odds where fixture_id =?";
 $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS 
-`commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win`,`odds_table`.`onex` AS `oneX`,`odds_table`.`one2` AS `one2` ,`odds_table`.`X2` as `X2`,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35 FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` 
+`commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win`,`odds_table`.`onex` AS `oneX`,`odds_table`.`one2` 
+AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_table`.`dnb1`,`odds_table`.`dnb2`,
+`odds_table`.`ov25`,`odds_table`.`ov35`,`odds_table`.`ov15`,`odds_table`.`ov05`,`odds_table`.`un05`,`odds_table`.`un15`,`odds_table`.`un25`,`odds_table`.`un35` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` 
 = `odds_table`.`fixture_id`)) where markets_table.fixture_id=? order by markets_table.commence_time asc";
 $stmt=$conn->prepare($sql);
 $stmt->execute([$_fixture]);
