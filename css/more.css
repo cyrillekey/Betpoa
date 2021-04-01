@@ -3,6 +3,18 @@
     padding: 0;
 }
 
+.back-icon {
+    height: 3vh;
+    background-color: #111114;
+}
+
+.back-icon a {
+    text-decoration: none;
+    margin-left: 2vw;
+    padding-top: 0.5vh;
+    color: white;
+}
+
 .teams-info {
     display: -webkit-box;
     display: -webkit-flex;
@@ -27,11 +39,11 @@
     flex: 1;
     text-align: left;
     padding-top: 10px;
-    font-size: 1em;
+    font-size: .8em;
 }
 
 .teams-info-title-vs {
-    font-size: 16px;
+    font-size: .8rem;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
@@ -48,11 +60,11 @@
     text-align: right;
     font-weight: 700;
     padding-top: 10px;
-    font-size: 1em;
+    font-size: .8em;
 }
 
 .teams-info-title {
-    font-size: 1em;
+    font-size: .8em;
     font-weight: 400;
     display: -webkit-box;
     display: -webkit-flex;
@@ -108,6 +120,7 @@
     margin-left: 2%;
     margin-top: 1%;
     border-radius: 10px;
+    font-size: small;
 }
 
 .btn-bettingmatch:hover {
