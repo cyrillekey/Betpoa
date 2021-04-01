@@ -56,7 +56,7 @@ if ($err) {
     }else{
         $gg=2;
     }
-    $sql="UPDATE markets_table set result= ?,gamestatus=?,total_goals=?,gg=?where fixture_id=? ";
+    $sql="UPDATE markets_table set result= ?,gamestatus=?,total_goals=?,gg= ? where fixture_id=? ";
     $stmt=$conn->prepare($sql);
     $stmt->execute(array($result,$status,$fixture_id,($hometeam+$awayteam),$gg));
 echo"Updated one";}}
