@@ -19,13 +19,14 @@ $row=$stmt->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/more.css">
     <title>More</title>
+    <script src="https://kit.fontawesome.com/2dde817c71.js" crossorigin="anonymous"></script>
     <script src="../js/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
     <div class="back-icon">
-        <p>Back</p>
-    </div>
+    <a href="../index.php"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
     <div class="teams-info">
 
         <div class="teams-info-title">
@@ -132,7 +133,7 @@ $row=$stmt->fetch();
     </div>
     <!--Over and under section-->
     <div class="sidebet-header">Over/under</div>
-    <div class="betdet" style="height: 18vh;">
+    <div class="betdet" style="height: 22vh;">
         <a href="#" class="hello" >
             <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch"
             >
@@ -213,7 +214,7 @@ $row=$stmt->fetch();
     </div>
     <!--Haltime result-->
     <div class="sidebet-header ">Halftime Result</div>
-    <div style="height: 6vh;" class="betdet">
+    <div style="height: 8vh;" class="betdet">
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Home</span></div>
@@ -256,7 +257,7 @@ $row=$stmt->fetch();
     </div>
     <!--Halftime Fulltime-->
     <div class="sidebet-header ">Halftime/Fulltime</div>
-    <div class="betdet" style="height: 20vh;">
+    <div class="betdet" style="height: 22vh;">
         <a href="#" class="hello" class="betdet">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/1</span></div>

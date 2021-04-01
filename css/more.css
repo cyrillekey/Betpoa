@@ -83,7 +83,6 @@
 .sidebet-header {
     clear: both;
     display: block;
-    font-size: 12px;
     padding: 7px;
     text-align: left;
     text-decoration: none;
@@ -92,7 +91,8 @@
     background-color: #222222;
     color: white;
     letter-spacing: .3px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: .7em;
 }
 
 .btn-bettingmatch {
