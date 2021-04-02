@@ -83,6 +83,7 @@ if ($err) {
 echo" one worked";
 }
     catch(Exception $e){
+        print_r($stmt2->errorInfo());
         echo "one failed ";
     }
     $x++;
