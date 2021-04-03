@@ -6,6 +6,11 @@
 	Bettingbody styling
 -----------------------------*/
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .bettingbody {
     margin: 0;
     background-color: #222;
@@ -373,9 +378,3 @@ form .error {
 .match-odd.clicked {
     background-color: yellow;
 }
-
-
-/*search*/
-
-
-/* Styles for wrapping the search box */

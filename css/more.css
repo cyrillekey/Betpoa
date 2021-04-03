@@ -39,11 +39,11 @@
     flex: 1;
     text-align: left;
     padding-top: 10px;
-    font-size: .8em;
+    font-size: 1em;
 }
 
 .teams-info-title-vs {
-    font-size: .8rem;
+    font-size: 1em;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
@@ -60,11 +60,11 @@
     text-align: right;
     font-weight: 700;
     padding-top: 10px;
-    font-size: .8em;
+    font-size: 1em;
 }
 
 .teams-info-title {
-    font-size: .8em;
+    font-size: 1em;
     font-weight: 400;
     display: -webkit-box;
     display: -webkit-flex;
