@@ -30,7 +30,6 @@ while($x<7){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
-    $stmt;
     try{
     
         $fixture_id=($resarr->api->fixtures[$x]->fixture_id);
@@ -39,7 +38,10 @@ if ($err) {
         $hometeam=($resarr->api->fixtures[$x]->homeTeam->team_name);
         $awayteam=($resarr->api->fixtures[$x]->awayTeam->team_name);
         $results=($resarr->api->fixtures[$x]->score->fulltime);
-       $sql="INSERT into markets_table VALUES(:fix,:home,:away,:comm,:satus,:res)";
+        $half=" ";
+        $total=" ";
+        $gg=" ";
+       $sql="INSERT into markets_table VALUES(:fix,:home,:away,:comm,:satus,:res,:total,:halftime,:gg)";
        $stmt=$conn->prepare($sql);
        $stmt->execute([
            "fix"=>$fixture_id,
@@ -47,7 +49,11 @@ if ($err) {
            "away"=>$awayteam,
            "comm"=>$timestamp,
            "satus"=>$status,
-           "res"=>$results
+           "res"=>$results,
+           "total"=>$total,
+           "halftime"=>$half,
+           "gg"=>$gg
+
        ]);
 echo" one worked";
 }
