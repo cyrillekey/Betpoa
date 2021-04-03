@@ -58,7 +58,7 @@ if ($err) {
 echo" one worked";
 }
     catch(Exception $e){
-        print_r($stmt->errorInfo());
+     
         echo "one failed ";
     }
     $x++;
