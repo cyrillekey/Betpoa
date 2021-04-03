@@ -26,7 +26,7 @@ $resarr=json_decode($response);
 curl_close($curl);
 
 $x=0;
-while($x<700){
+while($x<7){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
@@ -51,6 +51,7 @@ if ($err) {
 echo" one worked";
 }
     catch(Exception $e){
+        print_r($stmt->errorInfo());
         echo "one failed ";
     }
     $x++;
