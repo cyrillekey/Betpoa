@@ -30,6 +30,7 @@ while($x<7){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
+    $stmt;
     try{
     
         $fixture_id=($resarr->api->fixtures[$x]->fixture_id);
