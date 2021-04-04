@@ -1,7 +1,7 @@
 <?php
 include('../conn/conn.php');
 if(isset($_POST['user'])){
-$num=$_POST['user'];
+$num=($_POST['user']);
 $token=(mt_rand(1000,9999));
 $expire=strtotime(time())+3600;
 
@@ -24,7 +24,7 @@ if($stmt){
             //Fill in the request parameters with valid values
            'partnerID' => '2693',
            'apikey' => '73b76cf9f410d485c26db42f2d45400b',
-           'mobile' => $username,
+           'mobile' => $num,
            'message' => $message,
            'shortcode' => 'CELCOM_SMS',
            'pass_type' => 'plain', //bm5 {base64 encode} or plain
