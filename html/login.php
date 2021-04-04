@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet"> 
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/login.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2S2XBJ16"></script>

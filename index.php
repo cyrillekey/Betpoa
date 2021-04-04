@@ -25,10 +25,12 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <!--<link rel="stylesheet" href="https://rsms.me/inter/inter.css">-->
+
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
     <title>Betpoa</title>
     <script src="js/jquery-3.5.1.min.js"></script>
  
@@ -297,9 +299,42 @@ $stmt->execute([$current_time,"NS"]);
     </Button>
 
 </div>
+<footer>
+  <div class="row inner">
+    <span class="copyright">
+       &copy; <span id="year">     </span>Betpoa
+    </span>
+    
+    <span class="meta">
+      <ul class="links">
+        <li>Hotline</li>
+        <li>Presse</li>
+        <li>Downloads</li>
+        <li>Glossar</li>
+        <li>Kontakt</li>
+        <li>Impressum</li>
+      </ul>
+      <ul class="icons">
+        <li>
+          <span class="fab fa-2x fa-facebook-f"></span>
+        </li>
+        <li>
+          <span class="fab fa-2x fa-youtube-play"></span>
+        </li>
+        <li>
+          <span class="fab fa-2x fa-twitter"></span>
+        </li>
+        <li>
+          <span class="fab fa-2x fa-linkedin-square"></span>
+        </li>
+      </ul>
+    </span>
+  </div>
+</footer>
 
 <script src="js/search.js"></script>
 <script src="js/addtobet.js"></script>
+<script>$("#year").html(new Date().getFullYear());</script> 
 </body>
 
 </html>
