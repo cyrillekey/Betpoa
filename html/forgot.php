@@ -59,10 +59,10 @@ span{
 		<h3 class="card-title text-center">Reset password</h3>
 		
 		<div class="card-text">
-			<form>
+			<form method="POST" action="../php_handlers/forgot_handle.php"> 
 				<div class="form-group">
 					<label for="exampleInputEmail1">Enter your Phone number and we will send you a OTP to reset your password.</label>
-					<input type="text" maxlength="10" class="form-control form-control-sm" placeholder="0708073370">
+					<input type="text" name="user" maxlength="11" class="form-control form-control-sm" placeholder="0708073370" required>
 				</div>
 
 				<button type="submit" class="btn btn-primary btn-block">Send OTP</button>
