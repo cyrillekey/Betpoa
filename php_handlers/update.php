@@ -13,7 +13,7 @@ $sql="SELECT * from password_reset where reset_token= ? and reset_user__id= ?";
 echo"here";
 $stmt=$conn->prepare($sql);
 $stmt->execute([$token,$num]);
-$count=$$stmt->rowCount();
+$count=$stmt->rowCount();
 $row=$stmt->fetch();
 if($count>0){
 if($row->expiry_date<time())
