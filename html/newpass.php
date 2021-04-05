@@ -1,3 +1,14 @@
+<?php if(isset($_GET['user'])){
+$num=$_GET['user'];
+session_start();
+$_SESSION['res']=$num;}else{
+session_start();
+}
+if(empty($_SESSION['res'])){
+    header("location:forgot.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,6 +158,13 @@
     background-color: SteelBlue;
     color: white;
 }
+.reset-password-button button{
+    height: 40px;
+    outline: none;
+    background-color: steelblue;
+    width: 130px;
+    border: none;
+}
 
 .reset-password-button:active {
     background-color: LightGrey;
@@ -161,7 +179,21 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-    </style>
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: 0;
+    margin: 0;
+    appearance: none;
+}   
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+.error{
+    color: red;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 20px;
+}
+ </style>
 </head>
 <body>
 <div class="title-bar">
@@ -175,10 +207,11 @@
     <div class="title">PASSWORD RESET</div>
 
   </div>
-
+<form action="../php_handlers/update.php" method="post" name="reset">
+<p class="error">Password error</p>
   <div class="username">
-    <label for="username-input" class="username-label">Username</label>
-    <input type="text" id="username-input" autofocus>
+    <label for="username-input" class="username-label">Reset Token</label>
+    <input type="number" id="username-input" name="token" required autofocus autocomplete="OFF">
   </div>
   <!--
   <div class="password">
@@ -189,24 +222,24 @@
 
   <div class="new-password">
     <label for="new-password-input" class="new-password-label">New Password</label>
-    <input type="password" id="new-password-input">
+    <input type="password" name="pass" id="new-password-input" required>
   </div>
 
   <div class="password-verification">
     <label for="password-input" class="password--verification-label">Password Verification</label>
-    <input type="password" id="password-verification-input">
+    <input type="password" name="pass2" id="password-verification-input" required>
   </div>
 
-
+<input type="hidden" name="num" value="<?php echo($_SESSION['res'])?>">
   <div class="back-login">
     <div class="back">
-      <a href="https://codepen.io/OurDailyBread/debug/eJmBNL"><i class="fa fa-angle-double-left"></i> Back to Login</a>
+      <a href="../index.php"><i class="fa fa-angle-double-left"></i> Back to Login</a>
     </div>
-    <div class="reset-password-button" onclick="airTableResetPassword()">
-      <a href="#">Rest Password</a>
+    <div class="reset-password-button" >
+      <button type="submit">Reset</button>
     </div>
   </div>
-
+  </form>
 </div>
 </body>
 </html>

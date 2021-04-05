@@ -37,7 +37,7 @@ if($stmt){
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
   
     $curl_response = curl_exec($curl); 
-    header("location:../html/newpass.php");
+    header("location:../html/newpass.php?user=".$num);
 }
 }else{
     header("location:../html/forgot.php");
