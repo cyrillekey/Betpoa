@@ -13,7 +13,9 @@ $sql="SELECT * from password_reset where reset_token= ? and reset_user__id= ?";
 echo"here";
 $stmt=$conn->prepare($sql);
 $stmt->execute([$token,$num]);
+$count=$$stmt->rowCount();
 $row=$stmt->fetch();
+if($count>0){
 if($row->expiry_date<time())
 {
     $newpass=password_hash($pass,PASSWORD_DEFAULT);
@@ -28,7 +30,10 @@ if($row->expiry_date<time())
     }else{
         header("location:../html/newpass.php?err=len");
     }
-}else{
+}
+else{
+    header("location:../html/newpass.php?err=token");
+}}else{
     header("location:../html/newpass.php?err=pass");
 }
 }
