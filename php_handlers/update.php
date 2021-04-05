@@ -28,11 +28,11 @@ if($row->expiry_date<time())
     header("location:../html/newpass.php?err=exp");
 }
     }else{
-        header("location:../html/newpass.php?err=len");
+        header("location:../html/newpass.php?err=token");
     }
 }
 else{
-    header("location:../html/newpass.php?err=token");
+    header("location:../html/newpass.php?err=len");
 }}else{
     header("location:../html/newpass.php?err=pass");
 }
@@ -40,4 +40,3 @@ else{
 else{
     header("location:../html/newpass.php?err=blank");
 }
-?>
