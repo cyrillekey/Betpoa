@@ -5,6 +5,8 @@ if(isset($_POST['num']) && isset($_POST['pass']) && isset($_POST['pass2']) && is
 $pass2=($_POST['pass']);
 $pass=($_POST['pass2']);
 $token=$_POST['token'];
+
+
 if($pass==$pass2){
     if(strlen($pass)>5){
 $sql="SELECT * from password_reset where reset_token= ? and reset_user__id= ?";
@@ -18,7 +20,7 @@ if($row->expiry_date<time())
     $sql="UPDATE users_table set user_password = ? where user__id = ?";
     $stmt=$conn->prepare($sql);
     $stmt->execute([$newpass,$num]);
-    header("location:../html/newpass.php?err=pass");
+    header("location:../html/newpass.php?err=passd");
     exit();
 }else{
     header("location:../html/newpass.php?err=exp");
