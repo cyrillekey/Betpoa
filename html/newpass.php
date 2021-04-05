@@ -7,6 +7,7 @@ session_start();
 if(empty($_SESSION['res'])){
     header("location:forgot.php");
 }
+$err=$_GET['err'];
 ?>
 
 <!DOCTYPE html>
@@ -208,7 +209,23 @@ input[type="number"]{
 
   </div>
 <form action="../php_handlers/update.php" method="post" name="reset">
-<p class="error">Password error</p>
+<?php
+    if($err=="passd"){
+        header("location:login.php");
+    }else if($err=="exp"){
+        echo('<p class="error">Reset Token Expired.</p>');
+    }elseif($err=="token"){
+        echo('<p class="error">Incorrect Token.</p>');
+    }elseif($err=="len"){
+        echo('<p class="error">Password Too Short.</p>');
+    }elseif ($err=="blank") {
+        echo('<p class="error">Fill Whole Form.</p>');
+    }elseif($err=="pass"){
+        echo('<p class="error">Passwords Do Not Match.</p>');
+    }
+
+?>
+
   <div class="username">
     <label for="username-input" class="username-label">Reset Token</label>
     <input type="number" id="username-input" name="token" required autofocus autocomplete="OFF">
