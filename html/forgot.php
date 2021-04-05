@@ -62,7 +62,7 @@ span{
 			<form method="POST" action="../php_handlers/forgot_handle.php"> 
 				<div class="form-group">
 					<label for="exampleInputEmail1">Enter your Phone number and we will send you a OTP to reset your password.</label>
-					<input type="text" name="user" maxlength="11" class="form-control form-control-sm" placeholder="0708073370" required>
+					<input type="text" name="user" maxlength="11" class="form-control form-control-sm" placeholder="0712345678" required autocomplete="OFF">
 				</div>
 
 				<button type="submit" class="btn btn-primary btn-block">Send OTP</button>
