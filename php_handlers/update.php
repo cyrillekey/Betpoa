@@ -5,7 +5,7 @@ if(isset($_POST['num']) && isset($_POST['pass']) && isset($_POST['pass2']) && is
 $pass2=($_POST['pass']);
 $pass=($_POST['pass2']);
 $token=$_POST['token'];
-if($pass===$pass2){
+if($pass==$pass2){
     if(strlen($pass)>5){
 $sql="SELECT * from password_reset where reset_token= ? and reset_user__id= ?";
 echo"here";
