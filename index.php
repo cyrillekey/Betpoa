@@ -296,15 +296,13 @@ $stmt->execute([$current_time,"NS"]);
     }
 
     ?>
-    <button id="float">
-        <?php echo count(array_filter(explode(",", $_SESSION['betslip']))); ?>
-    </Button>
+    
 
 </div>
 <footer>
   <div class="row inner">
     <span class="copyright">
-       &copy; <span id="year">     </span>Betpoa
+       &copy; <div id="year"> </div> Betpoa
     </span>
     
     <span class="meta">
@@ -335,6 +333,9 @@ $stmt->execute([$current_time,"NS"]);
     </span>
   </div>
 </footer>
+<button id="float">
+        <?php echo count(array_filter(explode(",", $_SESSION['betslip']))); ?>
+    </Button>
 
 <script src="js/search.js"></script>
 <script src="js/addtobet.js"></script>
