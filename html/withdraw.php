@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(empty($_SESSION['usernumber'])){
+  header("location: login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,11 +125,12 @@
    Enter amount you wish to withdraw.
   </p>
   </div>  
-  <form class="withdraw-confirm-popup__form">
-  <input  type="text" name="code" class="withdraw-confirm-popup__codeinput withdraw-confirm-popup__codeinput-error" />
-<input disabled type="submit" value="Withdraw" class="withdraw-confirm-popup__submit" />
+  <div class="withdraw-confirm-popup__form" method="POST">
+  <input type="hidden" id="pnum" name="" value="<?php echo $_SESSION['usernumber']?>">
+  <input autocomplete="OFF" id="money" type="number" name="code" class="withdraw-confirm-popup__codeinput withdraw-confirm-popup__codeinput-error" />
+<input type="submit" value="Withdraw" class="withdraw-confirm-popup__submit" />
      <input type="submit" value="Cancel" class="withdraw-confirm-popup__cancel" />
-  </form>
+  </div>
 </article>  
 </section>
 

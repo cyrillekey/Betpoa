@@ -1,5 +1,8 @@
 <?php
+require('../conn/conn.php');
 
+  $money=$_POST['money'];
+$number=$_POST['number'];
   /* Urls */
   $access_token_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
   $b2c_url = 'https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest';
@@ -18,8 +21,8 @@
   $PartyA = '603021';             # shortcode 1
   $PartyB = '254708374149';             # Phone number you're sending money to
   $Remarks = 'Salary';      # Remarks ** can not be empty
-  $QueueTimeOutURL = 'https://0a721affe178.ngrok.io/betpoa%202.0/callbacks/with.php';    # your QueueTimeOutURL
-  $ResultURL = 'https://0a721affe178.ngrok.io/betpoa%202.0/callbacks/with.php';          # your ResultURL
+  $QueueTimeOutURL = 'https://www.betpoa.xyz/betpoa%202.0/callbacks/with.php';    # your QueueTimeOutURL
+  $ResultURL = 'https://www.betpoa.xyz/betpoa%202.0/callbacks/with.php';          # your ResultURL
   $Occasion = 'winning';           # Occasion
 
   /* Obtain Access Token */
@@ -60,5 +63,7 @@
   curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
   $curl_response = curl_exec($curl);
   print_r($curl_response);
-  echo $curl_response;
+  $resonse=json_decode($curl_response,true);
+  
+  echo($resonse)['ResponseCode'];
 ?>

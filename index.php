@@ -135,6 +135,7 @@ form.example::after {
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="html/mybets.php" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">My bets</a>
                         <a href="html/deposit.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Deposit</a>
+                        <a href="html/withdraw.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Withdraw</a>
                         
                     </div>
                 </div>';
@@ -192,6 +193,7 @@ form.example::after {
     <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="html/mybets.php" class="bg-gray text-white block px-3 py-2 rounded-md text-base font-medium">My bets</a>
         <a href="html/deposit.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Deposit</div></a>
+        <a href="html/withdraw.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Withdraw</div></a>
         
     </div>
 </div>';
