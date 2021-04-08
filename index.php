@@ -309,25 +309,27 @@ $stmt->execute([$current_time,"NS"]);
     
     <span class="meta">
       <ul class="links">
-        <li>Hotline</li>
-        <li>Presse</li>
-        <li>Downloads</li>
-        <li>Glossar</li>
-        <li>Kontakt</li>
-        <li>Impressum</li>
+        <li><a href="index.php/.searchre">Home</a></li>
+        <li><a href="html/login.php">Login</a></li>
+        <li><a href="html/signup.php">Signup</a></li>
+        <li><a href="html/deposit.php">Deposit</a></li>
+        <li><a href="https://www.gamblinghelponline.org.au/making-a-change/gambling-responsibly">Gamble Responsiblys</a></li>
       </ul>
       <ul class="icons">
         <li>
-          <span class="fab fa-2x fa-facebook-f"></span>
+        <a href="https://github.com/cyrillekey">
+          <span class="fab fa-2x fa-github-square"></span>
+          </a>
         </li>
         <li>
-          <span class="fab fa-2x fa-youtube-play"></span>
+        <a href="https://wa.me/+254708073370" target="_blank">
+          <span class="fab fa-2x fa-whatsapp"></span></a>
         </li>
         <li>
-          <span class="fab fa-2x fa-twitter"></span>
+          <a hreft="https://twitter.com/cyrile_keith"><span class="fab fa-2x fa-twitter"></span></a>
         </li>
         <li>
-          <span class="fab fa-2x fa-linkedin-square"></span>
+         <a href="https://www.linkedin.com/in/cyrill-otieno-032602169/" target="_blank" rel="noopener noreferrer"><span class="fab fa-2x fa-linkedin-square"></span></a>
         </li>
       </ul>
     </span>
