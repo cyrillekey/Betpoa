@@ -17,14 +17,16 @@ $(document).ready(function() {
                 url: "../php_handlers/withdrawhandle.php",
 
                 data: {
-                    "money": money,
-                    "number": pnumber
+                    money: money,
+                    number: pnumber
                 },
                 success: function(response) {
                     var result = $.trim(response);
-                    if (result == "0")
+                    if (result == "0") {
                         window.location.replace("../index.php");
-
+                    } else {
+                        alert("An error occured");
+                    }
 
                 }
             });

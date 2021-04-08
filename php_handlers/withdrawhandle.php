@@ -62,7 +62,7 @@ $number=$_POST['number'];
   curl_setopt($curl, CURLOPT_POST, true);
   curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
   $curl_response = curl_exec($curl);
-  print_r($curl_response);
+  //print_r($curl_response);
   $resonse=json_decode($curl_response,true);
   
   echo($resonse)['ResponseCode'];
