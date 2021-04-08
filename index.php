@@ -317,16 +317,16 @@ $stmt->execute([$current_time,"NS"]);
       </ul>
       <ul class="icons">
         <li>
-        <a href="https://github.com/cyrillekey">
+        <a href="https://github.com/cyrillekey" target="_blank" rel="noopener noreferrer">
           <span class="fab fa-2x fa-github-square"></span>
           </a>
         </li>
         <li>
-        <a href="https://wa.me/+254708073370" target="_blank">
+        <a href="https://wa.me/+254708073370" target="_blank" rel="noopener noreferrer">
           <span class="fab fa-2x fa-whatsapp"></span></a>
         </li>
         <li>
-          <a hreft="https://twitter.com/cyrile_keith"><span class="fab fa-2x fa-twitter"></span></a>
+          <a hreft="https://twitter.com/cyrile_keith" target="_blank" rel="noopener noreferrer"><span class="fab fa-2x fa-twitter"></span></a>
         </li>
         <li>
          <a href="https://www.linkedin.com/in/cyrill-otieno-032602169/" target="_blank" rel="noopener noreferrer"><span class="fab fa-2x fa-linkedin-square"></span></a>
