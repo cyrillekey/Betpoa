@@ -11,7 +11,7 @@ $(document).ready(function() {
         if (money < 100) {
             alert("Cannot withdraw less than 100");
         } else {
-            $('.withdraw-confirm-popup__submit').text("Processing")
+            $('.withdraw-confirm-popup__submit').attr("value", "Processing");
             $.ajax({
                 type: "POST",
                 url: "../php_handlers/withdrawhandle.php",
