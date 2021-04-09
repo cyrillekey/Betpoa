@@ -168,28 +168,28 @@ $row=$stmt->fetch();
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>a" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>OV 2.5</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->ov25?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>b" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>UN 2.5</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->un25?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>c" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>OV 3.5</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->ov35?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>d" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>UN 3.5</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->un35?></div>
@@ -197,18 +197,18 @@ $row=$stmt->fetch();
         </a>
     </div>
 
-    <!--Drwa no bet-->
+    <!--Draw no bet-->
     <div class="sidebet-header">Draw no bet</div>
     <div style="height: 8vh;" class="betdet">
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>e" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Home</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->dnb1?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>f" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Away</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->dnb2?></div>
@@ -219,21 +219,21 @@ $row=$stmt->fetch();
     <div class="sidebet-header ">Halftime Result</div>
     <div style="height: 8vh;" class="betdet">
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>g" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Home</span></div>
 
                 <div class="outcome-pricedecimal">3.01 </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>h" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Draw</span></div>
 
                 <div class="outcome-pricedecimal">3.01 </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>i" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Away</span></div>
 
                 <div class="outcome-pricedecimal">3.01 </div>
@@ -244,14 +244,14 @@ $row=$stmt->fetch();
     <div class="sidebet-header ">Both team to score</div>
     <div style="height: 8vh; " class="betdet">
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>j" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>YES</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->gg?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>k" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>No</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo $row->ngg?></div>
@@ -498,20 +498,7 @@ $row=$stmt->fetch();
         </a>
 
     </div>
-    <script>
-        $('.btn-bettingmatch').on("click", function(e) {
-            e.preventDefault();
-            if($(this).hasClass('clicked')){
-                $(this).removeClass('clicked');
-            }
-            else{
-            $(this).addClass('clicked');
-            }
-           var name=$(this).attr("id");
-           alert(name)
-            
-        });
-    </script>
+    <script src="../js/more.js"></script>
 </body>
 
 </html>

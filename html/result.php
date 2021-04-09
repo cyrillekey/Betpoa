@@ -47,7 +47,7 @@ $date = gmdate("d D, F,Y,g:i a", $dateold);
                     ' . $row->away_win . '
                     </div>
                     </a>
-                    <a class="more-markets " href="#">+0</a>
+                    <a class="more-markets " href="html/markets.php?game='.$row->fixture_id.'">+30</a>
                 </div>
             </div>
         </div>

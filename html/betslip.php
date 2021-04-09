@@ -1,9 +1,17 @@
+
 <?php
 session_start();
 $games=$_SESSION['betslip'];
 $games_list=explode(",",$games);
 include('../conn/conn.php');
 $total=1;
+//To do
+ //haltime result
+ // win to nill
+ //haltime fulltime
+ //correct score
+ //retrive from api
+
 ?>
 <script>
         $(document).ready(function(){
@@ -60,7 +68,11 @@ $(document).ready(function(){
                     <?php
                     if(count(array_filter($games_list))){
                     foreach($games_list as $key=>$marketid){
-                    $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` = `odds_table`.`fixture_id`)) where markets_table.fixture_id = ?";
+                        $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS 
+                        `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win`,`odds_table`.`onex` AS `oneX`,`odds_table`.`one2` 
+                        AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_table`.`dnb1`,`odds_table`.`dnb2`,
+                        `odds_table`.`ov25`,`odds_table`.`ov35`,`odds_table`.`ov15`,`odds_table`.`ov05`,`odds_table`.`un05`,`odds_table`.`un15`,`odds_table`.`un25`,`odds_table`.`un35` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` 
+                        = `odds_table`.`fixture_id`)) where markets_table.fixture_id=? ";
                     $markenewtid=substr($marketid,0,-1);
                     $value=substr($marketid,-1);
                     $stmt=$conn->prepare($sql);
@@ -112,7 +124,258 @@ $(document).ready(function(){
                         </div>';
                         $total=$total*$row->away_win;
                     
+                }elseif($value==4){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Double Chance</span>
+                        <br/>
+                        <span>1/X</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->oneX.'</div>
+                    </div>';
+                    $total=$total*$row->oneX;
+                }elseif($value==5){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Double Chance</span>
+                        <br/>
+                        <span>1/2</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->one2.'</div>
+                    </div>';
+                    $total=$total*$row->one2;
+                }elseif($value==6){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Double Chance</span>
+                        <br/>
+                        <span>X/2</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->X2.'</div>
+                    </div>';
+                    $total=$total*$row->X2;
+                }elseif($value==7){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Under 0.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->un05.'</div>
+                    </div>';
+                    $total=$total*$row->un05;
                 }
+                elseif($value==8){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Over 0.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->ov05.'</div>
+                    </div>';
+                    $total=$total*$row->ov05;
+                }
+                elseif($value==9){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Over 1.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->ov15.'</div>
+                    </div>';
+                    $total=$total*$row->ov15;
+                }
+                elseif($value==0){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Under 1.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->un15.'</div>
+                    </div>';
+                    $total=$total*$row->un15;
+                }
+                elseif($value=="a"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Over 2.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->un15.'</div>
+                    </div>';
+                    $total=$total*$row->ov25;
+                }
+                elseif($value=="b"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Under 2.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->un25.'</div>
+                    </div>';
+                    $total=$total*$row->un25;
+                }
+
+                elseif($value=="c"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Over 3.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->ov35.'</div>
+                    </div>';
+                    $total=$total*$row->ov35;
+                }
+                elseif($value=="d"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Under/Over</span>
+                        <br/>
+                        <span>Under 3.5</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->un35.'</div>
+                    </div>';
+                    $total=$total*$row->un35;
+                }
+                elseif($value=="e"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Draw no Bet</span>
+                        <br/>
+                        <span>Home</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->dnb1.'</div>
+                    </div>';
+                    $total=$total*$row->dnb1;
+                }
+                elseif($value=="e"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Draw no Bet</span>
+                        <br/>
+                        <span>Away</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->dnb2.'</div>
+                    </div>';
+                    $total=$total*$row->dnb2;
+                }elseif($value=="j"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Both Teams To Score</span>
+                        <br/>
+                        <span>Yes</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->gg.'</div>
+                    </div>';
+                    $total=$total*$row->gg;
+                }elseif($value=="e"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Both Teams To Score</span>
+                        <br/>
+                        <span>No</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->ngg.'</div>
+                    </div>';
+                    $total=$total*$row->ngg;
+                }
+
                     $_SESSION['total']=round($total,2);    
                     }
                     echo'</div>
