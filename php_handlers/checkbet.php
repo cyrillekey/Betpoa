@@ -3,7 +3,15 @@ require('conn/conn.php');
 require('vendor/autoload.php');
 
 use Twilio\Rest\Client;
-
+/**
+ * TODO
+ * halftime fulltime
+ *  Draw no bet
+ * over/under section
+ * home win to nill
+ * away win to nill
+ * double chance
+ */
 $sql = "SELECT bet_id FROM bets_table where bet_status= ?";
 $stmt = $conn->prepare($sql);
 $stmt->execute(["pending"]);
@@ -16,7 +24,7 @@ while ($row = $stmt->fetch()) {
     $sql2="SELECT `bets_table`.`bet_id` AS `bet_id`, `bets_table`.`user__id` AS `user__id`, `bets_table`.`bet_status` AS `bet_status`, `bets_table`.`bet_amount` 
     AS `bet_amount`, `bets_table`.`possiblewin` AS `possiblewin`, `bets_table`.`total_odds` AS `total_odds`, `betslip_table`.`bet_value` 
     AS `bet_value`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`gamestatus` 
-    AS `gamestatus`, `markets_table`.`result` AS `result` FROM ((`bets_table` join `betslip_table` on(`bets_table`.`bet_id` = `betslip_table`.`bet_id`)) 
+    AS `gamestatus`, `markets_table`.`result` AS `result`,`markets_table`.`total_goals`,`markets_table`.`halftime`,`markets_table`.`gg` FROM ((`bets_table` join `betslip_table` on(`bets_table`.`bet_id` = `betslip_table`.`bet_id`)) 
     join `markets_table` on(`markets_table`.`fixture_id` = `betslip_table`.`fixture_id`)) WHERE bets_table.bet_id= ?";
     $stmt2 = $conn->prepare($sql2);
     $stmt2->execute([$id]);
@@ -26,7 +34,12 @@ while ($row = $stmt->fetch()) {
             echo ("this is null</br>");
             $status3 = 2;
             $status = 0;
-        } else if ($row2->bet_value == 1 & $row2->result == "home" || $row2->bet_value == 2 & $row2->result == "draw" || $row2->bet_value == 3 & $row2->result == "away") {
+        } else if ($row2->bet_value == 1 & $row2->result == "home" || $row2->bet_value == 2 & $row2->result == "draw" || $row2->bet_value == 3 & $row2->result == "away" || $row2->bet_value=="g" && $row2->halftime == "home" || $row2->bet_value=="h" && $row2->halftime == "draw" || $row2->bet_value=="i" && $row2->halftime == "away" || $row2->bet_value=="j" && $row2->gg == 1 || 
+        $row2->bet_value=="k" && $row2->gg == 2 || ($row2->bet_value=="4" && 
+        ($row2->result == "home" || $row2->result=="draw")) || 
+        ($row2->bet_value=="5" && ($row2->result == "home" || $row2->result=="away")) 
+        || ($row2->bet_value=="6" && ($row2->result == "away" || $row2->result=="draw")) || ($row2->bet_value=="l" && ($row2->result=="home" && $row2->gg==1)) || ($row2->bet_value=="m" && ($row2->result=="home" && $row2->gg==2)) || ($row2->bet_value=="n" && ($row2->result=="away" && $row2->gg==1)) || ($row2->bet_value=="o" && ($row2->result=="away" && $row2->gg==2))
+        ||($row2->bet_value==7 && $row2->total_goal < 1) ||($row2->bet_value==8 && $row2->total_goal > 1) ||($row2->bet_value==9 && $row2->total_goal >1) ||($row2->bet_value==0 && $row2->total_goal<2) ||($row2->bet_value=="a" && $row2->total_goal>2) ||($row2->bet_value=="b" && $row2->total_goal<3) ||($row2->bet_value=="c" && $row2->total_goal>3) ||($row2->bet_value=="d" && $row2->total_goal<4))  {
             echo ("one correct</br>");
             $status = 1;
         } else {
