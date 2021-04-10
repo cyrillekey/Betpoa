@@ -58,11 +58,11 @@ if ($err) {
     }else{
         $gg=2;
     }
-    if(substr($half1,0)>substr($half1,-1)){
+    if(substr($half1,0)>substr($half1,2)){
         $half="home";
-    }elseif (substr($half1,0)<substr($half1,-1)) {
+    }elseif (substr($half1,0)<substr($half1,2)) {
         $half="away";
-    }elseif (substr($half1,0)==substr($half1,-1)) {
+    }elseif (substr($half1,0)==substr($half1,2)) {
         $half="draw";
     }
     $asnw=$hometeam+$awayteam;
