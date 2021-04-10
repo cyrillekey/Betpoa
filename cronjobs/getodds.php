@@ -72,7 +72,7 @@ if ($err) {
     $win2nillaway_yes=(!isset($result->api->odds[$x]->bookmakers[0]->bets[9]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[9]->values[0]->odd));
     $win2nillaway_no=(!isset($result->api->odds[$x]->bookmakers[0]->bets[9]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[9]->values[1]->odd));
     //check if either is null
-    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw,onex,one2,X2,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35,half1,halfX,half2,halh1n1,half1n2,half1nx,half2n1,half2n2,half2nx,halfxn1,halfxn2,halfxnx,win2nillhome_yes,win2nillhome_no,win2nillaway_yes,win2nillaway_no,)VALUES
+    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw,onex,one2,X2,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35,half1,halfX,half2,halh1n1,half1n2,half1nx,half2n1,half2n2,half2nx,halfxn1,halfxn2,halfxnx,win2nillhome_yes,win2nillhome_no,win2nillaway_yes,win2nillaway_no)VALUES
     (:fixture_id,:home_win,:away_win,:draw,:onex,:one2,:X2,:gg,:ngg,:dnb1,:dnb2,:ov25,:ov35,:ov15,:ov05,:un05,:un15,:un25,:un35,:half1,:halfX,:half2,:halh1n1,:half1n2,:half1nx,:half2n1,:half2n2,:half2nx,:halfxn1,:halfxn2,:halfxnx,:win2nillhome_yes,:win2nillhome_no,:win2nillaway_yes,:win2nillaway_no)";
     $stmt2=$conn->prepare($sql);
     $stmt2->execute([
