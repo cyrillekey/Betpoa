@@ -253,7 +253,7 @@ $(document).ready(function(){
                         <span>Over 2.5</span><br/>
                         <span>'.$row->home_team.' vs '.$row->away_team.'</span>
                     </div>
-                    <div class="pick-odds">'.$row->un15.'</div>
+                    <div class="pick-odds">'.$row->ov25.'</div>
                     </div>';
                     $total=$total*$row->ov25;
                 }

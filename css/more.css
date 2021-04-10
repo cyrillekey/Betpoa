@@ -123,10 +123,6 @@
     font-size: small;
 }
 
-.btn-bettingmatch:hover {
-    background-color: rebeccapurple;
-}
-
 .btn-bettingmatch .outcome-title span {
     display: block;
     white-space: nowrap;
