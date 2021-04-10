@@ -58,7 +58,7 @@ if ($err) {
     }else{
         $gg=2;
     }
-    if((int)substr($half1,0)>(int)substr($halff1,2)){
+    if((int)substr($half1,0)>(int)substr($half1,2)){
         $half="home";
     }elseif ((int)substr($half1,0)<(int)substr($half1,2)) {
         $half="away";
