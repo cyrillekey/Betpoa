@@ -62,7 +62,7 @@ $(document).ready(function(){
     </script>
 <div class="betslip-container" id="modal">
             <div class="betslip-header-container">
-                <div class="betslip-type-container"><span class="betslip-type">MultiBet</span> <span class="betslip-bet-count">(<? echo count(array_filter($games_list));?>)</span> <span class="betslip-odds">@<?$_SESSION['total']?></span> </div></div>
+                <div class="betslip-type-container"><span class="betslip-type">MultiBet</span> <span class="betslip-bet-count">(<? echo count(array_filter($games_list));?>)</span> <span class="betslip-odds">@<?echo($_SESSION['total'])?></span> </div></div>
                 <div class="betslip-clear" id="close"><span><a href="#" onclick="myname()">Close betslip</a></span></div>
                 <div class="betslip-pick-container">
                     <?php
@@ -491,9 +491,178 @@ AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_
                     </div>';
                     $total=$total*$row->win2nillaway_no;
                 }
-                //halftime fulltime results
-
-                    $_SESSION['total']=round($total,2);    
+                //halftime fulltime results consisting of p,q,r,s,t,u,v,w,x
+                elseif($value=="p"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Home/Home</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half1n1.'</div>
+                    </div>';
+                    $total=$total*$row->half1n1;
+                }
+                elseif($value=="p"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Home/Home</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half1n1.'</div>
+                    </div>';
+                    $total=$total*$row->half1n1;
+                }
+                elseif($value=="q"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Home/Draw</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half1nx.'</div>
+                    </div>';
+                    $total=$total*$row->half1nx;
+                }
+                elseif($value=="r"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Home/Away</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half1n2.'</div>
+                    </div>';
+                    $total=$total*$row->half1n2;
+                }
+                elseif($value=="s"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Away/Home</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half2n1.'</div>
+                    </div>';
+                    $total=$total*$row->half2n1;
+                }    
+                elseif($value=="t"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Away/Draw</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half2nx.'</div>
+                    </div>';
+                    $total=$total*$row->half2nx;
+                }
+                elseif($value=="u"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Away/Away</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->half2n2.'</div>
+                    </div>';
+                    $total=$total*$row->half2n2;
+                }
+                elseif($value=="v"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Draw/Home</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->halfxn1.'</div>
+                    </div>';
+                    $total=$total*$row->halfxn1;
+                }
+                elseif($value=="w"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Draw/Draw</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->halfxnx.'</div>
+                    </div>';
+                    $total=$total*$row->halfxnx;
+                }
+                elseif($value=="x"){
+                    echo'<div class="betslip-pick">
+                    <div class="pick-dismiss">
+                    <a href="#" class="remove" id="'.$marketid.'">
+                        <i class="fa fa-minus-circle"></i>
+                    </a>
+                        </div>
+                    <div class="pick-details">
+                        <span>Haltime/Fultime</span>
+                        <br/>
+                        <span>Draw/Away</span><br/>
+                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
+                    </div>
+                    <div class="pick-odds">'.$row->halfxn2.'</div>
+                    </div>';
+                    $total=$total*$row->halfxn2;
+                }
+                $_SESSION['total']=round($total,2);    
                     }
                     echo'</div>
                     <form action="php_handlers/placebet.php" method="post">
