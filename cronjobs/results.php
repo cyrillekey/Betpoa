@@ -40,9 +40,11 @@ if ($err) {
     $status=($resarr->api->fixtures[$x]->statusShort);
     $hometeam=($resarr->api->fixtures[$x]->goalsHomeTeam);
     $awayteam=($resarr->api->fixtures[$x]->goalsAwayTeam);
+    $half1=($resarr->api->fixtures[$x]->score->halftime);
     $result;
     $gg;
     $asnw;
+    $half;
     if($status=="FT"){
     if($hometeam>$awayteam){
         $result="home";
@@ -56,12 +58,20 @@ if ($err) {
     }else{
         $gg=2;
     }
+    if(substr($half1,0)>substr($half1,-1)){
+        $half="home";
+    }elseif (substr($half1,0)<substr($half1,-1)) {
+        $half="away";
+    }elseif (substr($half1,0)==substr($half1,-1)) {
+        $half="draw";
+    }
     $asnw=$hometeam+$awayteam;
-    $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=? where fixture_id=? ";
+    $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=?,halftime=? where fixture_id=? ";
     $stmt=$conn->prepare($sql);
-   $stmt->execute(array($result,$status,$asnw,$gg,$fixture_id));
+   $stmt->execute(array($result,$status,$asnw,$gg,$half,$fixture_id));
 echo"Updated one";}}
 catch(Exception $e){
+    print_r($stmt->errorInfo());
     echo("one failed");
 }
     
