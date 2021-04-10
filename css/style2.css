@@ -379,6 +379,10 @@ form .error {
     background-color: yellow;
 }
 
+.more-markets.clicked {
+    background-color: yellow;
+}
+
 
 /***
 footer styling

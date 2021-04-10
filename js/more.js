@@ -3,10 +3,14 @@ $('.btn-bettingmatch').on("click", function(e) {
     var commarket = $(this).attr("id");
     if ($('#' + commarket).hasClass("clicked")) {
         var ids = JSON.parse(sessionStorage.getItem("names"));
-
+        const index2 = ids.indexOf(commarket.substring(0, -1) + "m")
         const index = ids.indexOf(commarket);
         if (index > -1) {
             ids.splice(index, 1);
+        }
+        if (index2 > -1) {
+            ids.splice(index2, 1);
+            s
         }
         sessionStorage.setItem("names", JSON.stringify(ids));
         $('#' + commarket).removeClass("clicked");
@@ -18,6 +22,7 @@ $('.btn-bettingmatch').on("click", function(e) {
             var ids = JSON.parse(sessionStorage.getItem("names"));
         }
         ids.push(commarket);
+        ids.push(commarket.substring(0, -1) + "m");
         sessionStorage.setItem("names", JSON.stringify(ids));
     }
     $.ajax({
