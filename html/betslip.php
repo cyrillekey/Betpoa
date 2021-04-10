@@ -62,7 +62,7 @@ $(document).ready(function(){
     </script>
 <div class="betslip-container" id="modal">
             <div class="betslip-header-container">
-                <div class="betslip-type-container"><span class="betslip-type">MultiBet</span> <span class="betslip-bet-count">(<? echo count(array_filter($games_list));?>)</span> <span class="betslip-odds">@<?echo($_SESSION['total'])?></span> </div></div>
+                <div class="betslip-type-container"><span class="betslip-type">MultiBet</span> <span class="betslip-bet-count">(<? echo count(array_filter($games_list));?>)</span> <span class="betslip-odds"></span> </div></div>
                 <div class="betslip-clear" id="close"><span><a href="#" onclick="myname()">Close betslip</a></span></div>
                 <div class="betslip-pick-container">
                     <?php
@@ -492,23 +492,6 @@ AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_
                     $total=$total*$row->win2nillaway_no;
                 }
                 //halftime fulltime results consisting of p,q,r,s,t,u,v,w,x
-                elseif($value=="p"){
-                    echo'<div class="betslip-pick">
-                    <div class="pick-dismiss">
-                    <a href="#" class="remove" id="'.$marketid.'">
-                        <i class="fa fa-minus-circle"></i>
-                    </a>
-                        </div>
-                    <div class="pick-details">
-                        <span>Haltime/Fultime</span>
-                        <br/>
-                        <span>Home/Home</span><br/>
-                        <span>'.$row->home_team.' vs '.$row->away_team.'</span>
-                    </div>
-                    <div class="pick-odds">'.$row->half1n1.'</div>
-                    </div>';
-                    $total=$total*$row->half1n1;
-                }
                 elseif($value=="p"){
                     echo'<div class="betslip-pick">
                     <div class="pick-dismiss">

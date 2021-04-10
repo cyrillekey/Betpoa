@@ -262,63 +262,63 @@ $row=$stmt->fetch();
     <div class="sidebet-header ">Halftime/Fulltime</div>
     <div class="betdet" style="height: 22vh;">
         <a href="#" class="hello" class="betdet">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>p" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/1</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->half1n1);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>q" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/X</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->half1nx);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>r" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/2</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->half1n2);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>s" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>2/1</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->half2n1);?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>t" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>2/X</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->half2nx);?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>u" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>2/2</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->half2n2);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>v" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>X/1</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->halfxn1);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>w" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>X/X</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->halfxnx);?></div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
+            <div id="<?php echo ($_fixture)?>x" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>X/2</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->halfxn2);?> </div>
