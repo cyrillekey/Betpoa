@@ -4,7 +4,7 @@ $_fixture=$_GET['game'];
 $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS 
 `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win`,`odds_table`.`onex` AS `oneX`,`odds_table`.`one2` 
 AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_table`.`dnb1`,`odds_table`.`dnb2`,
-`odds_table`.`ov25`,`odds_table`.`ov35`,`odds_table`.`ov15`,`odds_table`.`ov05`,`odds_table`.`un05`,`odds_table`.`un15`,`odds_table`.`un25`,`odds_table`.`un35` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` 
+`odds_table`.`ov25`,`odds_table`.`ov35`,`odds_table`.`ov15`,`odds_table`.`ov05`,`odds_table`.`un05`,`odds_table`.`un15`,`odds_table`.`un25`,`odds_table`.`un35`,`odds_table`.`half1`,`odds_table`.`half2`,`odds_table`.`halfX`,`odds_table`.`half1n1`,`odds_table`.`half1n2`,`odds_table`.`half1nx`,`odds_table`.`halfxnx`,`odds_table`.`halfxn1`,`odds_table`.`halfxn2`,`odds_table`.`half2n1`,`odds_table`.`half2n2`,`odds_table`.`half2nx`,`odds_table`.`win2nillhome_yes`,`odds_table`.`win2nillhome_yes`,`odds_table`.`win2nillhome_no`,`odds_table`.`win2nillaway_yes`,`odds_table`.`win2nillaway_no` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` 
 = `odds_table`.`fixture_id`)) where markets_table.fixture_id=? order by markets_table.commence_time asc";
 $stmt=$conn->prepare($sql);
 $stmt->execute([$_fixture]);
@@ -105,14 +105,14 @@ $row=$stmt->fetch();
             <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>YES</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->win2nillhome_yes);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>No</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->win2nillhome_no); ?> </div>
             </div>
         </a>
     </div>
@@ -123,14 +123,14 @@ $row=$stmt->fetch();
             <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>YES</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->win2nillaway_yes);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>No</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->win2nillaway_no);?> </div>
             </div>
         </a>
     </div>
@@ -222,19 +222,19 @@ $row=$stmt->fetch();
             <div id="<?php echo ($_fixture)?>g" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Home</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half1);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>h" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>Draw</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->halfX);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>i" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
-                <div class="outcome-title doublechance "><span>Away</span></div>
+                <div class="outcome-title doublechance "><span><?php echo($row->half2);?></span></div>
 
                 <div class="outcome-pricedecimal">3.01 </div>
             </div>
@@ -265,42 +265,42 @@ $row=$stmt->fetch();
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/1</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half1n1);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/X</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half1nx);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>1/2</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half1n2);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>2/1</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half2n1);?></div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>2/X</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half2nx);?></div>
             </div>
         </a>
         <a href="#" class="hello">
             <div id="<?php echo ($_fixture)?>" style="flex-wrap: wrap " class="btn btn-group btn-bettingmatch ">
                 <div class="outcome-title doublechance "><span>2/2</span></div>
 
-                <div class="outcome-pricedecimal">3.01 </div>
+                <div class="outcome-pricedecimal"><?php echo($row->half2n2);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
