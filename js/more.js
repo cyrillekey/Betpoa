@@ -9,7 +9,7 @@ $('.btn-bettingmatch').on("click", function(e) {
             ids.splice(index, 1);
         }
         sessionStorage.setItem("names", JSON.stringify(ids));
-        $(commarket).removeClass("clicked");
+        $('#' + commarket).removeClass("clicked");
     } else {
         $(this).addClass("clicked");
         if (sessionStorage.getItem("names") === null) {
