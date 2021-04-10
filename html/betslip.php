@@ -25,6 +25,10 @@ $total=1;
             } else {
                 var ids = JSON.parse(sessionStorage.getItem("names"))
             }
+            const index2 = ids.indexOf(commarket.substring(0, 6) + "m")
+            if (index2 > -1) {
+                    ids.splice(index2, 1);
+                }
             const index=ids.indexOf(commarket)
             if(index>-1){
                 ids.splice(index,1);
