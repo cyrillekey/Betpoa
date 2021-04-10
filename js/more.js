@@ -1,7 +1,7 @@
 $('.btn-bettingmatch').on("click", function(e) {
     e.preventDefault();
     var commarket = $(this).attr("id");
-    if ($(commarket).hasClass("clicked")) {
+    if ($('#' + commarket).hasClass("clicked")) {
         var ids = JSON.parse(sessionStorage.getItem("names"));
 
         const index = ids.indexOf(commarket);
