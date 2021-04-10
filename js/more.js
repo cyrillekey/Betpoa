@@ -37,10 +37,13 @@ $('.btn-bettingmatch').on("click", function(e) {
             if (result == "already") {
                 console.log("in array");
                 var ids = JSON.parse(sessionStorage.getItem("names"));
-
+                const index2 = ids.indexOf(commarket.substring(0, 6) + "m")
                 const index = ids.indexOf(commarket);
                 if (index > -1) {
                     ids.splice(index, 1);
+                }
+                if (index2 > -1) {
+                    ids.splice(index2, 1);
                 }
                 sessionStorage.setItem("names", JSON.stringify(ids));
                 $(this).removeClass("clicked");
