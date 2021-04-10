@@ -55,9 +55,25 @@ if ($err) {
     $un15=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[3]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[3]->odd));
     $un25=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[7]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[7]->odd));
     $un35=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[1]->odd));
-
+    $half1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[2]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[2]->values[0]->odd));
+    $halfX=(!isset($result->api->odds[$x]->bookmakers[0]->bets[2]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[2]->values[1]->odd));
+    $half2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[2]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[2]->values[2]->odd));
+    $half1n1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[4]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[4]->odd));
+    $half1nx=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[0]->odd));
+    $half1n2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[1]->odd));
+    $half2n1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[6]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[6]->odd));
+    $half2nx=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[7]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[7]->odd));
+    $half2n2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[8]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[8]->odd));
+    $halfxn1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[5]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[5]->odd));
+    $halfxnx=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[3]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[3]->odd));
+    $halfxn2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[2]->odd));
+    $win2nillhome_yes=(!isset($result->api->odds[$x]->bookmakers[0]->bets[8]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[8]->values[0]->odd));
+    $win2nillhome_no=(!isset($result->api->odds[$x]->bookmakers[0]->bets[8]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[8]->values[1]->odd));
+    $win2nillaway_yes=(!isset($result->api->odds[$x]->bookmakers[0]->bets[9]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[9]->values[0]->odd));
+    $win2nillaway_no=(!isset($result->api->odds[$x]->bookmakers[0]->bets[9]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[9]->values[1]->odd));
     //check if either is null
-    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw,onex,one2,X2,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35)VALUES(:fixture_id,:home_win,:away_win,:draw,:onex,:one2,:X2,:gg,:ngg,:dnb1,:dnb2,:ov25,:ov35,:ov15,:ov05,:un05,:un15,:un25,:un35)";
+    $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw,onex,one2,X2,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35,half1,halfX,half2,halh1n1,half1n2,half1nx,half2n1,half2n2,half2nx,halfxn1,halfxn2,halfxnx,win2nillhome_yes,win2nillhome_no,win2nillaway_yes,win2nillaway_no,)VALUES
+    (:fixture_id,:home_win,:away_win,:draw,:onex,:one2,:X2,:gg,:ngg,:dnb1,:dnb2,:ov25,:ov35,:ov15,:ov05,:un05,:un15,:un25,:un35,:half1,:halfX,:half2,:halh1n1,:half1n2,:half1nx,:half2n1,:half2n2,:half2nx,:halfxn1,:halfxn2,:halfxnx,:win2nillhome_yes,:win2nillhome_no,:win2nillaway_yes,:win2nillaway_no)";
     $stmt2=$conn->prepare($sql);
     $stmt2->execute([
         "fixture_id"=>$league,
@@ -78,7 +94,23 @@ if ($err) {
         "un05"=>$un05,
         "un15"=>$un15,
         "un25"=>$un25,
-        "un35"=>$un35
+        "un35"=>$un35,
+        "half1"=>$half1,
+        "halfX"=>$halfX,
+        "half2"=>$half2,
+        "halh1n1"=>$half1n1,
+        "half1n2"=>$half1n2,
+        "half1nx"=>$half1nx,
+        "half2n1"=>$half2n1,
+        "half2n2"=>$half2n2,
+        "half2nx"=>$half2nx,
+        "halfxn1"=>$halfxn1,
+        "halfxn2"=>$halfxn2,
+        "halfxnx"=>$halfxnx,
+        "win2nillhome_yes"=>$win2nillhome_yes,
+        "win2nillhome_no"=>$win2nillhome_no,
+        "win2nillaway_yes"=>$win2nillaway_yes,
+        "win2nillaway_no"=>$win2nillhome_yes,
 
     ]);
 echo" one worked";
