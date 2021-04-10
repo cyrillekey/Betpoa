@@ -102,14 +102,14 @@ $row=$stmt->fetch();
     <div class="sidebet-header">Win to Nill Home</div>
     <div style="height: 8vh;" class="betdet">
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>l" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>YES</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->win2nillhome_yes);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>m" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>No</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->win2nillhome_no); ?> </div>
@@ -120,14 +120,14 @@ $row=$stmt->fetch();
     <div class="sidebet-header">Win to Nill away</div>
     <div style="height: 8vh;" class="betdet">
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>n" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>YES</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->win2nillaway_yes);?> </div>
             </div>
         </a>
         <a href="#" class="hello">
-            <div id="<?php echo $_fixture?>" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
+            <div id="<?php echo $_fixture?>o" style="flex-wrap: wrap" class="btn btn-group btn-bettingmatch  ">
                 <div class="outcome-title doublechance "><span>No</span></div>
 
                 <div class="outcome-pricedecimal"><?php echo($row->win2nillaway_no);?> </div>
