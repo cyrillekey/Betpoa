@@ -55,7 +55,7 @@
         <div class="betslip-pick-container">
             <?php
             //$sql = "SELECT * FROM betsplaced WHERE user__id=? and bet_id=?";
-            $sql="SELECT `bets_table`.`bet_id` AS `bet_id`, `bets_table`.`user__id` AS `user__id`, `bets_table`.`bet_status` AS `bet_status`, `bets_table`.`bet_amount` AS `bet_amount`, `bets_table`.`possiblewin` AS `possiblewin`, `bets_table`.`total_odds` AS `total_odds`, `betslip_table`.`bet_value` AS `bet_value`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`gamestatus` AS `gamestatus`, `markets_table`.`result` AS `result` FROM ((`bets_table` join `betslip_table` on(`bets_table`.`bet_id` = `betslip_table`.`bet_id`)) join `markets_table` on(`markets_table`.`fixture_id` = `betslip_table`.`fixture_id`)) WHERE bets_table.bet_id= ? AND bets_table.user__id= ?";
+            $sql="SELECT `bets_table`.`bet_id` AS `bet_id`, `bets_table`.`user__id` AS `user__id`, `bets_table`.`bet_status` AS `bet_status`, `bets_table`.`bet_amount` AS `bet_amount`, `bets_table`.`possiblewin` AS `possiblewin`, `bets_table`.`total_odds` AS `total_odds`, `betslip_table`.`bet_value` AS `bet_value`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`gamestatus` AS `gamestatus`, `markets_table`.`result` AS `result`,`markets_table`.`total_goals`,`markets_table`.`halftime`,`markets_table`.`gg` FROM ((`bets_table` join `betslip_table` on(`bets_table`.`bet_id` = `betslip_table`.`bet_id`)) join `markets_table` on(`markets_table`.`fixture_id` = `betslip_table`.`fixture_id`)) WHERE bets_table.bet_id= ? AND bets_table.user__id= ?";
             $stmt = $conn->prepare($sql);
             $stmt->execute(array($betid,$_SESSION['usernumber']));
 
@@ -78,6 +78,50 @@
                         echo ($row->away_team);
                     } elseif ($value == "2") {
                         echo ("Draw");
+                    }elseif($value=="4"){
+                        echo("Home/Draw");
+                    }elseif($value=="5"){
+                        echo("Home/Away");
+                    }elseif($value=="6"){
+                        echo("Away/Draw");
+                    }elseif($value=="l"){
+                        echo("Home Win to nill-Yes");
+                    }elseif($value=="m"){
+                        echo("Home Win to Nill-No");
+                    }elseif($value=="n"){
+                        echo("Away Win To Nill-yes");
+                    }elseif($value=="o"){
+                        echo("Away Win To Nill-No");
+                    }elseif($value=="7"){
+                        echo("Under 0.5");
+                    }elseif($value=="8"){
+                        echo("Over 0.5");
+                    }elseif($value=="9"){
+                        echo("Over 1.5");
+                    }elseif($value=="0"){
+                        echo("Under 1.5");
+                    }elseif($value=="a"){
+                        echo("Over 2.5");
+                    }elseif($value=="b"){
+                        echo("Under 2.5");
+                    }elseif($value=="c"){
+                        echo("Over 3.5");
+                    }elseif($value=="d"){
+                        echo("Under 3.5");
+                    }elseif($value=="e"){
+                        echo("Draw no Bet Home");
+                    }elseif($value=="f"){
+                        echo("Draw no Bet Away");
+                    }elseif($value=="g"){
+                        echo("Haltime - Home");
+                    }elseif($value=="h"){
+                        echo("Haltime - Draw");
+                    }elseif($value=="i"){
+                        echo("Haltime - Away");
+                    }elseif($value=="j"){
+                        echo("Both Team To Score");
+                    }elseif($value=="k"){
+                        echo("Both Teams To Score No");
                     }
                     echo '</span>
                                     <br/>
@@ -88,7 +132,12 @@
                                 <div class="pick-odds"> Result: ' . $row->result . '</div>
                                 </div>';
                 } else {
-                    if (($value == 1 && $row->result == "home") || ($value == 2 && $row->result == "draw") || ($value == 3 && $row->result == "away")) {
+                    if ($row->bet_value == 1 & $row->result == "home" || $row->bet_value == 2 & $row->result == "draw" || $row->bet_value == 3 & $row->result == "away" || $row->bet_value=="g" && $row->halftime == "home" || $row->bet_value=="h" && $row->halftime == "draw" || $row->bet_value=="i" && $row->halftime == "away" || $row->bet_value=="j" && $row->gg == 1 || 
+                    $row->bet_value=="k" && $row->gg == 2 || ($row->bet_value=="4" && 
+                    ($row->result == "home" || $row->result=="draw")) || 
+                    ($row->bet_value=="5" && ($row->result == "home" || $row->result=="away")) 
+                    || ($row->bet_value=="6" && ($row->result == "away" || $row->result=="draw")) || ($row->bet_value=="l" && ($row->result=="home" && $row->gg==1)) || ($row->bet_value=="m" && ($row->result=="home" && $row->gg==2)) || ($row->bet_value=="n" && ($row->result=="away" && $row->gg==1)) || ($row->bet_value=="o" && ($row->result=="away" && $row->gg==2))
+                    ||($row->bet_value==7 && $row->total_goal < 1) ||($row->bet_value==8 && $row->total_goal > 1) ||($row->bet_value==9 && $row->total_goal >1) ||($row->bet_value==0 && $row->total_goal<2) ||($row->bet_value=="a" && $row->total_goal>2) ||($row->bet_value=="b" && $row->total_goal<3) ||($row->bet_value=="c" && $row->total_goal>3) ||($row->bet_value=="d" && $row->total_goal<4))  {
                         echo '<div class="betslip-pick">
                                 <div class="pick-dismiss" style="color:green;">
                                     <i class="fa fa-check"></i>
@@ -102,6 +151,50 @@
                             echo ($row->away_team);
                         } elseif ($value == "2") {
                             echo ("Draw");
+                        }elseif($value=="4"){
+                            echo("Home/Draw");
+                        }elseif($value=="5"){
+                            echo("Home/Away");
+                        }elseif($value=="6"){
+                            echo("Away/Draw");
+                        }elseif($value=="l"){
+                            echo("Home Win to nill-Yes");
+                        }elseif($value=="m"){
+                            echo("Home Win to Nill-No");
+                        }elseif($value=="n"){
+                            echo("Away Win To Nill-yes");
+                        }elseif($value=="o"){
+                            echo("Away Win To Nill-No");
+                        }elseif($value=="7"){
+                            echo("Under 0.5");
+                        }elseif($value=="8"){
+                            echo("Over 0.5");
+                        }elseif($value=="9"){
+                            echo("Over 1.5");
+                        }elseif($value=="0"){
+                            echo("Under 1.5");
+                        }elseif($value=="a"){
+                            echo("Over 2.5");
+                        }elseif($value=="b"){
+                            echo("Under 2.5");
+                        }elseif($value=="c"){
+                            echo("Over 3.5");
+                        }elseif($value=="d"){
+                            echo("Under 3.5");
+                        }elseif($value=="e"){
+                            echo("Draw no Bet Home");
+                        }elseif($value=="f"){
+                            echo("Draw no Bet Away");
+                        }elseif($value=="g"){
+                            echo("Haltime - Home");
+                        }elseif($value=="h"){
+                            echo("Haltime - Draw");
+                        }elseif($value=="i"){
+                            echo("Haltime - Away");
+                        }elseif($value=="j"){
+                            echo("Both Team To Score");
+                        }elseif($value=="k"){
+                            echo("Both Teams To Score No");
                         }
                         echo '</span>
                                     <br/>
@@ -125,6 +218,50 @@
                             echo ($row->away_team);
                         } elseif ($value == "2") {
                             echo ("Draw");
+                        }elseif($value=="4"){
+                            echo("Home/Draw");
+                        }elseif($value=="5"){
+                            echo("Home/Away");
+                        }elseif($value=="6"){
+                            echo("Away/Draw");
+                        }elseif($value=="l"){
+                            echo("Home Win to nill-Yes");
+                        }elseif($value=="m"){
+                            echo("Home Win to Nill-No");
+                        }elseif($value=="n"){
+                            echo("Away Win To Nill-yes");
+                        }elseif($value=="o"){
+                            echo("Away Win To Nill-No");
+                        }elseif($value=="7"){
+                            echo("Under 0.5");
+                        }elseif($value=="8"){
+                            echo("Over 0.5");
+                        }elseif($value=="9"){
+                            echo("Over 1.5");
+                        }elseif($value=="0"){
+                            echo("Under 1.5");
+                        }elseif($value=="a"){
+                            echo("Over 2.5");
+                        }elseif($value=="b"){
+                            echo("Under 2.5");
+                        }elseif($value=="c"){
+                            echo("Over 3.5");
+                        }elseif($value=="d"){
+                            echo("Under 3.5");
+                        }elseif($value=="e"){
+                            echo("Draw no Bet Home");
+                        }elseif($value=="f"){
+                            echo("Draw no Bet Away");
+                        }elseif($value=="g"){
+                            echo("Haltime - Home");
+                        }elseif($value=="h"){
+                            echo("Haltime - Draw");
+                        }elseif($value=="i"){
+                            echo("Haltime - Away");
+                        }elseif($value=="j"){
+                            echo("Both Team To Score");
+                        }elseif($value=="k"){
+                            echo("Both Teams To Score No");
                         }
                         echo '</span>
                         <br/>
