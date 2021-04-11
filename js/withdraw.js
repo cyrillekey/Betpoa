@@ -24,8 +24,10 @@ $(document).ready(function() {
                     var result = $.trim(response);
                     if (result == "0") {
                         window.location.replace("../index.php");
+                    } else if (result == "bal") {
+                        alert("Sccount Balance is Low");
                     } else {
-                        alert("An error occured");
+                        alert("An error occured please try again");
                     }
 
                 }
