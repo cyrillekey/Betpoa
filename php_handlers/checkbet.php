@@ -39,7 +39,7 @@ while ($row = $stmt->fetch()) {
         ($row2->result == "home" || $row2->result=="draw")) || 
         ($row2->bet_value=="5" && ($row2->result == "home" || $row2->result=="away")) 
         || ($row2->bet_value=="6" && ($row2->result == "away" || $row2->result=="draw")) || ($row2->bet_value=="l" && ($row2->result=="home" && $row2->gg==1)) || ($row2->bet_value=="m" && ($row2->result=="home" && $row2->gg==2)) || ($row2->bet_value=="n" && ($row2->result=="away" && $row2->gg==1)) || ($row2->bet_value=="o" && ($row2->result=="away" && $row2->gg==2))
-        ||($row2->bet_value==7 && $row2->total_goal < 1) ||($row2->bet_value==8 && $row2->total_goal > 1) ||($row2->bet_value==9 && $row2->total_goal >1) ||($row2->bet_value==0 && $row2->total_goal<2) ||($row2->bet_value=="a" && $row2->total_goal>2) ||($row2->bet_value=="b" && $row2->total_goal<3) ||($row2->bet_value=="c" && $row2->total_goal>3) ||($row2->bet_value=="d" && $row2->total_goal<4))  {
+        ||($row2->bet_value==7 && $row2->total_goals < 1) ||  ($row2->bet_value==8 && $row2->total_goals > 1) || ($row2->bet_value==9 && $row2->total_goals >1) || ($row2->bet_value==0 && $row2->total_goals<2) || ($row2->bet_value=="a" && $row2->total_goals>2) || ($row2->bet_value=="b" && $row2->total_goals<3) || ($row2->bet_value=="c" && $row2->total_goals>3) || ($row2->bet_value=="d" && $row2->total_goals<4))  {
             echo ("one correct</br>");
             $status = 1;
         } else {
