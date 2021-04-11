@@ -3,16 +3,25 @@
     padding: 0;
 }
 
+body {
+    height: 100%;
+}
+
 .back-icon {
-    height: 3vh;
     background-color: #111114;
+    height: 6vh;
 }
 
 .back-icon a {
+    position: absolute;
+    margin-top: 2vh;
     text-decoration: none;
-    margin-left: 2vw;
-    padding-top: 0.5vh;
+    margin-left: 4vw;
     color: white;
+}
+
+.betdet {
+    height: 100%;
 }
 
 .teams-info {
