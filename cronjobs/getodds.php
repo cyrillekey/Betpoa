@@ -33,6 +33,7 @@ while($x<9){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
+    $stmt2;
     try{
     
     $league=(($result->api->odds[$x]->fixture->fixture_id));
