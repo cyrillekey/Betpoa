@@ -2,15 +2,12 @@
 require('conn/conn.php');
 require('vendor/autoload.php');
 
-use Twilio\Rest\Client;
+
 /**
  * TODO
  * halftime fulltime
  *  Draw no bet
- * over/under section
- * home win to nill
- * away win to nill
- * double chance
+ * 
  */
 $sql = "SELECT bet_id FROM bets_table where bet_status= ?";
 $stmt = $conn->prepare($sql);

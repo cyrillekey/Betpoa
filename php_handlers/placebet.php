@@ -10,9 +10,7 @@ function generateRandomString($length = 10) {
     return $randomString;
 }
 $accountb=0;
-require('../conn/conn.php');/*
-require('../vendor/autoload.php');
-use Twilio\Rest\Client;*/
+require('../conn/conn.php');
 session_start();
 if(empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])){
     list($selector,$authenticator)=explode(":",$_COOKIE['remember']);
@@ -114,7 +112,7 @@ if(isset($_SESSION['usernumber'])){
                     $stmt=$conn->prepare($sql);
                     $stmt->execute(array($word,1,$word,"0708073370"));
                     $stmt->debugDumpParams();
-                    unset($_SESSION['betslip']);
+                    
                     $message='Betpoa Bet '.$bet_id.' placed successfully. Possible win '.$_SESSION['total']*$word.' Best of luck.';
                     $url = 'https://mysms.celcomafrica.com/api/services/sendsms/';
               $curl = curl_init();
