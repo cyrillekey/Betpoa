@@ -37,41 +37,43 @@ if ($err) {
     try{
     
     $league=(($result->api->odds[$x]->fixture->fixture_id));
-    $home=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd));
-    $draw=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd));
-    $away=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd));
-    $gg=(!isset($result->api->odds[$x]->bookmakers[0]->bets[7]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[7]->values[0]->odd));
-    $ngg=(!isset($result->api->odds[$x]->bookmakers[0]->bets[7]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[7]->values[1]->odd));
-    $onex=(!isset($result->api->odds[$x]->bookmakers[0]->bets[13]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[13]->values[0]->odd));
-    $twox=(!isset($result->api->odds[$x]->bookmakers[0]->bets[13]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[13]->values[1]->odd));
-    $X2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[13]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[13]->values[2]->odd));
-    $dnb1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[1]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[1]->values[0]->odd));
-    $dnb2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[1]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[1]->values[1]->odd));
+    $home=(!isset($result->api->odds[$x]->bookmakers[16]->bets[0]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[0]->values[0]->odd));
+    $draw=(!isset($result->api->odds[$x]->bookmakers[16]->bets[0]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[0]->values[1]->odd));
+    $away=(!isset($result->api->odds[$x]->bookmakers[16]->bets[0]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[0]->values[2]->odd));
+    $gg=(!isset($result->api->odds[$x]->bookmakers[16]->bets[10]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[10]->values[0]->odd));
+    $ngg=(!isset($result->api->odds[$x]->bookmakers[16]->bets[10]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[10]->values[1]->odd));
+    $onex=(!isset($result->api->odds[$x]->bookmakers[16]->bets[17]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[17]->values[0]->odd));
+    $twox=(!isset($result->api->odds[$x]->bookmakers[16]->bets[17]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[17]->values[1]->odd));
+    $X2=(!isset($result->api->odds[$x]->bookmakers[16]->bets[17]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[17]->values[2]->odd));
+    $dnb1=(!isset($result->api->odds[$x]->bookmakers[16]->bets[1]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[1]->values[0]->odd));
+    $dnb2=(!isset($result->api->odds[$x]->bookmakers[16]->bets[1]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[1]->values[1]->odd));
     #all over sections
-    $ov05=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[8]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[8]->odd));
-    $ov15=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[2]->odd));
-    $ov25=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[6]->odd)? 1.00 :($result->api->odds[$x]->bookmakers[0]->bets[3]->values[6]->odd) );
-    $ov35=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[0]->odd));
-    $un05=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[9]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[9]->odd));
-    $un15=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[3]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[3]->odd));
-    $un25=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[7]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[7]->odd));
-    $un35=(!isset($result->api->odds[$x]->bookmakers[0]->bets[3]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[3]->values[1]->odd));
-    $half1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[2]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[2]->values[0]->odd));
-    $halfX=(!isset($result->api->odds[$x]->bookmakers[0]->bets[2]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[2]->values[1]->odd));
-    $half2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[2]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[2]->values[2]->odd));
-    $half1n1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[4]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[4]->odd));
-    $half1nx=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[0]->odd));
-    $half1n2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[1]->odd));
-    $half2n1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[6]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[6]->odd));
-    $half2nx=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[7]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[7]->odd));
-    $half2n2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[8]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[8]->odd));
-    $halfxn1=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[5]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[5]->odd));
-    $halfxnx=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[3]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[3]->odd));
-    $halfxn2=(!isset($result->api->odds[$x]->bookmakers[0]->bets[6]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[6]->values[2]->odd));
-    $win2nillhome_yes=(!isset($result->api->odds[$x]->bookmakers[0]->bets[8]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[8]->values[0]->odd));
-    $win2nillhome_no=(!isset($result->api->odds[$x]->bookmakers[0]->bets[8]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[8]->values[1]->odd));
-    $win2nillaway_yes=(!isset($result->api->odds[$x]->bookmakers[0]->bets[9]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[9]->values[0]->odd));
-    $win2nillaway_no=(!isset($result->api->odds[$x]->bookmakers[0]->bets[9]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[9]->values[1]->odd));
+    $ov05=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[8]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[8]->odd));
+    $ov15=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[2]->odd));
+    $ov25=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[6]->odd)? 1.00 :($result->api->odds[$x]->bookmakers[16]->bets[4]->values[6]->odd) );
+    $ov35=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[0]->odd));
+    $un05=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[9]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[9]->odd));
+    $un15=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[3]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[3]->odd));
+    $un25=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[7]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[7]->odd));
+    $un35=(!isset($result->api->odds[$x]->bookmakers[16]->bets[4]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[4]->values[1]->odd));
+    $half1=(!isset($result->api->odds[$x]->bookmakers[16]->bets[18]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[18]->values[0]->odd));
+    $halfX=(!isset($result->api->odds[$x]->bookmakers[16]->bets[18]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[18]->values[1]->odd));
+    $half2=(!isset($result->api->odds[$x]->bookmakers[16]->bets[18]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[18]->values[2]->odd));
+
+    
+    $half1n1=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[4]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[4]->odd));
+    $half1nx=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[0]->odd));
+    $half1n2=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[1]->odd));
+    $half2n1=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[6]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[6]->odd));
+    $half2nx=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[7]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[7]->odd));
+    $half2n2=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[8]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[8]->odd));
+    $halfxn1=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[5]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[5]->odd));
+    $halfxnx=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[3]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[3]->odd));
+    $halfxn2=(!isset($result->api->odds[$x]->bookmakers[16]->bets[7]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[7]->values[2]->odd));
+    $win2nillhome_yes=(!isset($result->api->odds[$x]->bookmakers[16]->bets[11]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[11]->values[0]->odd));
+    $win2nillhome_no=(!isset($result->api->odds[$x]->bookmakers[16]->bets[11]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[11]->values[1]->odd));
+    $win2nillaway_yes=(!isset($result->api->odds[$x]->bookmakers[16]->bets[12]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[12]->values[0]->odd));
+    $win2nillaway_no=(!isset($result->api->odds[$x]->bookmakers[16]->bets[12]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[16]->bets[12]->values[1]->odd));
     //check if either is null
     $sql="INSERT INTO odds_table(fixture_id,home_win,away_win,draw,onex,one2,X2,gg,ngg,dnb1,dnb2,ov25,ov35,ov15,ov05,un05,un15,un25,un35,half1,halfX,half2,half1n1,half1n2,half1nx,half2n1,half2n2,half2nx,halfxn1,halfxn2,halfxnx,win2nillhome_yes,win2nillhome_no,win2nillaway_yes,win2nillaway_no)VALUES
     (:fixture_id,:home_win,:away_win,:draw,:onex,:one2,:X2,:gg,:ngg,:dnb1,:dnb2,:ov25,:ov35,:ov15,:ov05,:un05,:un15,:un25,:un35,:half1,:halfX,:half2,:half1n1,:half1n2,:half1nx,:half2n1,:half2n2,:half2nx,:halfxn1,:halfxn2,:halfxnx,:win2nillhome_yes,:win2nillhome_no,:win2nillaway_yes,:win2nillaway_no)";
