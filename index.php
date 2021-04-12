@@ -21,9 +21,11 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="robots" content="noindex">
     <meta name="description" content="Betting website">
-    <meta name="keywords" content="Betting,Bet,Betting Bonus">
-    <meta name="author" content="cyrille">
+    <meta name="keywords" content="Betting,Bet,Betting Bonus,Betpoa,betp">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
