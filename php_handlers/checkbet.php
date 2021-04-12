@@ -1,6 +1,6 @@
 <?php
 require('conn/conn.php');
-require('vendor/autoload.php');
+
 
 
 /**
