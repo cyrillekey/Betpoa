@@ -1,5 +1,7 @@
 <?php
 session_start();
+require('../php_handlers/get_cookie.php');
+    mango();
 if(empty($_SESSION['usernumber'])){
   header("location: login.php");
 }

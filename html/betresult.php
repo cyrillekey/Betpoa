@@ -24,6 +24,8 @@
 <body>
     <?php
     session_start();
+    require('../php_handlers/get_cookie.php');
+    mango();
     $betid = $_GET['bet'];
     include('../conn/conn.php');
     $total = 1;
@@ -32,6 +34,7 @@
         exit();
         
     }
+    
     ?>
     <script>
         $(document).ready(function() {

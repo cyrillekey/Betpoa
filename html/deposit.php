@@ -1,6 +1,8 @@
 <?php
 include('../conn/conn.php');
 session_start();
+require('../php_handlers/get_cookie.php');
+    mango();
 if (!isset($_SESSION['usernumber'])) {
     header("location:../index.php");
     exit();
