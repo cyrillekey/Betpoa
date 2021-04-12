@@ -142,7 +142,7 @@
                     ($row->bet_value==0 && $row->total_goals<2) ||($row->bet_value=="a" && $row->total_goals>2) ||
                     ($row->bet_value=="b" && $row->total_goals<3) ||($row->bet_value=="c" && $row->total_goals>3) ||($row->bet_value=="d" && $row->total_goals<4) 
                     || ($row2->bet_value == "e" && $row2->result == "home") || ($row2->bet_value == "f" && $row2->result == "away") 
-                    /*|| ($row2->bet_value == "e" && $row2->result == "draw") || ($row2->bet_value == "e" && $row2->result == "draw")*/ 
+                    
                     ) 
                      {
                         echo '<div class="betslip-pick">
