@@ -19,7 +19,7 @@ if($number>0){
             if($rem=='true'){
                 $selector=base64_encode(random_bytes(9));
                 $authenticator=random_bytes(3);
-                setcookie('remember',$selector.':'.base64_encode($authenticator),time()+864000,'/','https://www.betpoa.xyz',true,true);
+                setcookie('remember',$selector.':'.base64_encode($authenticator),time()+(86400*30),'/','betpoa.xyz');
                 $_COOKIE['remember']=$selector;
                 $sql="INSERT INTO auth_tokes(selector,token,userid,expires) values(:selector,:token,:userid,:expires)";
                 
@@ -28,7 +28,7 @@ if($number>0){
                     "selector"=>$selector,
                     "token"=> hash('sha256',$authenticator),
                     "userid"=>$user,
-                    "expires"=>date('Y-m-d\TH:i:s',time()+864000)
+                    "expires"=>date('Y-m-d\TH:i:s',time()+86400*30)
                 ]);     
             }
 
