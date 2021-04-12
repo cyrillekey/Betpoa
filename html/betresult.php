@@ -134,15 +134,16 @@
                 } else {
                     if ($row->bet_value == 1 & $row->result == "home" || $row->bet_value == 2 & $row->result == "draw" || $row->bet_value == 3 & $row->result == "away" || 
                     $row->bet_value=="g" && $row->halftime == "home" || $row->bet_value=="h" && $row->halftime == "draw" || $row->bet_value=="i" && $row->halftime == "away" || 
-                    $row->bet_value=="j" && $row->gg == 1 || $row->bet_value=="k" && $row->gg == 2 || ($row->bet_value=="4" && ($row->result == "home" || $row->result=="draw")) || 
+                    $row->bet_value=="j" && $row->gg == 1 || $row->bet_value=="k" && $row->gg == 2 || ($row->bet_value=="4" && 
+($row->result == "home" || $row->result=="draw")) || 
                     ($row->bet_value=="5" && ($row->result == "home" || $row->result=="away")) 
                     || ($row->bet_value=="6" && ($row->result == "away" || $row->result=="draw")) || ($row->bet_value=="l" && ($row->result=="home" && $row->gg==1)) || 
                     ($row->bet_value=="m" && ($row->result=="home" && $row->gg==2)) || ($row->bet_value=="n" && ($row->result=="away" && $row->gg==1)) || ($row->bet_value=="o" && ($row->result=="away" && $row->gg==2))
                     ||($row->bet_value==7 && $row->total_goals < 1) ||($row->bet_value==8 && $row->total_goals > 1) ||($row->bet_value==9 && $row->total_goals >1) || 
                     ($row->bet_value==0 && $row->total_goals<2) ||($row->bet_value=="a" && $row->total_goals>2) ||
                     ($row->bet_value=="b" && $row->total_goals<3) ||($row->bet_value=="c" && $row->total_goals>3) ||($row->bet_value=="d" && $row->total_goals<4) 
-                    || ($row2->bet_value == "e" && $row2->result == "home") || ($row2->bet_value == "f" && $row2->result == "away") 
-                    
+                    || ($row->bet_value == "e" && $row->result == "home") || ($row->bet_value == "f" && $row->result == "away") 
+                    || ($row->bet_value == "e" && $row->result == "draw") || ($row->bet_value == "e" && $row->result == "draw")
                     ) 
                      {
                         echo '<div class="betslip-pick">
