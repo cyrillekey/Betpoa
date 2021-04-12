@@ -2,8 +2,9 @@
 session_start();
 unset($_SESSION['usernumber']);
 if(isset($_COOKIE['remember'])){
+    
+    setcookie('remember',"", 1,'/','betpoa.xyz');
     unset($_COOKIE['remember']);
-    setcookie('remember', " ", time()-3600, '/');
 }
 header('location:../html/login.php');
 exit();
