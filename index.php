@@ -316,7 +316,7 @@ $stmt->execute([$current_time,"NS"]);
         <li><a href="html/login.php">Login</a></li>
         <li><a href="html/signup.php">Signup</a></li>
         <li><a href="html/deposit.php">Deposit</a></li>
-        <li><a href="https://www.gamblinghelponline.org.au/making-a-change/gambling-responsibly">Gamble Responsiblys</a></li>
+        <li><a href="https://www.gamblinghelponline.org.au/making-a-change/gambling-responsibly">Gamble Responsibly</a></li>
       </ul>
       <ul class="icons">
         <li>
