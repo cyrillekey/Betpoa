@@ -37,8 +37,7 @@ if ($err) {
     try{
     
     $league=(($result->api->odds[$x]->fixture->fixture_id));
-    $book=($result->api->odds[$x]->fixture->bookmakers[0]->bookmaker_name);
-    if($book=="Bwin"){
+
     $home=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd));
     $draw=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd));
     $away=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd));
@@ -118,10 +117,8 @@ if ($err) {
         "win2nillaway_no"=>$win2nillhome_yes,
 
     ]);
-echo" one worked";}
-else{
-    echo("not bwin");
-}
+echo" one worked";
+
 }
     catch(Exception $e){
         print_r($stmt2->errorInfo());
