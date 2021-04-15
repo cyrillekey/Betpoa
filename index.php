@@ -264,7 +264,7 @@ $stmt->execute([$current_time,"NS"]);
         echo '
         <div class="betmarket">
             <div class="teams-info-meta big-screen">
-                <div class="teams-info-meta-left">Soccer,'.$row->league_name.','.$row->country.'</div>
+                <div class="teams-info-meta-left">Soccer, '.$row->league_name.', '.$row->country.'</div>
                 <div class="teams-info-meta-right">' . $date . '
                 </div>
             </div>
