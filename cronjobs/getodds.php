@@ -29,7 +29,7 @@ while($p<31){
     curl_close($curl);
 
 $x=0;
-while($x<9){
+while($x<11){
 if ($err) {
 	echo "cURL Error #:" . $err;
 } else {

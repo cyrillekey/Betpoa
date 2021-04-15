@@ -35,18 +35,18 @@ if ($err) {
     $x=0;
     while($x<700){
         try{
-    $fixture_id=($resarr->api->fixtures[$x]->fixture_id);/*
-    $timestamp=($resarr->api->fixtures[$x]->event_timestamp);*/
-    $status=($resarr->api->fixtures[$x]->statusShort);/*
+    $fixture_id=($resarr->api->fixtures[$x]->fixture_id);
+    $timestamp=($resarr->api->fixtures[$x]->event_timestamp);
+    $status=($resarr->api->fixtures[$x]->statusShort);
     $hometeam=($resarr->api->fixtures[$x]->goalsHomeTeam);
     $awayteam=($resarr->api->fixtures[$x]->goalsAwayTeam);
-    $half1=($resarr->api->fixtures[$x]->score->halftime);*/
-    $id=($resarr->api->fixtures[$x]->league_id);/*
-    $result=" ";
-    $gg=" ";
-    $asnw= " ";
-    $half=" ";
- 
+    $half1=($resarr->api->fixtures[$x]->score->halftime);
+    $id=($resarr->api->fixtures[$x]->league_id);
+    $result;
+    $gg;
+    $asnw;
+    $half;
+ if($status=="NS"){
     if($hometeam>$awayteam){
         $result="home";
     }elseif($awayteam>$hometeam){
@@ -69,12 +69,12 @@ if ($err) {
 
     $asnw=$hometeam+$awayteam;
 
-*/
-    //$sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=?,halftime=?,league_id=? where fixture_id=? ";
-    $sql="UPDATE markets_table set gamestatus=?,league_id=? where fixture_id=? ";
+
+    $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=?,halftime=?where fixture_id=? ";
+    
     $stmt=$conn->prepare($sql);
-   $stmt->execute(array($status,$id,$fixture_id));
-echo"Updated one";}
+   $stmt->execute(array($result,$status,$asnw,$gg,$half,$fixture_id));
+echo"Updated one";}}
 catch(Exception $e){
     print_r($stmt->errorInfo());
     echo("one failed");
