@@ -65,10 +65,11 @@ if ($err) {
     }elseif ((int)substr($half1,0)==(int)substr($half1,2)) {
         $half="draw";
     }
+    $id=$status=($resarr->api->fixtures[$x]->league_id);;
     $asnw=$hometeam+$awayteam;
-    $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=?,halftime=? where fixture_id=? ";
+    $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=?,halftime=?,league_id=? where fixture_id=? ";
     $stmt=$conn->prepare($sql);
-   $stmt->execute(array($result,$status,$asnw,$gg,$half,$fixture_id));
+   $stmt->execute(array($result,$status,$asnw,$gg,$half,,$fixture_id));
 echo"Updated one";}}
 catch(Exception $e){
     print_r($stmt->errorInfo());
