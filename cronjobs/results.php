@@ -42,11 +42,11 @@ if ($err) {
     $awayteam=($resarr->api->fixtures[$x]->goalsAwayTeam);
     $half1=($resarr->api->fixtures[$x]->score->halftime);
     $id=$status=($resarr->api->fixtures[$x]->league_id);
-    $result;
-    $gg;
-    $asnw;
-    $half;
-    if(!empty($hometeam) && !empty($awayteam) && !empty($half1)){
+    $result=" ";
+    $gg=" ";
+    $asnw= " ";
+    $half=" ";
+ 
     if($hometeam>$awayteam){
         $result="home";
     }elseif($awayteam>$hometeam){
@@ -68,13 +68,8 @@ if ($err) {
     }
 
     $asnw=$hometeam+$awayteam;
-}
-else{
-    $half=null;
-    $gg=null;
-    $asnw=null;
-    
-}
+
+
     $sql="UPDATE markets_table set result=?,gamestatus=?,total_goals=?,gg=?,halftime=?,league_id=? where fixture_id=? ";
     $stmt=$conn->prepare($sql);
    $stmt->execute(array($result,$status,$asnw,$gg,$half,$id,$fixture_id));
