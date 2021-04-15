@@ -34,7 +34,10 @@ if ($err) {
     $name=$result->api->leagues[$x]->name;
     $sql="INSERT into league_table VALUES(:id,:named);";
     $stmt=$conn->prepare($sql);
-    $stmt->execute([$id,$name]);
+    $stmt->execute([
+        "id"=>$id,
+        "named"=>$name
+    ]);
     $x++;
 }
 }
