@@ -25,7 +25,7 @@ $(document).ready(function() {
                     if (result == "0") {
                         window.location.replace("../index.php");
                     } else if (result == "bal") {
-                        alert("Sccount Balance is Low");
+                        alert("Account Balance is Low");
                     } else {
                         alert("An error occured please try again");
                     }
