@@ -251,7 +251,9 @@ form.example::after {
 
     $current_time = time();
     //$sql = "SELECT * from game_odds /* where commence_time > ? and gamestatus= ? ORDER BY commence_time ASC*/";
-    $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time` AS `commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win` FROM (`markets_table`  join `odds_table` on(`markets_table`.`fixture_id` = `odds_table`.`fixture_id`)) where markets_table.commence_time>? and markets_table.gamestatus=? order by markets_table.commence_time asc";
+    $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time`
+    AS`commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win`,`league_table`.`league_name`,`league_table`.`country`
+    FROM (`markets_table` join odds_table  on markets_table.fixture_id = odds_table.fixture_id join league_table on markets_table.league_id = league_table.league_id ) where commence_time > ? and gamestatus='NS' order by commence_time asc ;";
     $stmt = $conn->prepare($sql);
 
 $stmt->execute([$current_time,"NS"]);
@@ -262,7 +264,7 @@ $stmt->execute([$current_time,"NS"]);
         echo '
         <div class="betmarket">
             <div class="teams-info-meta big-screen">
-                <div class="teams-info-meta-left">Soccer, Premier League, English </div>
+                <div class="teams-info-meta-left">Soccer,'.$row->league_name.','.$row->country.'</div>
                 <div class="teams-info-meta-right">' . $date . '
                 </div>
             </div>
