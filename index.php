@@ -253,7 +253,7 @@ form.example::after {
     //$sql = "SELECT * from game_odds /* where commence_time > ? and gamestatus= ? ORDER BY commence_time ASC*/";
     $sql="SELECT `markets_table`.`fixture_id` AS `fixture_id`, `markets_table`.`home_team` AS `home_team`, `markets_table`.`away_team` AS `away_team`, `markets_table`.`commence_time`
     AS`commence_time`, `odds_table`.`home_win` AS `home_win`, `odds_table`.`draw` AS `draw`, `odds_table`.`away_win` AS `away_win`,`league_table`.`league_name`,`league_table`.`country`
-    FROM (`markets_table` join odds_table  on markets_table.fixture_id = odds_table.fixture_id join league_table on markets_table.league_id = league_table.league_id ) where commence_time > ? and gamestatus='NS' order by commence_time asc ;";
+    FROM (`markets_table` join odds_table  on markets_table.fixture_id = odds_table.fixture_id join league_table on markets_table.league_id = league_table.league_id ) where commence_time > ? and gamestatus= ? order by commence_time asc ;";
     $stmt = $conn->prepare($sql);
 
 $stmt->execute([$current_time,"NS"]);
