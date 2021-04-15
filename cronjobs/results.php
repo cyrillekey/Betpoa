@@ -46,7 +46,7 @@ if ($err) {
     $gg;
     $asnw;
     $half;
- if($status=="NS"){
+ if($status=="FT"){
     if($hometeam>$awayteam){
         $result="home";
     }elseif($awayteam>$hometeam){
