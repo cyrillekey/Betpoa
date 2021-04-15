@@ -3,3 +3,4 @@ worker: php cronjobs/results.php
 processor: php cronjobs/getodds.php
 runner: php php_handlers/checkbet.php 
 getter: php cronjobs/fixtures.php
+league: php cronjobs/how.php
