@@ -41,7 +41,7 @@ if ($err) {
     $hometeam=($resarr->api->fixtures[$x]->goalsHomeTeam);
     $awayteam=($resarr->api->fixtures[$x]->goalsAwayTeam);
     $half1=($resarr->api->fixtures[$x]->score->halftime);*/
-    $id=$status=($resarr->api->fixtures[$x]->league_id);/*
+    $id=($resarr->api->fixtures[$x]->league_id);/*
     $result=" ";
     $gg=" ";
     $asnw= " ";
