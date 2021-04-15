@@ -26,7 +26,7 @@ if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
     $x=0;
-    while ($x <= 10) {
+    while ($x <= 1000) {
         # code...
     
 	$result=json_decode($response);
