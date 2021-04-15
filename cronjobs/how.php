@@ -31,13 +31,15 @@ if ($err) {
     try{
 	$result=json_decode($response);
     $id=$result->api->leagues[$x]->league_id;
-    $name=$result->api->leagues[$x]->name;
-    $sql="INSERT into league_table VALUES(:id,:named);";
+    $name=$result->api->leagues[$x]->country;
+    $sql="UPDATE league_table SET country=? where league_id=?;";
     $stmt=$conn->prepare($sql);
     $stmt->execute([
-        "id"=>$id,
-        "named"=>$name
-    ]);}
+        $name,$id
+    ]);
+echo("one worked");
+}
+    
     catch(Exception $e){
         echo("one failed");
     }
