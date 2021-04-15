@@ -38,10 +38,11 @@ if ($err) {
         $hometeam=($resarr->api->fixtures[$x]->homeTeam->team_name);
         $awayteam=($resarr->api->fixtures[$x]->awayTeam->team_name);
         $results=($resarr->api->fixtures[$x]->score->fulltime);
+        $id=$status=($resarr->api->fixtures[$x]->league_id);
         $half=" ";
         $total=" ";
         $gg=" ";
-       $sql="INSERT into markets_table VALUES(:fix,:home,:away,:comm,:satus,:res,:total,:halftime,:gg)";
+       $sql="INSERT into markets_table VALUES(:fix,:home,:away,:comm,:satus,:res,:total,:halftime,:gg,:id)";
        $stmt=$conn->prepare($sql);
        $stmt->execute([
            "fix"=>$fixture_id,
@@ -52,7 +53,8 @@ if ($err) {
            "res"=>$results,
            "total"=>$total,
            "halftime"=>$half,
-           "gg"=>$gg
+           "gg"=>$gg,
+           "id"=>$id
 
        ]);
 echo" one worked";
