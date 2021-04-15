@@ -28,7 +28,7 @@ if ($err) {
     $x=0;
     while ($x <= 1000) {
         # code...
-    
+    try{
 	$result=json_decode($response);
     $id=$result->api->leagues[$x]->league_id;
     $name=$result->api->leagues[$x]->name;
@@ -37,7 +37,10 @@ if ($err) {
     $stmt->execute([
         "id"=>$id,
         "named"=>$name
-    ]);
+    ]);}
+    catch(Exception $e){
+        echo("one failed");
+    }
     $x++;
 }
 }
