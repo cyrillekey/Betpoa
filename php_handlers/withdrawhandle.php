@@ -11,7 +11,7 @@ $number=$_POST['number'];
     $stmt=$conn->prepare($sql);
     $stmt->execute([$number]);
     $row=$stmt->fetch();
-    if((int)($row->account_balance) > (int)$number){
+    if((int)($row->account_balance) > (int)$money){
 
   /* Required Variables */
   $consumerKey = 'LfamnxGlxsM7l2QlNt5tbH8O9kqm6UnL';        # Fill with your app Consumer Key
