@@ -3,7 +3,7 @@ include('conn/conn.php');
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/leagues/season/2020",
+	CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v2/leagues/season/2021",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
