@@ -38,7 +38,7 @@ if ($err) {
         $hometeam=($resarr->api->fixtures[$x]->homeTeam->team_name);
         $awayteam=($resarr->api->fixtures[$x]->awayTeam->team_name);
         $results=($resarr->api->fixtures[$x]->score->fulltime);
-        $id=$status=($resarr->api->fixtures[$x]->league_id);
+        $id=($resarr->api->fixtures[$x]->league_id);
         $half=" ";
         $total=" ";
         $gg=" ";
