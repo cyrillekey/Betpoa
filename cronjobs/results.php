@@ -82,7 +82,7 @@ else{
    $stmt2->execute(array($id,$fixture_id));
 }}
 catch(Exception $e){
-    print_r($stmt->errorInfo());
+    print_r($stmt1->errorInfo());
     echo("one failed");
 }
     
