@@ -76,7 +76,7 @@ if ($err) {
    $stmt->execute(array($result,$status,$asnw,$gg,$half,$id,$fixture_id));
 echo"Updated one";}
 else{
-    $sql1="UPDATE league_id= ? where fixture_id=? ";
+    $sql1="UPDATE markets_table set league_id= ? where fixture_id=? ";
     
     $stmt2=$conn->prepare($sql1);
    $stmt2->execute(array($id,$fixture_id));
