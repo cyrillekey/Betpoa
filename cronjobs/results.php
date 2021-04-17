@@ -74,7 +74,13 @@ if ($err) {
     
     $stmt=$conn->prepare($sql);
    $stmt->execute(array($result,$status,$asnw,$gg,$half,$id,$fixture_id));
-echo"Updated one";}}
+echo"Updated one";}
+else{
+    $sql1="UPDATE league_id= ? where fixture_id=? ";
+    
+    $stmt2=$conn->prepare($sql1);
+   $stmt2->execute(array($id,$fixture_id));
+}}
 catch(Exception $e){
     print_r($stmt->errorInfo());
     echo("one failed");
