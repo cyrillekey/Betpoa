@@ -76,10 +76,10 @@ if ($err) {
    $stmt->execute(array($result,$status,$asnw,$gg,$half,$id,$fixture_id));
 echo"Updated one";}
 else{
-    $sql1="UPDATE markets_table set league_id= ? where fixture_id=? ";
+    $sql1="UPDATE markets_table set gamestatus=?,league_id= ? where fixture_id=? ";
     
     $stmt2=$conn->prepare($sql1);
-   $stmt2->execute(array($id,$fixture_id));
+   $stmt2->execute(array($status,$id,$fixture_id));
 }}
 catch(Exception $e){
     print_r($stmt2->errorInfo());
