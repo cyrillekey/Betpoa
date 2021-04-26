@@ -68,6 +68,6 @@ echo" one worked";
 $sql="DELETE from markets_table where commence_time < ?";
 $stmt=$conn->prepare($sql);
 $stmt->execute([
-    time()
+    time()-(48*60*60)
 ]);
 }
