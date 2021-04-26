@@ -65,5 +65,9 @@ echo" one worked";
     }
     $x++;
 }}
-
+$sql="DELETE from markets_table where commence_time < ?";
+$stmt=$conn->prepare($sql);
+$stmt->execute([
+    time()
+]);
 }
