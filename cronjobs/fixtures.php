@@ -3,7 +3,7 @@ require('conn/conn.php');
 $sql="DELETE from markets_table where commence_time < ?";
 $stmt=$conn->prepare($sql);
 $stmt->execute([
-    time()-(48*60*60)
+    time()-(96*60*60)
 ]);
 $newdate=gmdate("Y-m-d",time());
 $yest=gmdate('Y-m-d',strtotime('-1 day',time()));
