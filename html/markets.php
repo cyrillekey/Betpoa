@@ -9,6 +9,9 @@ AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_
 $stmt=$conn->prepare($sql);
 $stmt->execute([$_fixture]);
 $row=$stmt->fetch();
+if(time()> $row->commence_time){
+    header('location:../index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
