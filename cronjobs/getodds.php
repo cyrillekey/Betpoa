@@ -41,7 +41,7 @@ if ($err) {
     $home=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[0]->odd));
     $draw=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[1]->odd));
     $away=(!isset($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[0]->values[2]->odd));
-    if(isset($result->api->odds[$x]->bookmakers[0]->bets[7]->label_id)==8){
+    if(($result->api->odds[$x]->bookmakers[0]->bets[7]->label_id)==8){
     $gg=(!isset($result->api->odds[$x]->bookmakers[0]->bets[7]->values[0]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[7]->values[0]->odd));
     $ngg=(!isset($result->api->odds[$x]->bookmakers[0]->bets[7]->values[1]->odd)? 1.00 : ($result->api->odds[$x]->bookmakers[0]->bets[7]->values[1]->odd));}
     else{
