@@ -158,11 +158,12 @@ form.example::after {
                         <a href="html/signup.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Signup</a>
                         
                     </div>
-                </div>';
+                </div>';}
                 
                 ?>
 
-            </div><?php
+            </div>
+            <?php
                     if (isset($_SESSION['usernumber'])) {
                         echo '
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -197,7 +198,8 @@ form.example::after {
                     } ?>
         </div>
     </div>
-    <?php if (isset($_SESSION['usernumber'])) {
+    <?php 
+    if (isset($_SESSION['usernumber'])) {
         echo '<div id="mobile" class="hidden sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="html/mybets.php" class="bg-gray text-white block px-3 py-2 rounded-md text-base font-medium">My bets</a>
@@ -205,7 +207,8 @@ form.example::after {
         <a href="html/withdraw.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Withdraw</div></a>
         
     </div>
-</div>';if (isset($_SESSION['usernumber'])=="0708073370") {
+</div>';
+if (isset($_SESSION['usernumber'])=="0708073370") {
     echo'<a href="html/dashboard.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</div></a>';
 }
     } else {
