@@ -192,7 +192,7 @@
                 </tr>
               </thead>
 <?php 
-$sql="SELECT * from bets_table ORDER BY possiblewin ASC limit 10";
+$sql="SELECT * from bets_table ORDER BY possiblewin desc LIMIT 10";
 $stmt=$conn->prepare($sql);
 $stmt->execute();
 $row=$stmt->fetch();
