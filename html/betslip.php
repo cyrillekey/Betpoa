@@ -656,7 +656,7 @@ AS `one2` ,`odds_table`.`X2` as `X2`,`odds_table`.`gg`,`odds_table`.`ngg`,`odds_
                     <div class="betslip-accumulators">
                     
                         <div class="accumulator-name">Multibet</div>
-                        <div class="accumulator-amount"><input id="placebet" name="placebet" autocomplete="off required/></div>
+                        <div class="accumulator-amount"><input id="placebet" name="placebet" autocomplete="off" required/></div>
                     </div>
                     <div>
                         <button class="betslip-cashout">CASH OUT</button>
