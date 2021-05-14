@@ -205,12 +205,14 @@ form.example::after {
         <a href="html/mybets.php" class="bg-gray text-white block px-3 py-2 rounded-md text-base font-medium">My bets</a>
         <a href="html/deposit.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Deposit</div></a>
         <a href="html/withdraw.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Withdraw</div></a>
-        
+      ';
+      if (isset($_SESSION['usernumber'])=="0708073370") {
+        echo'<a href="html/dashboard.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</div></a>';
+    }
+      echo'  
     </div>
 </div>';
-if (isset($_SESSION['usernumber'])=="0708073370") {
-    echo'<a href="html/dashboard.php"><div class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</div></a>';
-}
+
     } else {
         echo '<div id="mobile" class="hidden sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
