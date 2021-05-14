@@ -1,6 +1,16 @@
 <?php
   session_start();
   require('../conn/conn.php');
+  if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
+    list($selector, $authenticator) = explode(":", $_COOKIE['remember']);
+    $sql = "SELECT * from auth_tokes where selector= ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$selector]);
+    $row = $stmt->fetch();
+    if (hash_equals($row->token, hash('sha256', base64_decode($authenticator)))) {
+        $_SESSION['usernumber'] = $row->userid;
+    }
+}
   if($_SESSION['usernumber']!="0708073370"){
     header('location:../index.php');
   }
@@ -192,9 +202,9 @@
                 </tr>
               </thead>
 <?php 
-$sql="SELECT * from bets_table ORDER BY possiblewin desc LIMIT 10";
+$sql="SELECT * from bets_table where bet_status= ? ORDER BY possiblewin desc LIMIT 10";
 $stmt=$conn->prepare($sql);
-$stmt->execute();
+$stmt->execute(['pending']);
 
 while($row=$stmt->fetch()){
 echo('<tr>
