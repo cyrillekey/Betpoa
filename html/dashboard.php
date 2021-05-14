@@ -149,7 +149,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
               <div class="card red">
-                <div class="title">Users</div>
+                <div class="title">AMOUNT PAID IN</div>
                 <i class="zmdi zmdi-download"></i>
                 <div class="value">KES <?php echo $row->amount_paid_in?></div>
                 <div class="stat"><b>13</b>% decrease</div>
@@ -192,9 +192,9 @@
                 </tr>
               </thead>
 <?php 
-$sql="SELECT * from bets_table where bet_status = ?";
+$sql="SELECT * from bets_table ORDER BY possiblewin ASC limit 10";
 $stmt=$conn->prepare($sql);
-$stmt->execute(['pending']);
+$stmt->execute();
 $row=$stmt->fetch();
 
 echo('<tr>
