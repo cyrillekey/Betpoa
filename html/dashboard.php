@@ -195,8 +195,8 @@
 $sql="SELECT * from bets_table ORDER BY possiblewin desc LIMIT 10";
 $stmt=$conn->prepare($sql);
 $stmt->execute();
-$row=$stmt->fetch();
 
+while($row=$stmt->fetch()){
 echo('<tr>
 <td>
   <p>'.$row->bet_id.'</p>
@@ -229,7 +229,7 @@ echo('<tr>
     </select>
   </form>
 </td>
-</tr>');
+</tr>');}
 ?>
               
 
