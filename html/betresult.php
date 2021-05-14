@@ -66,7 +66,7 @@
                 $value = $row->bet_value;
 
                 if (
-                    $row->gamestatus == "NS" || $row->gamestatus == "TBD" || $row->gamestatus == "1H" ||  $row->gamestatus == "PST" ||  $row->gamestatus == "CAN"
+                    $row->gamestatus == "NS" || $row->gamestatus == "TBD" || $row->gamestatus == "1H" ||  $row->gamestatus == "PST" ||  $row->gamestatus == "CAN" ||  $row->gamestatus == "HT" ||  $row->gamestatus == "SUS" ||  $row->gamestatus == "2H"
                 ) {
                     echo '<div class="betslip-pick">
                                 <div class="pick-dismiss" style="color:blue;">
