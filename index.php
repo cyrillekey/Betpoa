@@ -3,7 +3,7 @@
 session_start();
 require("conn/conn.php");
 $games = $_SESSION['betslip'];
-$games_list = explode(",", $games);/*
+$games_list = explode(",", $games);
 if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     list($selector, $authenticator) = explode(":", $_COOKIE['remember']);
     $sql = "SELECT * from auth_tokes where selector= ?";
@@ -13,7 +13,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     if (hash_equals($row->token, hash('sha256', base64_decode($authenticator)))) {
         $_SESSION['usernumber'] = $row->userid;
     }
-}*/
+}*
 //date_default_timezone_set('Africa/Nairobi');
 ?>
 <!DOCTYPE html>

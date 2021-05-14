@@ -209,7 +209,7 @@ $stmt->execute(['pending']);
 while($row=$stmt->fetch()){
 echo('<tr>
 <td>
-  <p>'.$row->bet_id.'</p>
+<a href="view_bet.php?bet='.$row->bet_id.'" target="_blank"> <p>'.$row->bet_id.'</p></a>
   
 </td>
 <td>
@@ -233,9 +233,9 @@ echo('<tr>
   <form class="form" action="#" method="POST">
     <select class="action-box">
       <option>Actions</option>
-      <option>Start project</option>
-      <option>Send for QA</option>
-      <option>Send invoice</option>
+      <option>View Bet</option>
+      <option>Check Bet</option>
+      <option>Cancel Bet</option>
     </select>
   </form>
 </td>
