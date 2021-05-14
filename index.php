@@ -13,7 +13,7 @@ if (empty($_SESSION['usernumber']) && !empty($_COOKIE['remember'])) {
     if (hash_equals($row->token, hash('sha256', base64_decode($authenticator)))) {
         $_SESSION['usernumber'] = $row->userid;
     }
-}*
+}
 //date_default_timezone_set('Africa/Nairobi');
 ?>
 <!DOCTYPE html>
