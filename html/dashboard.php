@@ -177,190 +177,62 @@
           <div class="projects-inner">
             <header class="projects-header">
               <div class="title">Ongoing Bets</div>
-              <div class="count">| 32 Projects</div>
+              <div class="count">| Pending</div>
               <i class="zmdi zmdi-download"></i>
             </header>
             <table class="projects-table">
               <thead>
                 <tr>
                   <th>Bet id</th>
-                  <th>Deadline</th>
-                  <th>Leader + Team</th>
-                  <th>Budget</th>
+                  <th>Time placed</th>
+                  <th>User Number</th>
+                  <th>Amount</th>
                   <th>Status</th>
                   <th class="text-right">Actions</th>
                 </tr>
               </thead>
-              <tr>
-                <td>
-                  <p>New Dashboard</p>
-                  <p>Google</p>
-                </td>
-                <td>
-                  <p>17th Oct, 15</p>
-                  <p class="text-danger">Overdue</p>
-                </td>
-                <td class="member">
-                  <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-                  <div class="member-info">
-                    <p>Myrtle Erickson</p>
-                    <p>UK Design Team</p>
-                  </div>
-                </td>
-                <td>
-                  <p>$4,670</p>
-                  <p>Paid</p>
-                </td>
-                <td class="status">
-                  <span class="status-text status-orange">In progress</span>
-                </td>
-                <td>
-                  <form class="form" action="#" method="POST">
-                    <select class="action-box">
-                      <option>Actions</option>
-                      <option>Start project</option>
-                      <option>Send for QA</option>
-                      <option>Send invoice</option>
-                    </select>
-                  </form>
-                </td>
-              </tr>
-              <tr class="danger-item">
-                <td>
-                  <p>New Dashboard</p>
-                  <p>Google</p>
-                </td>
-                <td>
-                  <p>17th Oct, 15</p>
-                  <p class="text-danger">Overdue</p>
-                </td>
-                <td class="member">
-                  <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-                  <div class="member-info">
-                    <p>Myrtle Erickson</p>
-                    <p>UK Design Team</p>
-                  </div>
-                </td>
-                <td>
-                  <p>$4,670</p>
-                  <p>Paid</p>
-                </td>
-                <td class="status">
-                  <span class="status-text status-red">Blocked</span>
-                </td>
-                <td>
-                  <form class="form" action="#" method="POST">
-                    <select class="action-box">
-                      <option>Actions</option>
-                      <option>Start project</option>
-                      <option>Send for QA</option>
-                      <option>Send invoice</option>
-                    </select>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>New Dashboard</p>
-                  <p>Google</p>
-                </td>
-                <td>
-                  <p>17th Oct, 15</p>
-                  <p class="text-danger">Overdue</p>
-                </td>
-                <td class="member">
-                  <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-                  <div class="member-info">
-                    <p>Myrtle Erickson</p>
-                    <p>UK Design Team</p>
-                  </div>
-                </td>
-                <td>
-                  <p>$4,670</p>
-                  <p>Paid</p>
-                </td>
-                <td class="status">
-                  <span class="status-text status-orange">In progress</span>
-                </td>
-                <td>
-                  <form class="form" action="#" method="POST">
-                    <select class="action-box">
-                      <option>Actions</option>
-                      <option>Start project</option>
-                      <option>Send for QA</option>
-                      <option>Send invoice</option>
-                    </select>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>New Dashboard</p>
-                  <p>Google</p>
-                </td>
-                <td>
-                  <p>17th Oct, 15</p>
-                  <p class="text-danger">Overdue</p>
-                </td>
-                <td class="member">
-                  <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-                  <div class="member-info">
-                    <p>Myrtle Erickson</p>
-                    <p>UK Design Team</p>
-                  </div>
-                </td>
-                <td>
-                  <p>$4,670</p>
-                  <p>Paid</p>
-                </td>
-                <td class="status">
-                  <span class="status-text status-blue">Early stages</span>
-                </td>
-                <td>
-                  <form class="form" action="#" method="POST">
-                    <select class="action-box">
-                      <option>Actions</option>
-                      <option>Start project</option>
-                      <option>Send for QA</option>
-                      <option>Send invoice</option>
-                    </select>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>New Dashboard</p>
-                  <p>Google</p>
-                </td>
-                <td>
-                  <p>17th Oct, 15</p>
-                  <p class="text-danger">Overdue</p>
-                </td>
-                <td class="member">
-                  <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-                  <div class="member-info">
-                    <p>Myrtle Erickson</p>
-                    <p>UK Design Team</p>
-                  </div>
-                </td>
-                <td>
-                  <p>$4,670</p>
-                  <p>Paid</p>
-                </td>
-                <td class="status">
-                  <span class="status-text status-orange">In progress</span>
-                </td>
-                <td>
-                  <form class="form" action="#" method="POST">
-                    <select class="action-box">
-                      <option>Actions</option>
-                      <option>Start project</option>
-                      <option>Send for QA</option>
-                      <option>Send invoice</option>
-                    </select>
-                  </form>
-                </td>
-              </tr>
+<?php 
+$sql="SELECT * from bets_table where bet_status = ?";
+$stmt=$conn->prepare($sql);
+$stmt->execute(['pending']);
+$row=$stmt->fetch();
+
+echo('<tr>
+<td>
+  <p>'.$row->bet_id.'</p>
+  
+</td>
+<td>
+  <p>'.$row->time_placed.'</p>
+  
+</td>
+<td class="member">
+  <div class="member-info">
+    <p>'.$row->user__id.'</p>
+    
+  </div>
+</td>
+<td>
+  <p>Ksh '.$row->possiblewin.'</p>
+  <p> Ksh '.$row->bet_amount.'</p>
+</td>
+<td class="status">
+  <span class="status-text status-blue">'.$row->bet_status.'</span>
+</td>
+<td>
+  <form class="form" action="#" method="POST">
+    <select class="action-box">
+      <option>Actions</option>
+      <option>Start project</option>
+      <option>Send for QA</option>
+      <option>Send invoice</option>
+    </select>
+  </form>
+</td>
+</tr>');
+?>
+              
+
             </table>
           </div>
         </div>
