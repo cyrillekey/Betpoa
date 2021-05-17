@@ -326,7 +326,7 @@ $stmt->execute([$current_time,"NS"]);
     
     <span class="meta">
       <ul class="links">
-        <li><a href="index.php/.searchre">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="html/login.php">Login</a></li>
         <li><a href="html/signup.php">Signup</a></li>
         <li><a href="html/deposit.php">Deposit</a></li>
