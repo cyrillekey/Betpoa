@@ -1,0 +1,19 @@
+{
+    "name": "betpoa-2.0",
+    "version": "1.0.0",
+    "description": "",
+    "main": "tailwind.config.js",
+    "scripts": {
+        "test": "NODE_ENV=production npx tailwindcss build tailwind.css -o css/style.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cyrillekey/Betpoa.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cyrillekey/Betpoa/issues"
+    },
+    "homepage": "https://github.com/cyrillekey/Betpoa#readme"
+}

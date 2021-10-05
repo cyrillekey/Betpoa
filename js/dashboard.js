@@ -85,7 +85,7 @@ class Charts {
                 data: {
                     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                     datasets: [{
-                            data: [27, 59, 68, 26, 79, 55, 36, 43, 44, 30, 55, 64],
+                            data: [73, 59, 68, 26, 79, 55, 36, 43, 44, 30, 55, 64],
                             backgroundColor: this.colors[0],
                             hoverBackgroundColor: this.convertHex(this.colors[0], 70)
                         },
@@ -130,6 +130,7 @@ class Charts {
             },
             myDarkRadarChart = new Chart(ctxD, chartData);
     }
+
     initDoughnut() {
         var ctxD = $('#doughnutChartDark'),
             chartData = {

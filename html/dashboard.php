@@ -245,7 +245,7 @@ echo('<tr>
 
             </table>
           </div>
-        </div>
+        </div><!--
         <div class="chart-data">
           <div class="row">
             <div class="col-12 col-md-4">
@@ -300,7 +300,7 @@ echo('<tr>
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
       </main>
     </div>
   </div>
