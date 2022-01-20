@@ -23,7 +23,7 @@ jQuery(function($) {
                             .addClass("focus:border-indigo-600");
 
                         number1 = number.substr(1, 10);
-                        var access_key = "e86a5d95017eb85c97ec7c7be5d10d3b";
+                        var access_key = ""//your numverify access key;
                         var phone_number = "+254" + number1;
 
                         $.ajax({

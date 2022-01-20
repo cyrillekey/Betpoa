@@ -7,9 +7,9 @@ $url = 'https://mysms.celcomafrica.com/api/services/sendsms/';
 
   $curl_post_data = array(
           //Fill in the request parameters with valid values
-         'partnerID' => '2693',
-         'apikey' => '73b76cf9f410d485c26db42f2d45400b',
-         'mobile' => '0708073370',
+         'partnerID' => '',
+         'apikey' => '',
+         'mobile' => '',
          'message' => 'This is a test message',
          'shortcode' => 'CELCOM_SMS',
          'pass_type' => 'plain', //bm5 {base64 encode} or plain

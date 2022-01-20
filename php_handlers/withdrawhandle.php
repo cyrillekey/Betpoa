@@ -14,17 +14,17 @@ $number=$_POST['number'];
     if((int)($row->account_balance) > (int)$money){
 
   /* Required Variables */
-  $consumerKey = 'LfamnxGlxsM7l2QlNt5tbH8O9kqm6UnL';        # Fill with your app Consumer Key
-  $consumerSecret = 'pufm6hsG4cXL73rn';     # Fill with your app Secret
+  $consumerKey = '';        # Fill with your app Consumer Key
+  $consumerSecret = '';     # Fill with your app Secret
   $headers = ['Content-Type:application/json; charset=utf8'];
   
   /* from the test credentials provided on you developers account */
   $InitiatorName = 'apiop37';      # Initiator
-  $SecurityCredential = 'UyM4fWNudW1kdg1pJzvQUUJA1WzxnDpvbQ6B732kUgpi42qA+0cDeTm+Qd8j3m984Fa7hdqSRNcOY1Yt1MuOKSLt9biwUCQ28l2UMSRzqaftfTW5ncMiML9Fk+vSfm8H5B+Q2vSEWHRyqXOHBqff1iCKx9rzbIOctDV/COvjzH3dDIC+HY8P+DEJk4JH3ivf9LHJ8d157GOXQWx2Im5cRyGT1Mdo4ySVUKKLv2ToICTA/Azy+xEbgecPWTDk8HB1A38s/nvaHuMtmwH1TIJPghz3JZ2pZkxzSHhHWePH0E481GaU6+T1Cr3poC5cLpXXIAkiyY4G3rM5jp/rA7omiw=='; 
+  $SecurityCredential = ''; 
   $CommandID = 'PromotionPayment';          # choose between SalaryPayment, BusinessPayment, PromotionPayment 
   $Amount = $money;
-  $PartyA = '603021';             # shortcode 1
-  $PartyB = '254708374149';             # Phone number you're sending money to
+  $PartyA = '';             # shortcode 1
+  $PartyB = '';             # Phone number you're sending money to
   $Remarks = 'Salary';      # Remarks ** can not be empty
   $QueueTimeOutURL = 'https://www.betpoa.xyz/betpoa%202.0/callbacks/with.php';    # your QueueTimeOutURL
   $ResultURL = 'https://www.betpoa.xyz/betpoa%202.0/callbacks/with.php';          # your ResultURL
