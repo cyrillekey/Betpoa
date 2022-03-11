@@ -5,7 +5,7 @@
 
 > A betting webapplication that allows user to place bets on sporting events and using sms when bets are won.\n Accepts payment using mpesa a popular mobile payment platform in kenya
 
-### ✨ [Demo](https://betpoa.herokuapp.com)
+### ✨ [Demo](https://betp.herokuapp.com)
 
 ## Installation
 ### Requirements
